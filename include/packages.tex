@@ -1,0 +1,33 @@
+\usepackage{amsmath,amsthm} 
+\usepackage{amssymb,mathrsfs} 
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{enumerate}
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
+\usepackage{bbm}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+
+\pgfplotsset{compat=1.18}
+
+% \setcounter{tocdepth}{2} % Set depth of table of contents
+
+\usepackage{etoolbox} % For advanced command patching
+
+\AtBeginEnvironment{appendices}{%
+  \renewcommand{\thesection}{\Alph{section}}%
+%   \addcontentsline{toc}{section}{Appendices}% Optional: adds a sub-header to the TOC
+}
+
+
+\usepackage{hyperref}
+% \mathtoolsset{showonlyrefs=true}

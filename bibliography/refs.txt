@@ -1,0 +1,2181 @@
+
+@article{ZHS16,
+  title     = {Effective dynamics along given reaction coordinates, and reaction rate theory},
+  author    = {Zhang, W. and Hartmann, C. and Sch{\"u}tte, C.},
+  journal   = {Faraday Discussions},
+  volume    = {195},
+  pages     = {365--394},
+  year      = {2016},
+  publisher = {Royal Society of Chemistry}
+}
+
+@book{AS07,
+  title     = {Conception optimale de structures},
+  author    = {Allaire, G. and Schoenauer, M.},
+  series    = {SMAI Math\'ematiques et Applications},
+  volume    = {58},
+  year      = {2007},
+  publisher = {Springer}
+}
+
+@article{O92,
+  title     = {Large-scale optimization of eigenvalues},
+  author    = {Overton, M.L.},
+  journal   = {SIAM Journal on Optimization},
+  volume    = {2},
+  number    = {1},
+  pages     = {88--120},
+  year      = {1992},
+  publisher = {SIAM}
+}
+
+@book{C90,
+  title     = {Optimization and nonsmooth analysis},
+  series    = {Classics in Applied Mathematics},
+  author    = {Clarke, F.H.},
+  year      = {1990},
+  publisher = {SIAM},
+  volume    = {5}
+}
+
+@article{AJP23,
+  title   = {Arbitrarily accurate, nonparametric coarse graining with {M}arkov renewal processes and the {M}ori--{Z}wanzig formulation},
+  author  = {Aristoff, D. and Johnson, M. and Perez, D.},
+  journal = {AIP Advances},
+  volume  = {13},
+  number  = {9},
+  year    = {2023},
+  pages   = {095131}
+}
+
+@article{LPRSS24,
+  title   = {Optimizing the diffusion coefficient of overdamped {L}angevin dynamics},
+  author  = {Leli{\`e}vre, T. and Pavliotis, G.A. and Robin, G. and Santet, R. and Stoltz, G.},
+  journal = {preprint arXiv:2404.12087},
+  year    = {2024}
+}
+
+@article{HMVW15,
+  title     = {The {S}moluchowski-{K}ramers limit of stochastic differential equations with arbitrary state-dependent friction},
+  author    = {Hottovy, S. and McDaniel, A. and Volpe, G. and Wehr, J.},
+  journal   = {Communications in Mathematical Physics},
+  volume    = {336},
+  pages     = {1259--1283},
+  year      = {2015},
+  publisher = {Springer}
+}
+
+@article{C95,
+  title     = {The generalized gradient at a multiple eigenvalue},
+  author    = {Cox, S.J.},
+  journal   = {Journal of Functional Analysis},
+  volume    = {133},
+  number    = {1},
+  pages     = {30--40},
+  year      = {1995},
+  publisher = {Elsevier}
+}
+
+@article{AB92,
+  title   = {A sharp bound for the ratio of the first two eigenvalues of {D}irichlet {L}aplacians and extensions},
+  author  = {Ashbaugh, M.S. and Benguria, R.D.},
+  journal = {Annals of Mathematics},
+  volume  = {135},
+  number  = {3},
+  pages   = {601--628},
+  year    = {1992}
+}
+
+@article{CGHLPC15,
+  title     = {The adaptive biasing force method: {E}verything you always wanted to know but were afraid to ask},
+  author    = {Comer, J. and Gumbart, J.C. and H{\'e}nin, J. and Leli{\`e}vre, T. and Pohorille, A. and Chipot, C.},
+  journal   = {The Journal of Physical Chemistry B},
+  volume    = {119},
+  number    = {3},
+  pages     = {1129--1151},
+  year      = {2015},
+  publisher = {ACS Publications}
+}
+
+@incollection{BCLOS20,
+  title     = {Gradient sampling methods for nonsmooth optimization},
+  author    = {Burke, J.V. and Curtis, F.E. and Lewis, A.S. and Overton, M.L. and Sim{\~o}es, L.E.A.},
+  booktitle = {Numerical {N}onsmooth {O}ptimization: {S}tate of the {A}rt {A}lgorithms},
+  pages     = {201--225},
+  year      = {2020},
+  publisher = {Springer}
+}
+
+@article{LSS24,
+  title   = {Improving sampling by modifying the effective diffusion},
+  author  = {Leli{\`e}vre, T. and Santet, R. and Stoltz, G.},
+  journal = {preprint arXiv:2410.00525},
+  year    = {2024}
+}
+
+@article{CTZ24,
+  title   = {Optimal {R}iemannian metric for {P}oincar{\'e} inequalities and how to ideally precondition {L}angevin dynamics},
+  author  = {Cui, T. and Tong, X. and Zahm, O.},
+  journal = {preprint arXiv:2404.02554},
+  year    = {2024}
+}
+
+@book{T14,
+  title     = {{M}athematical {M}ethods in {Q}uantum {M}echanics},
+  author    = {Teschl, G.},
+  series    = {Graduate Studies in Mathematics},
+  volume    = {157},
+  year      = {2014},
+  publisher = {American Mathematical Society}
+}
+
+@article{LL10,
+  title     = {Effective dynamics using conditional expectations},
+  author    = {Legoll, F. and Leli\`evre, T.},
+  journal   = {Nonlinearity},
+  volume    = {23},
+  number    = {9},
+  pages     = {21--31},
+  year      = {2010},
+  publisher = {IOP Publishing}
+}
+
+@book{H08,
+  title     = {M{\'e}moire sur le probl{\`e}me d'analyse relatif {\`a} l'{\'e}quilibre des plaques {\'e}lastiques encastr{\'e}es},
+  author    = {Hadamard, J.},
+  volume    = {33},
+  year      = {1908},
+  series    = {M\'emoires présentés par divers savants à l'Acad\'emie des sciences de l'Institut de France.},
+  publisher = {Imprimerie nationale}
+}
+
+@article{R83,
+  title     = {Shape design sensitivity of a membrane},
+  author    = {Rousselet, B},
+  journal   = {Journal of Optimization Theory and Applications},
+  volume    = {40},
+  pages     = {595--623},
+  year      = {1983},
+  publisher = {Springer}
+}
+
+@article{HR80a,
+  title     = {Design sensitivity analysis in structural mechanics. {I}. {S}tatic response variations},
+  author    = {Haug, E.J. and Rousselet, B.},
+  journal   = {Journal of Structural Mechanics},
+  volume    = {8},
+  number    = {1},
+  pages     = {17--41},
+  year      = {1980},
+  publisher = {Taylor \& Francis}
+}
+
+@article{HR80b,
+  title     = {Design sensitivity analysis in structural mechanics. {II}. {E}igenvalue variations},
+  author    = {Haug, E.J. and Rousselet, B.},
+  journal   = {Journal of Structural Mechanics},
+  volume    = {8},
+  number    = {2},
+  pages     = {161--186},
+  year      = {1980},
+  publisher = {Taylor \& Francis}
+}
+
+@article{HR83,
+  title     = {Design sensitivity analysis in structural mechanics. {III}. {E}ffects of shape variation},
+  author    = {Haug, E.J. and Rousselet, B.},
+  journal   = {Journal of Structural Mechanics},
+  volume    = {10},
+  number    = {3},
+  pages     = {273--310},
+  year      = {1982},
+  publisher = {Taylor \& Francis}
+}
+
+@book{HP05,
+  title     = {Variation et optimisation de formes : une analyse g{\'e}om{\'e}trique},
+  author    = {Henrot, A. and Pierre, M.},
+  volume    = {48},
+  series    = {Math\'ematiques et applications},
+  year      = {2005},
+  publisher = {Springer}
+}
+
+@article{LPN21,
+  title     = {Small eigenvalues of the {W}itten {L}aplacian with {D}irichlet boundary conditions: the case with critical points on the boundary},
+  author    = {Le Peutrec, D. and Nectoux, B.},
+  journal   = {Analysis \& PDE},
+  volume    = {14},
+  number    = {8},
+  pages     = {2595--2651},
+  year      = {2021},
+  publisher = {Mathematical Sciences Publishers}
+}
+
+@article{C75,
+  title     = {On the existence of a solution in a domain identification problem},
+  author    = {Chenais, D.},
+  journal   = {Journal of Mathematical Analysis and Applications},
+  volume    = {52},
+  number    = {2},
+  pages     = {189--219},
+  year      = {1975},
+  publisher = {Academic Press}
+}
+
+@book{CFKS87,
+  title     = {{S}chr{\"o}dinger {O}perators },
+  subtitle  = {With Applications to Quantum Mechanics and Global Geometry},
+  author    = {Kirsch, W. and Cycon, H.L. and Froese, R.G. and Simon, B.},
+  year      = {1987},
+  series    = {Theoretical and Mathematical Physics},
+  publisher = {Springer}
+}
+
+@article{S83,
+  title   = {Semiclassical analysis of low lying eigenvalues. {I.} {N}on-degenerate minima: {A}symptotic expansions},
+  author  = {Simon, B.},
+  journal = {Annales de l'Institut Henri Poincar\'e: Physique Th{\'e}orique},
+  volume  = {38},
+  number  = {3},
+  pages   = {295--308},
+  year    = {1983}
+}
+
+@article{LRS24,
+  title   = {A spectral approach to the narrow escape problem in the disk},
+  author  = {Leli\`evre, T. and Rachid, M. and Stoltz, G.},
+  journal = {preprint arXiv:2401.06903},
+  year    = {2024}
+}
+
+@article{LBLLP12,
+  title   = {A mathematical formalization of the parallel replica dynamics},
+  author  = {Le Bris, C. and Leli\`evre, T. and Luskin, M. and Perez, D.},
+  journal = {Monte--Carlo Methods and Applications},
+  volume  = {18},
+  issue   = {2},
+  year    = {2012},
+  pages   = {119--146}
+}
+
+@article{HS85,
+  title   = {Puits multiples en m\'ecanique semi-classique. {IV}: {\'E}tude du complexe de {W}itten},
+  author  = {Helffer, B. and Sj{\"o}strand, J.},
+  journal = {Communications in Partial Differential Equations},
+  volume  = {10},
+  number  = {3},
+  pages   = {245--340},
+  year    = {1985}
+}
+
+@article{HN04,
+  title   = {Quantitative analysis of metastability in reversible diffusion processes via a {W}itten complex approach: The case with boundary},
+  author  = {Helffer, B. and Nier, F.},
+  journal = {Matem{\'a}tica contempor{\^a}nea},
+  volume  = {26},
+  pages   = {41--85},
+  year    = {2004}
+}
+
+@article{BEGK04,
+  title   = {Metastability in reversible diffusion processes. {I}: {S}harp asymptotics for capacities and exit times},
+  author  = {Bovier, A. and Eckhoff, M. and Gayrard, V. and Klein, M.},
+  journal = {Journal of the European Mathematical Society},
+  volume  = {6},
+  number  = {4},
+  pages   = {399--424},
+  year    = {2004}
+}
+
+@article{BGK05,
+  title   = {Metastability in reversible diffusion processes. {II}: {P}recise asymptotics for small eigenvalues},
+  author  = {Bovier, A. and Gayrard, V. and Klein, M.},
+  journal = {Journal of the European Mathematical Society},
+  volume  = {7},
+  number  = {1},
+  pages   = {69--99},
+  year    = {2005}
+}
+
+@article{LN15,
+  title   = {Low temperature asymptotics for quasistationary distributions in a bounded domain},
+  author  = {Leli{\`e}vre, T. and Nier, F.},
+  journal = {Analysis \& PDE},
+  volume  = {8},
+  number  = {3},
+  pages   = {561--628},
+  year    = {2015}
+}
+
+@article{V97,
+  title     = {Hyperdynamics: {A}ccelerated molecular dynamics of infrequent events},
+  author    = {Voter, A.F.},
+  journal   = {Physical Review Letters},
+  volume    = {78},
+  number    = {20},
+  pages     = {3908},
+  year      = {1997},
+  publisher = {APS}
+}
+
+@article{RLR22,
+  title     = {Mathematical foundations for the {P}arallel {R}eplica algorithm applied to the underdamped {L}angevin dynamics},
+  author    = {Ramil, M. and Leli{\`e}vre, T. and Reygner, J.},
+  journal   = {MRS Communications},
+  volume    = {12},
+  number    = {4},
+  pages     = {454--459},
+  year      = {2022},
+  publisher = {Springer}
+}
+
+@article{SV00,
+  title     = {Temperature-accelerated dynamics for simulation of infrequent events},
+  author    = {Sørensen, M.R. and Voter, A.F.},
+  journal   = {The Journal of Chemical Physics},
+  volume    = {112},
+  number    = {21},
+  pages     = {9599--9606},
+  year      = {2000},
+  publisher = {American Institute of Physics}
+}
+
+@article{V98,
+  title   = {Parallel replica method for dynamics of infrequent events},
+  author  = {Voter, A.F.},
+  journal = {Physical Review B},
+  volume  = {57},
+  number  = {22},
+  pages   = {9599--9606},
+  year    = {1998}
+}
+
+@misc{github,
+  author = {Blassel, N.},
+  title  = {Paper code repository: \url{https://github.com/noeblassel/sosad}},
+  year   = {2025}
+}
+
+@misc{data,
+  author = {Blassel, N.},
+  title  = {Paper data repository: \url{https://zenodo.org/records/15727493}},
+  year   = {2025}
+}
+
+@book{H06,
+  title     = {Extremum {P}roblems for {E}igenvalues of {E}lliptic {O}perators},
+  author    = {Henrot, A.},
+  series    = {Frontiers in Mathematics},
+  year      = {2006},
+  publisher = {Birkh{\"a}user Basel}
+}
+
+@article{NKBC21,
+  title     = {Spectral properties of effective dynamics from conditional expectations},
+  author    = {N{\"u}ske, F. and Koltai, P. and Boninsegna, L. and Clementi, C.},
+  journal   = {Entropy},
+  volume    = {23},
+  number    = {2},
+  pages     = {134},
+  year      = {2021},
+  publisher = {MDPI}
+}
+
+@article{O04,
+  title     = {Numerical minimization of eigenmodes of a membrane with respect to the domain},
+  author    = {Oudet, \'E.},
+  journal   = {ESAIM: Control, Optimisation and Calculus of Variations},
+  volume    = {10},
+  number    = {3},
+  pages     = {315--330},
+  year      = {2004},
+  publisher = {EDP Sciences}
+}
+
+@book{E22,
+  title     = {Partial Differential Equations},
+  author    = {Evans, L.C},
+  volume    = {19},
+  year      = {2022},
+  publisher = {American Mathematical Society},
+  series    = {Graduate Studies in Mathematics}
+}
+
+@article{LS16,
+  title   = {Partial differential equations and stochastic methods in molecular dynamics},
+  journal = {Acta Numerica},
+  volume  = {25},
+  author  = {Leli{\`e}vre, T. and Stoltz, G.},
+  year    = {2016},
+  pages   = {681--880}
+}
+
+@book{LSY98,
+  title     = {{ARPACK} users' guide: Solution of large-scale eigenvalue problems with implicitly restarted {A}rnoldi methods},
+  author    = {Lehoucq, R.B. and Sorensen, D.C. and Yang, C.},
+  year      = {1998},
+  series    = {{S}oftware, {E}nvironments, and {T}ools},
+  publisher = {SIAM}
+}
+
+@book{Ta12,
+  title     = {Topics in {R}andom {M}atrix {T}heory},
+  author    = {Tao, T.},
+  volume    = {132},
+  year      = {2012},
+  series    = {Graduate Studies in Mathematics},
+  publisher = {American Mathematical Society}
+}
+
+@article{HL19,
+  title     = {{G}en. par{R}ep: A first implementation of the {G}eneralized {P}arallel {R}eplica dynamics for the long time simulation of metastable biochemical systems},
+  author    = {H{\'e}din, F. and Leli{\`e}vre, T.},
+  journal   = {Computer Physics Communications},
+  volume    = {239},
+  pages     = {311--324},
+  year      = {2019},
+  publisher = {Elsevier}
+}
+
+@article{BLS15,
+  title     = {A generalized parallel replica dynamics},
+  author    = {Binder, A. and Leli{\`e}vre, T. and Simpson, G.},
+  journal   = {Journal of Computational Physics},
+  volume    = {284},
+  pages     = {595--616},
+  year      = {2015},
+  publisher = {Elsevier}
+}
+
+@article{A19,
+  title     = {Generalizing {P}arallel {R}eplica dynamics: {T}rajectory fragments, asynchronous computing, and {PDMP}s},
+  author    = {Aristoff, D.},
+  journal   = {SIAM/ASA Journal on Uncertainty Quantification},
+  volume    = {7},
+  number    = {2},
+  pages     = {685--719},
+  year      = {2019},
+  publisher = {SIAM}
+}
+
+@article{USV07,
+  title     = {Parallel replica dynamics for driven systems: {D}erivation and application to strained nanotubes},
+  author    = {Uberuaga, B.P. and Stuart, S.J. and Voter, A.F.},
+  journal   = {Physical Review B—Condensed Matter and Materials Physics},
+  volume    = {75},
+  number    = {1},
+  pages     = {014301},
+  year      = {2007},
+  publisher = {APS}
+}
+
+@article{NN24,
+  title   = {Kinetically Consistent Coarse Graining using Kernel-based Extended Dynamic Mode Decomposition},
+  journal = {preprint arXiv:2409.16396},
+  year    = {2024},
+  author  = {Nateghi, V. and N\"uske, F.}
+}
+
+@article{Tinker18,
+  title     = {Tinker-{HP}: {A} massively parallel molecular dynamics package for multiscale simulations of large complex systems with advanced point dipole polarizable force fields},
+  author    = {Lagard{\`e}re, L. and Jolly, L.H. and Lipparini, F. and Aviat, F. and Stamm, B. and Jing, Z.F. and Harger, M. and Torabifard, H. and Cisneros, G.A. and Schnieders, M.J.},
+  journal   = {Chemical Science},
+  volume    = {9},
+  number    = {4},
+  pages     = {956--972},
+  year      = {2018},
+  publisher = {Royal Society of Chemistry}
+}
+
+@article{BDC00,
+  title     = {Reaction coordinates of biomolecular isomerization},
+  author    = {Bolhuis, P.G. and Dellago, C. and Chandler, D.},
+  journal   = {Proceedings of the National Academy of Sciences},
+  volume    = {97},
+  number    = {11},
+  pages     = {5877--5882},
+  year      = {2000},
+  publisher = {The National Academy of Sciences}
+}
+
+@article{DG06,
+  title     = {Velocity extension for the level-set method and multiple eigenvalues in shape optimization},
+  author    = {De Gournay, F.},
+  journal   = {SIAM Journal on Control and Optimization},
+  volume    = {45},
+  number    = {1},
+  pages     = {343--367},
+  year      = {2006},
+  publisher = {SIAM}
+}
+
+@article{DMNV07,
+  title     = {Discrete gradient flows for shape optimization and applications},
+  author    = {Dogan, G. and Morin, P. and Nochetto, R.H. and Verani, M.},
+  journal   = {Computer {M}ethods in {A}pplied {M}echanics and {E}ngineering},
+  volume    = {196},
+  number    = {37-40},
+  pages     = {3898--3914},
+  year      = {2007},
+  publisher = {Elsevier}
+}
+
+@book{NW99,
+  title     = {Numerical {O}ptimization},
+  author    = {Nocedal, J. and Wright, S.J.},
+  volume    = {2},
+  year      = {1999},
+  series    = {Springer Series in Operations Research and Financial Engineering},
+  publisher = {Springer}
+}
+
+@article{DFOP18,
+  title     = {Geometrical shape optimization in fluid mechanics using {F}ree{F}em++},
+  author    = {Dapogny, C. and Frey, P. and Omn{\`e}s, F. and Privat, Y.},
+  journal   = {Structural and Multidisciplinary Optimization},
+  volume    = {58},
+  pages     = {2761--2788},
+  year      = {2018},
+  publisher = {Springer}
+}
+
+@article{DGLLPN20,
+  title     = {The exit from a metastable state: Concentration of the exit point distribution on the low energy saddle points, part 1},
+  author    = {Di Ges{\`u}, G. and Leli{\`e}vre, T. and Le Peutrec, D. and Nectoux, B.},
+  journal   = {Journal de Math{\'e}matiques Pures et Appliqu{\'e}es},
+  volume    = {138},
+  pages     = {242--306},
+  year      = {2020},
+  publisher = {Elsevier}
+}
+
+@article{G10,
+  title     = {Measurement of areas on a sphere using {F}ibonacci and latitude--longitude lattices},
+  author    = {Gonz{\'a}lez, A.},
+  journal   = {Mathematical Geosciences},
+  volume    = {42},
+  pages     = {49--64},
+  year      = {2010},
+  publisher = {Springer}
+}
+
+@article{NTMC20,
+  title     = {Machine learning for molecular simulation},
+  author    = {No{\'e}, F. and Tkatchenko, A. and M{\"u}ller, K-R. and Clementi, C.},
+  journal   = {Annual review of physical chemistry},
+  volume    = {71},
+  number    = {1},
+  pages     = {361--390},
+  year      = {2020},
+  publisher = {Annual Reviews}
+}
+
+@article{CF18,
+  title     = {Molecular enhanced sampling with autoencoders: {O}n-the-fly collective variable discovery and accelerated free energy landscape exploration},
+  author    = {Chen, W. and Ferguson, A.L.},
+  journal   = {Journal of Computational Chemistry},
+  volume    = {39},
+  number    = {25},
+  pages     = {2079--2102},
+  year      = {2018},
+  publisher = {Wiley Online Library}
+}
+
+@article{C21,
+  title     = {Collective variable-based enhanced sampling and machine learning},
+  author    = {Chen, M.},
+  journal   = {The European Physical Journal B},
+  volume    = {94},
+  pages     = {1--17},
+  year      = {2021},
+  publisher = {Springer}
+}
+
+@article{FKH13,
+  title     = {Using collective variables to drive molecular dynamics simulations},
+  author    = {Fiorin, G. and Klein, M.L. and H{\'e}nin, J.},
+  journal   = {Molecular Physics},
+  volume    = {111},
+  number    = {22-23},
+  pages     = {3345--3362},
+  year      = {2013},
+  publisher = {Taylor \& Francis}
+}
+
+@article{JM22,
+  title   = {Uniform convergence of the {F}leming--{V}iot process in a hard killing metastable case},
+  author  = {Journel, L. and Monmarch{\'e}, P.},
+  journal = {The Annals of Applied Probability},
+  volume  = {35},
+  number  = {2},
+  pages   = {1019--1048},
+  year    = {2025}
+}
+
+@book{AT17,
+  title     = {Computer Simulation of Liquids},
+  author    = {Allen, M.P. and Tildesley, D.J.},
+  year      = {2017},
+  publisher = {Oxford University Press}
+}
+
+@article{F18,
+  title     = {Machine learning and data science in soft materials engineering},
+  author    = {Ferguson, A.L.},
+  journal   = {Journal of Physics: Condensed Matter},
+  volume    = {30},
+  number    = {4},
+  pages     = {043002},
+  year      = {2018},
+  publisher = {IOP Publishing}
+}
+
+@book{KP08,
+  title     = {Geometric {I}ntegration {T}heory},
+  author    = {Krantz, S.G. and Parks, H.R.},
+  year      = {2008},
+  publisher = {Birkh{\"a}user Boston},
+  series    = {Cornerstones}
+}
+
+@book{G11,
+  title     = {Elliptic problems in nonsmooth domains},
+  author    = {Grisvard, P.},
+  year      = {2011},
+  publisher = {SIAM},
+  series    = {Classics in Applied Mathematics},
+  volume    = {69}
+}
+
+@article{GHRCNL21,
+  title     = {Unsupervised learning methods for molecular simulation data},
+  author    = {Glielmo, A. and Husic, B.E. and Rodriguez, A. and Clementi, C. and No{\'e}, F. and Laio, A.},
+  journal   = {Chemical Reviews},
+  volume    = {121},
+  number    = {16},
+  pages     = {9722--9758},
+  year      = {2021},
+  publisher = {ACS Publications}
+}
+
+@article{GSal20,
+  title     = {Machine learning force fields and coarse-grained variables in molecular dynamics: application to materials and biological systems},
+  author    = {Gkeka, P. and Stoltz, G. and Fariman, A.B. and Belkacemi, Z. and Ceriotti, M. and Chodera, J.D. and Dinner, A.R. and Ferguson, A.L. and Maillet, J-B. and Minoux, H. and Peter, C. and Pietrucci, F. and Silveira, A. and Tkatchenko, A. and Trstanova, Z. and Wiewiora, R. and Lelièvre, T.},
+  journal   = {Journal of {C}hemical {T}heory and {C}omputation},
+  volume    = {16},
+  number    = {8},
+  pages     = {4757--4775},
+  year      = {2020},
+  publisher = {ACS Publications}
+}
+
+@article{freefem,
+  title   = {{FreeFem++} {M}anual},
+  author  = {Hecht, F. and Pironneau, O. and Le Hyaric, A. and Ohtsuka, K.},
+  journal = {Laboratoire Jacques Louis Lions},
+  pages   = {1--188},
+  year    = {2005}
+}
+
+@article{KPPK15,
+  title     = {Data-driven coarse graining in action: {M}odeling and prediction of complex systems},
+  author    = {Krumscheid, S. and Pradas, M. and Pavliotis, G.A. and Kalliadasis, S.},
+  journal   = {Physical Review E},
+  volume    = {92},
+  number    = {4},
+  pages     = {042139},
+  year      = {2015},
+  publisher = {APS}
+}
+
+@article{V14,
+  title     = {General approximation method for the distribution of {M}arkov processes conditioned not to be killed},
+  author    = {Villemonais, D.},
+  journal   = {ESAIM: Probability and Statistics},
+  volume    = {18},
+  pages     = {441--467},
+  year      = {2014},
+  publisher = {EDP Sciences}
+}
+
+@article{R06,
+  title     = {On the control of an interacting particle estimation of {S}chr{\"o}dinger ground states},
+  author    = {Rousset, M.},
+  journal   = {SIAM journal on mathematical analysis},
+  volume    = {38},
+  number    = {3},
+  pages     = {824--844},
+  year      = {2006},
+  publisher = {SIAM}
+}
+
+@article{DMM00,
+  title     = {A {M}oran particle system approximation of {F}eynman--{K}ac formulae},
+  author    = {Del Moral, P. and Miclo, L.},
+  journal   = {Stochastic processes and their applications},
+  volume    = {86},
+  number    = {2},
+  pages     = {193--216},
+  year      = {2000},
+  publisher = {Elsevier}
+}
+
+@book{RS78,
+  title     = {{IV}: {A}nalysis of {O}perators},
+  author    = {Reed, M. and Simon, B.},
+  series    = {Methods of Modern Mathematical Physics},
+  volume    = {4},
+  year      = {1978},
+  publisher = {Elsevier Science}
+}
+
+@book{RS75,
+  title     = {{II}: {S}elf-adjointness},
+  author    = {Reed, M. and Simon, B.},
+  series    = {Methods of Modern Mathematical Physics},
+  volume    = {2},
+  year      = {1975},
+  publisher = {Elsevier Science}
+}
+
+@book{S00,
+  title     = {Variational {M}ethods},
+  subtitle  = {{A}pplications to {N}onlinear {P}artial {D}ifferential {E}quations and {H}amiltonian {S}ystems},
+  author    = {Struwe, M.},
+  volume    = {34},
+  year      = {2000},
+  series    = {A series of Modern Surveys in Mathematics},
+  publisher = {Springer}
+}
+
+@article{LVP14,
+  title   = {Extending atomistic simulation timescale in solid/liquid systems: {C}rystal growth from solution by a parallel-replica dynamics and continuum hybrid method},
+  author  = {Lu, C.Y. and Voter, A.F. and Perez, D.},
+  journal = {The Journal of Chemical Physics},
+  volume  = {140},
+  number  = {4},
+  year    = {2014}
+}
+
+@article{VMG02,
+  title   = {Extending the time scale in atomistic simulation of materials},
+  author  = {Voter, A.F. and Montalenti, F. and Germann, T.C.},
+  journal = {Annual review of materials research},
+  volume  = {32},
+  number  = {1},
+  pages   = {321--346},
+  year    = {2002}
+}
+
+@article{C78,
+  title   = {Pointwise bounds for  {S}chr{\"o}dinger eigenstates},
+  author  = {Carmona, R.},
+  journal = {Communications in Mathematical Physics},
+  volume  = {62},
+  number  = {2},
+  pages   = {97--106},
+  year    = {1978}
+}
+
+@article{S84,
+  title     = {Semiclassical analysis of low lying eigenvalues, {II.} {T}unneling},
+  author    = {Simon, Barry},
+  journal   = {Annals of Mathematics},
+  pages     = {89--118},
+  year      = {1984},
+  publisher = {JSTOR}
+}
+
+@book{A14,
+  title     = {{L}ectures on {E}xponential {D}ecay of {S}olutions of {S}econd-{O}rder {E}lliptic {E}quations: {B}ounds on {E}igenfunctions of {N}-{B}ody {S}chr{\"o}dinger {O}perations.},
+  author    = {Agmon, S.},
+  volume    = {29},
+  year      = {2014},
+  publisher = {Princeton University Press}
+}
+
+@book{BS12,
+  title     = {The {S}chr{\"o}dinger {E}quation},
+  author    = {Berezin, F.A. and Shubin, M.},
+  volume    = {66},
+  year      = {2012},
+  publisher = {Springer Science \& Business Media}
+}
+
+@book{K95,
+  title     = {{P}erturbation {T}heory for {L}inear {O}perators},
+  author    = {Kato, T.},
+  volume    = {132},
+  series    = {Classics in Mathematics},
+  year      = {1995},
+  publisher = {Springer}
+}
+
+@book{GT01,
+  title     = {{E}lliptic {Partial} {Differential} {Equations} of {Second} {Order}},
+  volume    = {224},
+  publisher = {Springer},
+  author    = {Gilbarg, D. and Trudinger, N.S.},
+  year      = {2001}
+}
+
+@article{S42,
+  title   = {The measure of the critical values of differentiable maps},
+  author  = {Sard, A.},
+  year    = {1942},
+  journal = {Bulletin of the American Mathematical Society},
+  volume  = {48},
+  number  = {12},
+  pages   = {883--990}
+}
+
+@article{SL13,
+  title   = {Numerical analysis of parallel replica dynamics},
+  author  = {Simpson, G. and Luskin, M.},
+  journal = {ESAIM: Mathematical Modelling and Numerical Analysis},
+  volume  = {47},
+  number  = {5},
+  pages   = {1287--1314},
+  year    = {2013}
+}
+
+@book{HN06,
+  title     = {Quantitative analysis of metastability in reversible diffusion processes via a {W}itten complex approach: the case with boundary},
+  author    = {Helffer, B. and Nier, F.},
+  series    = {Mémoires de la Soci\'et\'e Math\'ematique de France},
+  number    = {105},
+  year      = {2006},
+  publisher = {Mémoires de la Soci\'et\'e Math\'ematique de France and Centre Nationale de la Recherche Scientifique}
+}
+
+@article{HKN04,
+  title   = {Quantitative analysis of metastability in reversible diffusion processes via a {W}itten complex approach.},
+  author  = {Helffer, B. and Klein, M. and M.Nier, F.},
+  journal = {Matem{\'a}tica contempor{\^a}nea},
+  volume  = {26},
+  pages   = {41--85},
+  year    = {2004}
+}
+
+@article{LPM20,
+  title   = {Sharp spectral asymptotics for nonreversible metastable diffusion processes},
+  author  = {Le Peutrec, D. and Michel, L.},
+  journal = {Probability and Mathematical Physics},
+  volume  = {1},
+  number  = {1},
+  pages   = {3--53},
+  year    = {2020}
+}
+
+@article{PLLN23,
+  title   = {Exit time and principal eigenvalue of non-reversible elliptic diffusions},
+  author  = {Le Peutrec, D. and Michel, L. and Nectoux, B.},
+  journal = {Communications in Mathematical Physics},
+  volume  = {405},
+  number  = {9},
+  pages   = {(202)1--51},
+  year    = {2023}
+}
+
+@article{BR16,
+  title   = {Generalisation of the {E}yring--{K}ramers transition rate formula to irreversible diffusion processes},
+  author  = {Bouchet, F. and Reygner, J.},
+  journal = {Annales Henri Poincar{\'e}},
+  volume  = {17},
+  number  = {12},
+  pages   = {3499--3532},
+  year    = {2016}
+}
+
+@article{LS22,
+  title   = {Non-reversible metastable diffusions with {G}ibbs invariant measure {I}: {E}yring--{K}ramers formula},
+  author  = {Lee, J. and Seo, I.},
+  journal = {Probability Theory And Related Fields},
+  volume  = {182},
+  number  = {3},
+  pages   = {849--903},
+  year    = {2022}
+}
+
+@article{B13,
+  title   = {Kramers' law: Validity, derivations and generalisations},
+  author  = {Berglund, N.},
+  journal = {Markov Processes And Related Fields},
+  volume  = {19},
+  number  = {3},
+  pages   = {459--490},
+  year    = {2013}
+}
+
+@inproceedings{LLPN19,
+  title     = {Exit event from a metastable state and {E}yring-{K}ramers law for the overdamped {L}angevin dynamics},
+  author    = {Leli{\`e}vre, T. and Le Peutrec, D. and Nectoux, B.},
+  booktitle = {Stochastic Dynamics Out of Equilibrium},
+  series    = {Springer Proceedings in Mathematics \& Statistics},
+  publisher = {Springer},
+  pages     = {331--363},
+  year      = {2019}
+}
+
+@book{DS99,
+  title     = {Spectral asymptotics in the semi-classical limit},
+  author    = {Dimassi, M. and Sjostrand, J.},
+  series    = {London Mathematical Society Lecture Note Series},
+  number    = {268},
+  year      = {1999},
+  publisher = {Cambridge University Press}
+}
+
+@article{MV12,
+  title   = {Quasi-stationary distributions and population processes},
+  author  = {M{\'e}l{\'e}ard, S. and Villemonais, D.},
+  year    = {2012},
+  journal = {Probability Surveys},
+  volume  = {9},
+  pages   = {340--410}
+}
+
+@article{CGLM12,
+  title   = {On the length of one-dimensional reactive paths},
+  author  = {C{\'e}rou, F. and Guyader, A. and Lelievre, T. and Malrieu, F.},
+  journal = {ALEA -- Latin American Journal of Probability and Mathematical Statistics},
+  volume  = {10},
+  number  = {1},
+  pages   = {359--389},
+  year    = {2013}
+}
+
+@article{LP10,
+  title   = {Small eigenvalues of the {N}eumann realization of the semiclassical {W}itten {L}aplacian},
+  author  = {Le Peutrec, D.},
+  journal = {Annales de la Facult{\'e} des sciences de Toulouse: Math{\'e}matiques, Series 6},
+  volume  = {9},
+  number  = {3-4},
+  pages   = {735--809},
+  year    = {2010}
+}
+
+@article{DGLLPN19,
+  title   = {Sharp asymptotics of the first exit point density},
+  author  = {Di Ges{\`u}, G. and Leli{\`e}vre, T. and Le Peutrec, D. and Nectoux, B.},
+  journal = {Annals of PDE},
+  volume  = {5},
+  number  = {2:5},
+  year    = {2019}
+}
+
+@article{FNO21,
+  title   = {Eigenvalues of the {L}aplacian with moving mixed boundary conditions: the case of disappearing {D}irichlet region},
+  author  = {Felli, V. and Noris, B. and Ognibene, R.},
+  journal = {Calculus of Variations and Partial Differential Equations},
+  volume  = {60},
+  number  = {1:12},
+  year    = {2021}
+}
+
+@article{LLPN22,
+  title   = {{E}yring-{K}ramers exit rates for the overdamped {L}angevin dynamics: the case with saddle points on the boundary},
+  author  = {Leli{\`e}vre, T. and Le Peutrec, D. and Nectoux, B.},
+  journal = {Journal de l'\`Ecole Polytechnique -- Math\`ematiques},
+  volume  = {12},
+  year    = {2025},
+  pages   = {881--982}
+}
+
+@article{LMS19,
+  title   = {{D}irichlet’s and {T}homson’s principles for non-selfadjoint elliptic operators with application to non-reversible metastable diffusion processes},
+  author  = {Landim, C. and Mariani, M. and Seo, I.},
+  journal = {Archive for Rational Mechanics and Analysis},
+  volume  = {231},
+  number  = {2},
+  pages   = {887--938},
+  year    = {2019}
+}
+
+@article{AKKL12,
+  title   = {Layer potential techniques for the narrow escape problem},
+  author  = {Ammari, H. and Kalimeris, K. and Kang, H. and Lee, H.},
+  journal = {Journal de math{\'e}matiques pures et appliqu{\'e}es},
+  volume  = {97},
+  number  = {1},
+  pages   = {66--84},
+  year    = {2012}
+}
+
+@incollection{A67,
+  title     = {On the Reaction Velocity of The Inversion of Cane Sugar by Acids},
+  author    = {Arrhenius, S.},
+  booktitle = {Selected Readings in Chemical Kinetics},
+  pages     = {31--35},
+  year      = {1967},
+  publisher = {Elsevier}
+}
+
+@article{PUV15,
+  title   = {The parallel replica dynamics method – {Coming} of age},
+  volume  = {100},
+  number  = {B},
+  journal = {Computational Materials Science},
+  author  = {Perez, D. and Uberuaga, B.P. and Voter, A.F.},
+  year    = {2015},
+  pages   = {90--103}
+}
+
+@article{PCWKV16,
+  title   = {Long-time dynamics through parallel trajectory splicing},
+  author  = {Perez, D. and Cubuk, E.D. and Waterland, A. and Kaxiras, E. and Voter, A.F.},
+  journal = {Journal of Chemical Theory and Computation},
+  volume  = {12},
+  number  = {1},
+  pages   = {18--28},
+  year    = {2016}
+}
+
+@book{CMSM13,
+  title     = {Quasi-{S}tationary {D}istributions},
+  subtitle  = {{M}arkov {C}hains, {D}iffusions and {D}ynamical {S}ystems},
+  author    = {Collet, P. and Mart{\'\i}nez, S. and San Mart{\'\i}n, J.},
+  series    = {Probability and its Applications},
+  year      = {2013},
+  publisher = {Springer}
+}
+
+@article{AGHVP20,
+  title   = {Arbitrarily accurate representation of atomistic dynamics via {M}arkov {R}enewal {P}rocesses},
+  author  = {Agarwal, A. and Gnanakaran, S. and Hengartner, N. and Voter, A.F. and Perez, D.},
+  journal = {preprint arXiv:2008.11623},
+  year    = {2020}
+}
+
+@article{PPW56,
+  title   = {On the ratio of consecutive eigenvalues},
+  author  = {Payne, L.E. and P{\'o}lya, G. and Weinberger, H.F.},
+  journal = {Journal of Mathematical Physics},
+  volume  = {35},
+  number  = {1-4},
+  pages   = {289--298},
+  year    = {1956}
+}
+
+@article{W82,
+  title   = {{S}upersymmetry and {M}orse theory},
+  author  = {Witten, E.},
+  journal = {Journal of Differential Geometry},
+  volume  = {17},
+  number  = {4},
+  pages   = {661--692},
+  year    = {1982}
+}
+
+@book{H05,
+  title     = {Perturbation of the boundary in boundary-value problems of partial differential equations},
+  author    = {Henry, D.},
+  number    = {318},
+  year      = {2005},
+  series    = {London Mathematical Society Lecture Note Series},
+  publisher = {Cambridge University Press}
+}
+
+@article{BLS25b,
+  title   = {Shape optimization of metastable states},
+  author  = {Blassel, N. and Leli\`evre, T. and Stoltz, G.},
+  journal = {preprint arXiv:2507.12575},
+  year    = {2025}
+}
+
+@article{BLS25a,
+  title   = {Quantitative low-temperature asymptotics for reversible diffusions in temperature-dependent domains},
+  author  = {Blassel, N. and Leli\`evre, T. and Stoltz, G.},
+  year    = {2025},
+  journal = {preprint arXiv:2501.16082}
+}
+
+@article{SKH23,
+  title   = {Overcoming the timescale barrier in molecular dynamics: {T}ransfer operators, variational principles and machine learning},
+  author  = {Sch{\"u}tte, C. and Klus, S. and Hartmann, C.},
+  journal = {Acta Numerica},
+  volume  = {32},
+  pages   = {517--673},
+  year    = {2023}
+}
+
+@incollection{HS06,
+  title     = {Metastability and dominant eigenvalues of transfer operators},
+  author    = {Huisinga, W. and Schmidt, B.},
+  booktitle = {New {A}lgorithms for {M}acromolecular {S}imulation},
+  pages     = {167--182},
+  year      = {2006},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computational Science and Engineering},
+  volume    = {49}
+}
+
+@article{NN13,
+  title   = {A variational approach to modeling slow processes in stochastic dynamical systems},
+  author  = {No{\'e}, F. and N\"uske, F.},
+  journal = {Multiscale Modeling \& Simulation},
+  volume  = {11},
+  number  = {2},
+  pages   = {635--655},
+  year    = {2013}
+}
+
+@book{FW12,
+  title     = {Random {Perturbations} of {Dynamical} {Systems}},
+  publisher = {Springer},
+  author    = {Freidlin, M.I. and Wentzell, A.D.},
+  year      = {2012},
+  series    = {A Series of Comprehensive Studies in Mathematics},
+  volume    = {260}
+}
+
+@article{MS14,
+  title   = {{P}oincar\'e and logarithmic {S}obolev inequalities by decomposition of the energy landscape},
+  author  = {Menz, G. and Schlichting, A.},
+  volume  = {42},
+  number  = {5},
+  journal = {The Annals of Probability},
+  pages   = {1809 -- 1884},
+  year    = {2014}
+}
+
+@book{Te12,
+  title     = {Ordinary Differential Equations and Dynamical Systems},
+  author    = {Teschl, G.},
+  volume    = {140},
+  series    = {Graduate Studies in Mathematics},
+  year      = {2012},
+  publisher = {American Mathematical Society}
+}
+
+@article{ADMKT24,
+  title   = {Self-interacting diffusions: Long-time behaviour and exit-problem in the uniformly convex case},
+  author  = {Aleksian, A and Del Moral, P and Kurtzmann, A and Tugaut, J},
+  journal = {ESAIM: Probability and Statistics},
+  volume  = {28},
+  pages   = {46--61},
+  year    = {2024}
+}
+
+  @article{E35,
+  title   = {The Activated Complex in Chemical Reactions},
+  author  = {Eyring, H.},
+  journal = {The Journal of Chemical Physics},
+  volume  = {3},
+  number  = {2},
+  pages   = {107--115},
+  year    = {1935}
+}
+
+@article{K40,
+  title   = {Brownian motion in a field of force and the diffusion model of chemical reactions},
+  author  = {Kramers, H.A.},
+  journal = {Physica},
+  volume  = {7},
+  number  = {4},
+  pages   = {284--304},
+  year    = {1940}
+}
+
+@article{HP18,
+  title   = {Markov State Models: {F}rom an Art to a Science},
+  author  = {Husic, B.E. and Pande, V.S.},
+  journal = {Journal of the American Chemical Society},
+  volume  = {140},
+  number  = {7},
+  pages   = {2386--2396},
+  year    = {2018}
+}
+
+@article{N20,
+  title   = {Sharp {E}stimate of the {M}ean {E}xit {T}ime of a {B}ounded {D}omain in the {Z}ero {W}hite {N}oise {L}imit},
+  author  = {Nectoux, B.},
+  year    = {2020},
+  journal = {Markov Processes And Related Fields},
+  volume  = {26},
+  number  = {3},
+  pages   = {403--422}
+}
+
+@article{ADGR04,
+  title   = {Zeros of {G}egenbauer and {H}ermite polynomials and connection coefficients},
+  author  = {Area, I. and Dimitrov, D. and Godoy, E. and Ronveaux, A.},
+  journal = {Mathematics of Computation},
+  volume  = {73},
+  number  = {248},
+  pages   = {1937--1951},
+  year    = {2004}
+}
+
+@book{S39,
+  title     = {Orthogonal polynomials},
+  author    = {Szeg{\"o}, G.},
+  volume    = {23},
+  year      = {1939},
+  publisher = {American Mathematical Society},
+  series    = {Colloqium Publications}
+}
+
+@article{HHS08a,
+  title   = {Tunnel effect for {K}ramers--{F}okker--{P}lanck type operators},
+  author  = {H{\'e}rau, Fr{\'e}d{\'e}ric and Hitrik, Michael and Sj{\"o}strand, Johannes},
+  journal = {Annales Henri Poincar{\'e}},
+  volume  = {9},
+  number  = {2},
+  pages   = {209--274},
+  year    = {2008}
+}
+
+@article{HHS08b,
+  title   = {Tunnel effect for {K}ramers--{F}okker--{P}lanck Type Operators: return to equilibrium and applications},
+  author  = {H{\'e}rau, Fr{\'e}d{\'e}ric and Hitrik, Michael and Sj{\"o}strand, Johannes},
+  journal = {International Mathematics Research Notices},
+  volume  = {2008},
+  number  = {9},
+  pages   = {rnn057:1--48},
+  year    = {2008}
+}
+
+@article{HHS11,
+  title   = {Tunnel effect and symmetries for {K}ramers--{F}okker--{P}lanck type operators},
+  author  = {H{\'e}rau, F. and Hitrik, M. and Sj{\"o}strand, J.},
+  journal = {Journal of the Institute of Mathematics of Jussieu},
+  volume  = {10},
+  number  = {3},
+  pages   = {567--634},
+  year    = {2011}
+}
+
+@article{BLPM24,
+  title   = {Eyring--{K}ramers law for {F}okker--{P}lanck type differential operators},
+  author  = {Bony, J.F. and Le Peutrec, D. and Michel, L.},
+  journal = {Journal of the European Mathematical Society},
+  volume  = {Online First},
+  year    = {2024}
+}
+
+@article{EE86,
+  title   = {Viscous flow in the stress ensemble},
+  volume  = {59},
+  number  = {5},
+  journal = {Molecular Physics},
+  author  = {Evans, D.J. and Ely, J.F.},
+  year    = {1986},
+  pages   = {1043--1048}
+}
+
+@book{EM08,
+  title     = {Statistical {Mechanics} of {Nonequilibrium} {Liquids}},
+  publisher = {Cambridge University Press},
+  author    = {Evans, D.J. and Morriss, G.},
+  year      = {2008}
+}
+
+@article{GMS73,
+  title   = {On the calculation by molecular dynamics of the shear viscosity of a simple fluid},
+  volume  = {26},
+  number  = {6},
+  journal = {Molecular Physics},
+  author  = {Gosling, E.M. and McDonald, I.R. and Singer, K.},
+  year    = {1973},
+  pages   = {1475--1484}
+}
+
+@article{JPS15,
+  title   = {Langevin {Dynamics} with {Space}-{Time} {Periodic} {Nonequilibrium} {Forcing}},
+  volume  = {158},
+  number  = {1},
+  journal = {Journal of Statistical Physics},
+  author  = {Joubaud, R. and Pavliotis, G. A. and Stoltz, G.},
+  year    = {2015},
+  pages   = {1--36}
+}
+
+@article{JS12,
+  title   = {Nonequilibrium {Shear} {Viscosity} {Computations} with {Langevin} {Dynamics}},
+  volume  = {10},
+  number  = {1},
+  journal = {Multiscale Modeling \& Simulation},
+  author  = {Joubaud, R. and Stoltz, G.},
+  year    = {2012},
+  pages   = {191--216}
+}
+
+@article{EM85,
+  title   = {Equilibrium-fluctuation expression for the resistance of a {Norton} circuit},
+  volume  = {31},
+  number  = {6},
+  journal = {Physical Review A},
+  author  = {Evans, D.J. and Morriss, G. P.},
+  year    = {1985},
+  pages   = {3817--3819}
+}
+
+@article{EM83,
+  title   = {The isothermal/isobaric molecular dynamics ensemble},
+  volume  = {98},
+  number  = {8},
+  journal = {Physics Letters A},
+  author  = {Evans, D.J. and Morriss, G.P.},
+  year    = {1983},
+  pages   = {433--436}
+}
+
+@article{EHFML83,
+  title   = {Nonequilibrium molecular dynamics via {Gauss}'s principle of least constraint},
+  volume  = {28},
+  number  = {2},
+  journal = {Physical Review A},
+  author  = {Evans, D.J. and Hoover, W.G. and Failor, B.H. and Moran, B. and Ladd, A.J.C.},
+  year    = {1983},
+  pages   = {1016--1021}
+}
+
+@article{H91,
+  title     = {On {Shape} {Optimizing} the {Ratio} of the first two eigenvalues of the {Laplacian}},
+  author    = {Haeberly, J.P.},
+  journal   = {Technical Report},
+  year      = {1991},
+  publisher = {New York University}
+}
+
+@article{HM10,
+  title   = {A simple framework to justify linear response theory},
+  volume  = {23},
+  number  = {4},
+  journal = {Nonlinearity},
+  author  = {Hairer, M. and Majda, A.J.},
+  year    = {2010},
+  pages   = {909--922}
+}
+
+@article{R89,
+  author  = {Rodenhausen, H.},
+  title   = {{E}instein's relation between diffusion constant and mobility for a diffusion model},
+  journal = {Journal of Statistical Physics},
+  volume  = {55},
+  year    = {1989},
+  number  = {5--6},
+  pages   = {1065--1088}
+}
+
+@article{BFLS22,
+  author  = {Bernard, E. and Fathi, M. and Levitt, A. and Stoltz, G.},
+  title   = {Hypocoercivity with {S}chur complements},
+  journal = {Annales Henri Lebesgue},
+  volume  = {5},
+  pages   = {523--557},
+  year    = {2022}
+}
+
+@article{CLVE08,
+  author  = {Ciccotti, G. and Leli\`evre, T. and Vanden-Eijnden, E.},
+  title   = {Projection of diffusions on submanifolds: {A}pplication to mean
+             force computation},
+  journal = {Communications on Pure and Applied Mathematics},
+  volume  = {61},
+  year    = {2008},
+  number  = {3},
+  pages   = {371--408}
+}
+
+@book{P14,
+  author    = {Pavliotis, G. A.},
+  title     = {Stochastic Processes and Applications},
+  series    = {Texts in Applied Mathematics},
+  volume    = {60},
+  publisher = {Springer},
+  year      = {2014}
+}
+
+@article{D14,
+  author  = {Dobson, M.},
+  title   = {Periodic boundary conditions for long-time nonequilibrium molecular dynamics simulations of incompressible flows},
+  journal = {The Journal of Chemical Physics},
+  volume  = {141},
+  number  = {18},
+  year    = {2014},
+  pages   = {184103}
+}
+
+@book{TD17,
+  title     = {Nonequilibrium Molecular Dynamics},
+  subtitle  = {{T}heory, {A}lgorithms and {A}pplications},
+  author    = {Todd, B. D. and Daivis, P. J.},
+  publisher = {Cambridge University Press},
+  year      = {2017}
+}
+
+@article{TD07,
+  author  = {Todd, B. D. and Daivis, P. J.},
+  title   = {Homogeneous non-equilibrium molecular dynamics simulations of viscous flow: {T}echniques and applications},
+  journal = {Molecular Simulation},
+  year    = {2007},
+  volume  = {33},
+  pages   = {189-229},
+  number  = {3}
+}
+
+@article{DES24,
+  title   = {Sticky coupling as a control variate for sensitivity analysis},
+  author  = {Darshan, S. and Eberle, A. and Stoltz, G.},
+  journal = {preprint arXiv:2409.15500},
+  year    = {2024}
+}
+
+@article{E93,
+  title   = {The equivalence of {Norton} and {Thévenin} ensembles},
+  volume  = {80},
+  number  = {1},
+  journal = {Molecular Physics},
+  author  = {Evans, D.J.},
+  year    = {1993},
+  pages   = {221--224}
+}
+
+@article{MRTT53,
+  title   = {Equation of {state} {calculations} by {fast} {computing} {machines}},
+  volume  = {21},
+  number  = {6},
+  journal = {The Journal of Chemical Physics},
+  author  = {Metropolis, N. and Rosenbluth, A. W. and Rosenbluth, M.N. and Teller, A.H. and Teller, E.},
+  year    = {1953},
+  pages   = {1087--1092}
+}
+
+@inproceedings{S22,
+  title     = {Error {E}stimates and {V}ariance {R}eduction for {N}onequilibrium {S}tochastic {D}ynamics},
+  author    = {Stoltz, G.},
+  booktitle = {Monte Carlo and Quasi-Monte Carlo Methods},
+  year      = {2022},
+  publisher = {Springer}
+}
+
+@article{HPC93,
+  title   = {Thermal heat reservoirs via {Gauss}’ principle of least constraint: {Dissipation}, chaos, and phase‐space dimensionality loss in one‐dimensional chains},
+  volume  = {3},
+  number  = {3},
+  journal = {Chaos},
+  author  = {Hoover, W.G. and Posch, H.A. and Campbell, L.W.},
+  year    = {1993},
+  pages   = {325--332}
+}
+
+@article{T15,
+  title   = {Equivalence and {Nonequivalence} of {Ensembles}: {Thermodynamic}, {Macrostate}, and {Measure} {Levels}},
+  volume  = {159},
+  number  = {5},
+  journal = {Journal of Statistical Physics},
+  author  = {Touchette, H.},
+  year    = {2015},
+  pages   = {987--1016}
+}
+
+@article{molly,
+  author  = {Greener, J.G.},
+  title   = {Differentiable simulation to develop molecular dynamics force fields for disordered proteins},
+  journal = {Chemical Science},
+  year    = {2024},
+  volume  = {15},
+  pages   = {4897--4909}
+}
+
+@article{LMS16,
+  author  = {Leimkuhler, B. and Matthews, C. and Stoltz, G.},
+  title   = {The computation of averages from equilibrium and
+             nonequilibrium {L}angevin molecular dynamics},
+  journal = {IMA Journal of Numerical Analysis},
+  volume  = {36},
+  number  = {1},
+  year    = {2016},
+  pages   = {13--79}
+}
+
+@article{K87,
+  title   = {Recurrence and {invariant} {measures} for {degenerate} {diffusions}},
+  volume  = {15},
+  number  = {2},
+  journal = {The Annals of Probability},
+  author  = {Kliemann, W.},
+  year    = {1987},
+  pages   = {690--107}
+}
+
+@article{SS23,
+  author  = {Spacek, R. and Stoltz, G.},
+  title   = {Extending the {R}egime of {L}inear {R}esponse with {S}ynthetic {F}orcings},
+  journal = {Multiscale Modeling \& Simulation},
+  volume  = {21},
+  number  = {4},
+  pages   = {1602--1643},
+  year    = {2023}
+}
+
+@article{LRS12,
+  journal = {Mathematics of Computation},
+  volume  = {81},
+  title   = {Langevin dynamics with constraints and computation of free energy differences},
+  author  = {Leli\`evre, T. and Rousset, M. and Stoltz, G.},
+  year    = {2012},
+  pages   = {2071--2125}
+}
+
+@book{LRS10,
+  title     = {Free Energy Computations - A Mathematical Perspective},
+  author    = {Leli\`evre, T. and Rousset, M. and Stoltz, G.},
+  year      = {2010},
+  publisher = {Imperial College Press}
+}
+
+@book{LM15,
+  title     = {Molecular Dynamics},
+  subtitle  = {With Deterministic and Stochastic Numerical Methods},
+  author    = { Leimkuhler, B. and Matthews, C.},
+  year      = {2015},
+  series    = {Interdisciplinary Applied Mathematics},
+  volume    = {39},
+  publisher = {Springer}
+}
+
+@article{G54,
+  author  = {Green, M.S.},
+  title   = {Markoff random processes and the statistical mechanics of time‐dependent phenomena. {II. I}rreversible processes in fluids},
+  journal = {The Journal of Chemical Physics},
+  volume  = {22},
+  number  = {3},
+  year    = {1954},
+  pages   = {1281--1295}
+}
+
+@article{CJ75,
+  title   = {Direct computation of dynamical response by molecular dynamics: The mobility of a charged {L}ennard-{J}ones particle},
+  author  = {Ciccotti, G. and Jacucci, G.},
+  journal = {Physical Review Letters},
+  volume  = {35},
+  issue   = {12},
+  year    = {1975},
+  pages   = {789--792}
+}
+
+@article{V06,
+  author  = {Villani, C.},
+  title   = {Hypocoercivity},
+  journal = {Memoirs of the American Mathematical Society},
+  volume  = {202},
+  year    = {2009},
+  number  = {950}
+}
+
+@article{H67,
+  title   = {Hypoelliptic second order differential equations},
+  author  = {H{\"o}rmander, L.},
+  year    = {1967},
+  journal = {Acta Mathematica},
+  volume  = {119},
+  pages   = {147-171}
+}
+
+@book{BCG20,
+  title     = {Computer Meets Theoretical Physics},
+  author    = {Battimelli, G. and Ciccotti, G. and Greco, P.},
+  subtitle  = {The New Frontier of Molecular Simulation},
+  series    = {The Frontiers Collection},
+  volume    = {85},
+  year      = {2020},
+  publisher = {Springer}
+}
+
+@article{TT90,
+  title   = {Expansion of the global error for numerical schemes solving stochastic differential equations},
+  author  = {Talay, D. and Tubaro, L.},
+  journal = {Stochastic Analysis and Applications},
+  volume  = {8},
+  number  = {4},
+  pages   = {483--509},
+  year    = {1990}
+}
+
+@book{T10,
+  title     = {Statistical Mechanics: Theory and Molecular Simulation},
+  author    = {Tuckerman, M.},
+  series    = {Oxford Graduate Texts},
+  year      = {2010},
+  publisher = {Oxford University Press}
+}
+
+@book{FS01,
+  title     = {Understanding Molecular Simulation},
+  subtitle  = {From Algorithms to Applications},
+  author    = {Frenkel, D. and Smit, B.},
+  year      = {2001},
+  series    = {Computational Science Series},
+  volume    = {1},
+  publisher = {Academic Press}
+}
+
+@article{CKS05,
+  title     = {Non-equilibrium molecular dynamics},
+  author    = {Ciccotti, G. and Kapral, R. and Sergi, A.},
+  journal   = {Handbook of Materials Modeling},
+  volume    = {1},
+  pages     = {1--17},
+  year      = {2005},
+  publisher = {Springer}
+}
+
+@article{LM13a,
+  title   = {Rational construction of stochastic numerical methods for molecular sampling},
+  author  = {Leimkuhler, B. and Matthews, C.},
+  journal = {Applied Mathematics Research eXpress},
+  volume  = {2013},
+  number  = {1},
+  pages   = {34--56},
+  year    = {2013}
+}
+
+@book{B91,
+  title     = {From Microphysics to Macrophysics},
+  series    = {Theoretical and Mathematical Physics},
+  volume    = {3},
+  author    = {Balian, R.},
+  year      = {1991},
+  publisher = {Springer}
+}
+
+@article{MK10,
+  year    = {2010},
+  volume  = {51},
+  number  = {1},
+  author  = {Christian, M. and Karel, N.},
+  title   = {Rigorous meaning of {McLennan} ensembles},
+  journal = {Journal of Mathematical Physics},
+  pages   = {015219}
+}
+
+@article{KLOS22,
+  title   = {On the conversion of work into heat: microscopic models and macroscopic equations},
+  author  = {Komorowski, T. and Lebowitz, J. and Olla, S. and Simon, M.},
+  journal = {Ensaios Matema{\'a}ticos},
+  volume  = {38},
+  pages   = {325--341},
+  year    = {2023}
+}
+
+@book{HWL06,
+  title     = {Geometric Numerical Integration},
+  subtitle  = {Structure-Preserving Algorithms for Ordinary Differential Equations},
+  series    = {Springer Series in Computational Mathematics},
+  volume    = {31},
+  author    = {Hairer, E. and Wanner, G. and Lubich, C.},
+  year      = {2006},
+  publisher = {Springer}
+}
+
+@article{RCB77,
+  title   = {Numerical integration of the {C}artesian equations of motion of a system with constraints: molecular dynamics of n-alkanes},
+  author  = {Ryckaert, J.P. and Ciccotti, G. and Berendsen, H.},
+  journal = {Journal of Computational Physics},
+  volume  = {23},
+  number  = {3},
+  pages   = {327--341},
+  year    = {1977}
+}
+
+@article{A83,
+  title   = {{RATTLE}: A “velocity” version of the {SHAKE} algorithm for molecular dynamics calculations},
+  author  = {Andersen, H.},
+  journal = {Journal of Computational Physics},
+  volume  = {52},
+  number  = {1},
+  pages   = {24--34},
+  year    = {1983}
+}
+
+@article{LM13b,
+  title   = {Robust and efficient configurational molecular sampling via {L}angevin dynamics},
+  author  = {Leimkuhler, B. and Matthews, C.},
+  journal = {The Journal of Chemical Physics},
+  volume  = {138},
+  number  = {17},
+  year    = {2013},
+  pages   = {174102}
+}
+
+@phdthesis{R18,
+  title  = {{Theoretical and {N}umerical {A}nalysis of {N}on-{R}eversible {D}ynamics in {C}omputational {S}tatistical {P}hysics}},
+  author = {Roussel, J.},
+  url    = {https://theses.hal.science/tel-01964722},
+  year   = {2018},
+  school = {Universit\'e Paris-Est}
+}
+
+@incollection{RB06,
+  title     = {Ergodic properties of {M}arkov processes},
+  author    = {Rey--Bellet, L.},
+  booktitle = {Open Quantum Systems II: The Markovian Approach},
+  pages     = {1--39},
+  year      = {2006},
+  series    = {{L}ecture {N}otes in {M}athematics},
+  volume    = {1881},
+  publisher = {Springer}
+}
+
+@book{VDV00,
+  title     = {Asymptotic Statistics},
+  author    = {Van der Vaart, A.},
+  series    = {Cambridge Series in Statistical and Probabilistic Mathematics},
+  volume    = {3},
+  year      = {2000},
+  publisher = {Cambridge University Press}
+}
+
+@book{LR04,
+  title     = {Simulating {H}amiltonian {D}ynamics},
+  author    = {Leimkuhler, B. and Reich, S.},
+  year      = {2004},
+  publisher = {Cambridge University Press},
+  series    = {Cambridge Monographs on Applied and Computational Mathematics},
+  volume    = {14}
+}
+
+@article{L07,
+  title   = {On the local space–time structure of non-equilibrium steady states},
+  author  = {Lefevere, R.},
+  year    = {2007},
+  journal = {Journal of Statistical Mechanics: Theory and Experiment},
+  number  = {01},
+  pages   = {P01004}
+}
+
+@article{ZIE00,
+  title   = {Nonequilibrium molecular dynamics simulations of heat flow in one-dimensional lattices},
+  author  = {Zhang, F. and Isbister, D.J. and Evans, D.J.},
+  year    = {2000},
+  journal = {Physical Review E},
+  volume  = {61},
+  number  = {4},
+  pages   = {3541--3546}
+}
+
+@article{MSH02,
+  author  = {J. C. Mattingly and A. M. Stuart and D. J. Higham},
+  title   = {Ergodicity for {SDEs} and approximations: locally {Lipschitz} vector fields and degenerate noise},
+  journal = {Stochastic Procosses and their Applications},
+  volume  = {101},
+  number  = {2},
+  pages   = {185--232},
+  year    = {2002}
+}
+
+@article{BS24,
+  author  = {Blassel, N. and Stoltz, G.},
+  journal = {Journal of Statistical Physics},
+  title   = {Fixing the Flux: {A} Dual Approach to Computing Transport Coefficients},
+  year    = {2024},
+  volume  = {191},
+  number  = {17}
+}
+
+@article{PSSV24,
+  title   = {Neural network approaches for variance reduction in fluctuation formulas},
+  author  = {Pavliotis, G. A. and Spacek, R. and Stoltz, G. and Vaes, U.},
+  journal = {preprint arXiv:2410.00278},
+  year    = {2024}
+}
+
+% 	DOI = {10.1051/m2an/2020050},
+@article{PSW21,
+  author  = {Plechac, P. and Stoltz, G. and Wang, T.},
+  title   = {Convergence of the likelihood ratio method for linear response of non-equilibrium stationary states},
+  journal = {ESAIM: Mathematical Modelling and Numerical Analysis},
+  year    = {2021},
+  volume  = {55},
+  pages   = {S593--S623}
+}
+
+@article{PSW22,
+  author  = {Plechac, P. and Stoltz, G. and Wang, T.},
+  journal = {IMA Journal of Numerical Analysis},
+  title   = {Martingale product estimators for sensitivity analysis in computational statistical physics},
+  year    = {2022},
+  number  = {6},
+  pages   = {3430-3477},
+  volume  = {43}
+}
+
+@article{B75,
+  title   = {Mass tensor molecular dynamics},
+  journal = {Journal of Computational Physics},
+  volume  = {19},
+  number  = {3},
+  pages   = {267--279},
+  year    = {1975},
+  author  = {Bennett, C.H.}
+}
+
+@article{GB11,
+  author  = {Girolami, M. and Calderhead, B.},
+  title   = {Riemann manifold {Langevin and Hamiltonian Monte Carlo} methods},
+  journal = {Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  volume  = {73},
+  number  = {2},
+  pages   = {123--214},
+  year    = {2011}
+}
+
+@article{H70,
+  author  = {Hastings, W. K.},
+  journal = {Biometrika},
+  number  = {1},
+  pages   = {97--109},
+  title   = {Monte {Carlo} sampling methods using {Markov} chains and their applications},
+  volume  = {57},
+  year    = {1970}
+}
+
+@article{K57a,
+  title   = {Statistical-mechanical theory of irreversible processes. {I}. {G}eneral theory and simple applications to magnetic and conduction problems},
+  author  = {Kubo, R.},
+  journal = {Journal of the Physical Society of Japan},
+  volume  = {12},
+  number  = {6},
+  pages   = {570--586},
+  year    = {1957}
+}
+
+@article{AGW70,
+  title   = {Studies in molecular dynamics. {VIII}. {T}he transport coefficients for a hard-sphere fluid},
+  author  = {Alder, B.J. and Gass, D.M. and Wainwright, T.E.},
+  journal = {The Journal of Chemical Physics},
+  volume  = {53},
+  number  = {10},
+  pages   = {3813--3826},
+  year    = {1970}
+}
+
+@article{LV70,
+  title   = {Computer ``experiments'' on classical fluids. {III}. {T}ime-dependent self-correlation functions},
+  author  = {Levesque, D. and Verlet, L.},
+  journal = {Physical Review A},
+  volume  = {2},
+  number  = {6},
+  pages   = {2514--2528},
+  year    = {1970}
+}
+
+@article{LVK73,
+  title   = {Computer ``experiments'' on classical fluids. {IV}. {T}ransport properties and time-correlation functions of the {L}ennard--{J}ones liquid near its triple point},
+  author  = {Levesque, D. and Verlet, L. and K{\"u}rkijarvi, J.},
+  journal = {Physical Review A},
+  volume  = {7},
+  number  = {5},
+  pages   = {1690--1700},
+  year    = {1973}
+}
+
+@article{CF16,
+  title   = {Non-equilibrium by molecular dynamics: {A} dynamical approach},
+  author  = {Ciccotti, G. and Ferrario, M.},
+  journal = {Molecular Simulation},
+  volume  = {42},
+  number  = {16},
+  pages   = {1385--1400},
+  year    = {2016}
+}
+
+@article{LE72,
+  title   = {The computer study of transport processes under extreme conditions},
+  author  = {Lees, A. W. and Edwards, S. F.},
+  journal = {Journal of Physics C: Solid State Physics},
+  volume  = {5},
+  number  = {15},
+  pages   = {1921--1929},
+  year    = {1972}
+}
+
+@article{K57b,
+  title     = {Statistical-mechanical theory of irreversible processes. {II}. {R}esponse to thermal disturbance},
+  author    = {Kubo, R. and Yokota, M. and Nakajima, S.},
+  journal   = {Journal of the Physical Society of Japan},
+  volume    = {12},
+  number    = {11},
+  pages     = {1203--1211},
+  year      = {1957},
+  publisher = {The Physical Society of Japan}
+}
+
+@article{MSS25,
+  author  = {Spacek, R. and Monmarch\'e, P. and Stoltz, G.},
+  title   = {Transient {S}ubtraction: {A} {C}ontrol {V}ariate {M}ethod for {C}omputing {T}ransport {C}oefficients},
+  journal = {Journal of Statistical Physics},
+  volume  = {192},
+  number  = {53},
+  year    = {2025}
+}
+
+@article{RS19,
+  author  = {Roussel, J. and Stoltz, G.},
+  title   = {A perturbative approach to control variates in molecular dynamics},
+  journal = {Multiscale Modeling \& Simulation},
+  volume  = {17},
+  year    = {2019},
+  number  = {1},
+  pages   = {552--591}
+}
+
+@article{DS25,
+  title   = {Equivalence of {N}orton and {T}h\'evenin ensembles for mean-field interacting particle systems},
+  author  = {Darshan, S. and Stoltz, G.},
+  year    = {2025},
+  journal = {In preparation}
+}
+
+@book{StoltzM2,
+  author = {G. Stoltz},
+  title  = {An Introduction to Computational Statistical Physics},
+  series = {M2 lecture notes}
+}
+
+@book{S02,
+  author    = {Schlick, T.},
+  title     = {Molecular Modeling and Simulation: An Interdisciplinary Guide},
+  series    = {Interdisciplinary Applied Mathematics},
+  volume    = {21},
+  year      = {2002},
+  publisher = {Springer}
+}
+
+@article{LJ31,
+  year    = {1931},
+  volume  = {43},
+  number  = {5},
+  pages   = {461},
+  author  = {Lennard-Jones, J.E.},
+  title   = {Cohesion},
+  journal = {Proceedings of the Physical Society}
+}
+
+@article{F23,
+  title   = {On the history of key empirical intermolecular potentials},
+  journal = {Fluid Phase Equilibria},
+  volume  = {573},
+  pages   = {113876},
+  year    = {2023},
+  author  = {Fischer, J. and Wendland, M.}
+}
+
+@article{LSH24,
+  author  = {Lenhard, J. and Stephan, S. and Hasse, H.},
+  title   = {On the {H}istory of the {Lennard-Jones} Potential},
+  journal = {Annalen der Physik},
+  volume  = {536},
+  number  = {6},
+  pages   = {2400115},
+  year    = {2024}
+}
+
+@article{WS25,
+  title   = {Stochastic {N}orton dynamics: {A}n alternative approach for the computation of transport coefficients in {D}issipative {P}article {D}ynamics},
+  author  = {Wu, X. and Shang, X.},
+  journal = {preprint arXiv:2504.14479},
+  year    = {2025}
+}
+
+@article{LPV67,
+  title   = {Ensemble dependence of fluctuations with application to machine computations},
+  author  = {Lebowitz, J. L. and Percus, J. K. and Verlet, L.},
+  journal = {Physical Review},
+  volume  = {153},
+  number  = {1},
+  pages   = {250--254},
+  year    = {1967}
+}
+
+@article{CO17,
+  title   = {Ensemble dependence of fluctuations: {C}anonical/microcanonical equivalence of ensembles},
+  author  = {Cancrini, N. and Olla, S.},
+  journal = {Journal of Statistical Physics},
+  volume  = {168},
+  pages   = {707--730},
+  year    = {2017}
+}
+
+@inproceedings{HM11,
+  title     = {Yet another look at {H}arris’ ergodic theorem for {M}arkov chains},
+  author    = {Hairer, M. and Mattingly, J.C.},
+  booktitle = {Seminar on Stochastic Analysis, Random Fields and Applications VI},
+  series    = {Progress in Probability},
+  volume    = {63},
+  pages     = {109--117},
+  year      = {2011},
+  publisher = {Springer}
+}
+
+% nemd = chapter 4
+@book{H86,
+  title     = {Molecular Dynamics},
+  author    = {Hoover, W.G.},
+  year      = {1986},
+  series    = {Lecture Notes in Physics},
+  volume    = {258},
+  publisher = {Springer}
+}
+
+@article{H93,
+  title   = {Nonequilibrium molecular dynamics: {T}he first 25 years},
+  author  = {Hoover, W.G.},
+  journal = {Physica A: Statistical Mechanics and its Applications},
+  volume  = {194},
+  number  = {1-4},
+  pages   = {450--461},
+  year    = {1993}
+}
+
+@article{CJMD76,
+  title   = {Transport properties of molten alkali halides},
+  author  = {Ciccotti, G. and Jacucci, G. and McDonald, I.R.},
+  journal = {Physical Review A},
+  volume  = {13},
+  number  = {1},
+  pages   = {426--436},
+  year    = {1976}
+}
+
+@article{CJMD79,
+  title   = {"{T}hought-experiments" by molecular dynamics},
+  author  = {Ciccotti, G. and Jacucci, G. and McDonald, I. R.},
+  journal = {Journal of Statistical Physics},
+  volume  = {21},
+  pages   = {1--22},
+  year    = {1979}
+}
+
+@article{BLJ38,
+  author  = {Buckingham, R. A. and Lennard-Jones, J. E.},
+  title   = {The classical equation of state of gaseous helium, neon and argon},
+  journal = {Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences},
+  volume  = {168},
+  number  = {933},
+  pages   = {264--283},
+  year    = {1938}
+}
+
+@article{HJ01,
+  author  = {Hendrix, D. A. and Jarzynski, C.},
+  title   = {A “fast growth” method of computing free energy differences},
+  journal = {The Journal of Chemical Physics},
+  volume  = {114},
+  number  = {14},
+  pages   = {5974-5981},
+  year    = {2001}
+}
+
+@article{DBC99,
+  author  = {Dellago, C. and Bolhuis, P. G. and Chandler, D.},
+  title   = {On the calculation of reaction rate constants in the transition path ensemble},
+  journal = {The Journal of Chemical Physics},
+  volume  = {110},
+  number  = {14},
+  pages   = {6617--6625},
+  year    = {1999}
+}
+
+@article{SBB88,
+  author  = {Straub, J. E. and Borkovec, M. and Berne, B. J.},
+  title   = {Molecular dynamics study of an isomerizing diatomic in a {Lennard‐Jones} fluid},
+  journal = {The Journal of Chemical Physics},
+  volume  = {89},
+  number  = {8},
+  pages   = {4833--4847},
+  year    = {1988}
+}
+
+@article{R64,
+  title   = {Correlations in the {M}otion of {A}toms in {L}iquid {A}rgon},
+  author  = {Rahman, A.},
+  journal = {Physical Review},
+  volume  = {136},
+  number  = {2A},
+  pages   = {405--411},
+  year    = {1964}
+}
+
+@article{RNP75,
+  title   = {{Monte Carlo} grand canonical ensemble calculation in a gas-liquid transition region for 12-6 {A}rgon},
+  journal = {Journal of Computational Physics},
+  volume  = {17},
+  number  = {4},
+  pages   = {401--414},
+  year    = {1975},
+  author  = {Rowley, L.A. and Nicholson, D. and Parsonage, N.G.}
+}
+
+@article{BFW71,
+  author  = {Barker, J.A. and Fisher, R.A. and Watts, R.O.},
+  title   = {Liquid {A}rgon: {Monte Carlo} and molecular dynamics calculations},
+  journal = {Molecular Physics},
+  volume  = {21},
+  number  = {4},
+  pages   = {657--673},
+  year    = {1971}
+}
+
+@article{B76,
+  title   = {Efficient estimation of free energy differences from {Monte Carlo} data},
+  journal = {Journal of Computational Physics},
+  volume  = {22},
+  number  = {2},
+  pages   = {245-268},
+  year    = {1976},
+  author  = {Bennett, C.H.}
+}
+
+@article{B82,
+  author  = {Bhattacharya, R.N.},
+  title   = {On the functional central limit theorem and the law of the iterated logarithm for {Markov} processes},
+  journal = {Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte Gebiete},
+  year    = {1982},
+  volume  = {60},
+  number  = {2},
+  pages   = {185--201}
+}
+
+@article{D84,
+  author  = {Davis, M.H.A.},
+  title   = {Piecewise-Deterministic {M}arkov Processes: {A} General Class of Non-Diffusion Stochastic Models},
+  journal = {Journal of the Royal Statistical Society: Series B (Methodological)},
+  volume  = {46},
+  number  = {3},
+  pages   = {353--376},
+  year    = {1984}
+}
+
+@article{ABVE23,
+  title   = {Stochastic {I}nterpolants: {A} {U}nifying {F}ramework for {F}lows and {D}iffusions},
+  author  = {Albergo, M.S. and Boffi, N.M. and Vanden-Eijnden, E.},
+  year    = {2023},
+  journal = {preprint arXiv:2303.08797}
+}
+
+@article{FBPR18,
+  author    = {Fearnhead, P. and Bierkens, J. and Pollock, M. and Roberts, G.O.},
+  title     = {{Piecewise {D}eterministic {M}arkov {P}rocesses for continuous-time {M}onte {C}arlo}},
+  volume    = {33},
+  journal   = {Statistical Science},
+  number    = {3},
+  publisher = {Institute of Mathematical Statistics},
+  pages     = {386 -- 412},
+  year      = {2018}
+}
+
+@article{K35,
+  author  = {Kirkwood, J. G.},
+  title   = {Statistical Mechanics of Fluid Mixtures},
+  journal = {The Journal of Chemical Physics},
+  volume  = {3},
+  number  = {5},
+  pages   = {300-313},
+  year    = {1935},
+  issn    = {0021-9606}
+}

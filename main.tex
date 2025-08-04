@@ -1,0 +1,65 @@
+\documentclass[twoside]{nblasselphdtemplate}
+
+%% Packages
+\input{include/packages.tex}
+%% Macros
+\input{include/macros.tex}
+%%
+
+%--------------------------------------------%
+%% Metadata %%
+%--------------------------------------------%
+\ThesisTitle{Analysis and sampling of metastable and nonequilibrium stochastic dynamics}
+\ThesisAuthor{No\'e Blassel}
+% \ThesisOrcid{000000-000X}
+\ThesisDegree{Math\'ematiques Appliqu\'ees}
+\ThesisDate{Jun 2025}
+% \ThesisResubmissionDate{Sep 2025}
+\ThesisDepartment{CERMICS}
+\ThesisUniversity{\'Ecole Nationale des Ponts et Chauss\'ees}
+% \ThesisJointInstitution{}
+\ThesisSupervisor{Tony Leli\`evre \& Gabriel Stoltz}
+
+\begin{document}
+
+  \maketitle
+
+  %--------------------------------------------%
+  %% Front matter %%
+  %--------------------------------------------%
+  \frontmatter
+  
+  % \include{frontmatter/dedication}
+  % \include{frontmatter/declaration}
+  % \include{frontmatter/abstract}
+  % \include{frontmatter/frabstract}
+  % \include{frontmatter/acknowledgements}
+  % \include{frontmatter/preface}
+
+  \tableofcontents
+  
+  \listoffigures
+  \listoftables  
+
+  %%% Print Nomenclatures %%%
+  % \PrintNomenclature{frontmatter/nomenclature}
+
+  %--------------------------------------------%
+  %% Load chapters %%
+  %--------------------------------------------%
+  \mainmatter
+
+  \include{chapters/00_summary.tex}
+  \include{chapters/01_introduction.tex}
+  \include{chapters/02_semiclassic.tex}
+  \include{chapters/03_shape_optimization.tex}
+  \include{chapters/04_norton.tex}
+
+  %--------------------------------------------%
+  %% Bibliography %%
+  %--------------------------------------------%
+  \bibliographystyle{siam}         % bib style
+  \bibliography{bibliography.bib}  % load bib file
+
+
+\end{document}

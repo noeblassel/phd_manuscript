@@ -1,0 +1,209 @@
+% Blackboard Bold
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\I}{\mathbb{I}}
+
+% Calligraphic
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cSpd}{\mathcal{S}_d^{\scalebox{0.6}{++}}} % Positive definite symmetric matrices
+\newcommand{\cE}{\mathcal{E}}
+
+% Script
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sP}{\mathscr{P}}
+
+% Fraktur
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+
+% Other Symbols
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\llangle}{\left\langle\left\langle}
+\newcommand{\rrangle}{\right\rangle\right\rangle}
+
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\e}{\mathrm{e}}
+\renewcommand{\div}{\mathrm{div}}
+\newcommand{\n}{\mathrm{n}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Ind}{\mathrm{Ind}}
+\newcommand{\Hess}{\mathrm{Hess}\,}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\DeclareMathOperator{\co}{co}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator{\corr}{corr}
+\DeclareMathOperator{\phase}{phase}
+
+\renewcommand{\O}{\mathcal{O}} % Redefines the letter
+\newcommand{\bigo}{\mathcal{O}} % Alternative definition, safer
+\newcommand{\smallo}{\scalebox{0.7}{$\mathcal O$}}
+\newcommand{\widesim}[2][1.5]{\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}}
+\newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% General Physics/Math
+\newcommand{\Witten}{H_\beta-\Delta}
+\newcommand{\testfuncs}{\mathcal{C}^\infty_{\mathrm{c}}}
+\newcommand{\Lmu}{L_\beta^2}
+\newcommand{\wLmu}{L^2(\mu)}
+\newcommand{\wLmuz}{L^2_0(\mu)}
+\newcommand{\Winf}{{\cW}^{1,\infty}}
+\newcommand{\Vstar}{V^*}
+\newcommand{\shift}{h}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\DR}{\mathrm{DR}}
+\newcommand{\ER}{\mathrm{ER}}
+\newcommand{\MT}{\mathrm{MT}}
+\newcommand{\dsint}{\displaystyle\int}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\Dt}{{\Delta t}}
+\newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\ct}{\alpha}
+
+\newcommand{\gaussianCutoffConst}{C_\xi}
+\newcommand{\energyCutoffConst}{C_\eta}
+% \newcommand{\Lmu}{L_\beta^2}
+
+% Eigen-elements
+\newcommand{\uone}{u_{1,\beta}^{h_0,h_1}}
+\newcommand{\utwo}{u_{2,\beta}^{h_0,h_1}}
+\newcommand{\uonetilde}{\widetilde{u}_{1,\beta}^{h_0,h_1}}
+\newcommand{\utwotilde}{\widetilde{u}_{2,\beta}^{h_0,h_1}}
+\newcommand{\lambdaone}{\lambda_{1,\beta}^{h_0,h_1}}
+\newcommand{\lambdatwo}{\lambda_{2,\beta}^{h_0,h_1}}
+\newcommand{\lambdaonetilde}{\widetilde{\lambda}_{1,\beta}^{h_0,h_1}}
+\newcommand{\lambdatwotilde}{\widetilde{\lambda}_{2,\beta}^{h_0,h_1}}
+\newcommand{\psitilde}{\widetilde\psi}
+
+% Geometry and Neighborhoods
+\newcommand{\largeRadius}{\delta}
+\newcommand{\smallRadius}{\gamma}
+\newcommand{\epsBoundary}[1]{\varepsilon^{(#1)}}
+\newcommand{\epsLimit}[1]{\alpha^{(#1)}}
+\newcommand{\deltaRadius}[1]{\delta^{(#1)}}
+\newcommand{\gammaPerturbation}[1]{\gamma^{(#1)}}
+\newcommand{\localNeighborhood}[2][]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\localCap}[2][]{C_{#2}^{#1}}
+\newcommand{\localCuboid}[1]{\mathcal{R}_{#1}}
+\newcommand{\basin}[1]{\mathcal{A}(#1)}
+\newcommand{\halfSpace}[1]{E^{(#1)}}
+
+% Hessian Related
+\newcommand{\hessPassage}[2][]{U^{(#2)#1}}
+\newcommand{\hessEigvec}[2]{v^{(#1)}_{#2}}
+\newcommand{\hessEigval}[2]{\nu^{(#1)}_{#2}}
+
+% Harmonic Oscillators
+\newcommand{\scaledLocalOscillator}[2][]{K^{(#2)}_{\epsLimit{#2}#1}}
+\newcommand{\globalOscillator}[2][\beta]{H^{\mathrm{H}}_{#1,#2}}
+\newcommand{\scaledHarmMode}[3][]{\psi^{(#2)}_{#3,\epsLimit{#2}#1}}
+\newcommand{\harmMode}[3][]{\psi^{(#2)}_{\beta,#3,\epsLimit{#2}#1}}
+\newcommand{\harmQuasiMode}[3][]{{\widetilde\psi}^{(#2)}_{\beta,#3,\epsLimit{#2}#1}}
+\newcommand{\localCutoff}[1]{\chi_\beta^{(#1)}}
+\newcommand{\localEigval}[3][]{\lambda^{(#2)}_{#3,\epsLimit{#2}#1}}
+\newcommand{\globalEigval}[2]{\lambda^{\mathrm{H}}_{#1,#2}}
+
+% Simplified/Indexed Notation
+\newcommand{\Ki}[1]{K^{(i)}_{#1}}
+\newcommand{\psii}[2]{\psi^{(i)}_{#1,#2}}
+\newcommand{\wi}[2]{w^{(i)}_{#1,#2}}
+\newcommand{\lambdai}[2]{\lambda^{(i)}_{#1,#2}}
+\newcommand{\omegai}[2]{\omega^{(i)}_{#1,#2}}
+\newcommand{\varepsiloni}{\varepsilon^{(i)}}
+
+% Other Specific Notation
+\newcommand{\Aseti}{\mathbf{A}_\beta^{(i)}}
+\newcommand{\Bseti}[1]{\mathbf{B}_\beta^{(i),#1}}
+\newcommand{\Cseti}{\mathbf{C}_\beta^{(i)}}
+\newcommand{\Dseti}[1]{\mathbf{D}_\beta^{(i),#1}}
+\newcommand{\Eset}{\mathbf{E}_\beta}
+\newcommand{\Fset}{\mathbf{F}_\beta}
+\newcommand{\Gset}[1]{\mathbf{G}_\beta^{#1}}
+\newcommand{\fineCutoff}[1]{\xi_\beta^{(#1)}}
+\newcommand{\deltaScalingExp}{s}
+\newcommand{\gammaScalingExp}{t}
+\newcommand{\cLham}{\cL_{\mathrm{H}}}
+\newcommand{\cLou}{\cL_{\mathrm{FD}}}
+\newcommand{\cLod}{\cL_{\mathrm{KS}}}
+\newcommand{\Cmicro}{C_{\mathrm{mic}}}
+\newcommand{\Cmacro}{C_{\mathrm{mac}}}
+\newcommand{\Caux}{C_{\mathrm{aux}}}
+\newcommand{\Ethevenin}{\mathbb{E}_{\eta}}
+\newcommand{\Enorton}{\mathbb{E}^{\mathrm{Norton}}_r}
+\newcommand{\Xeta}{X^\eta}
+\newcommand{\Yr}{Y^r}
+\newcommand{\Ybr}{Y^{\mathbf{r}}}
+\newcommand{\Rr}{\mathcal{R}^r}
+\newcommand{\lambdar}{\lambda^r}
+\newcommand{\Lambdar}{\Lambda^r}
+\newcommand{\lambdabr}{\lambda^{\mathbf{r}}}
+\newcommand{\Lambdabr}{\Lambda^{\mathbf{r}}}
+\newcommand{\noe}[1]{\textcolor{red}{#1}}
+
+
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{algorithm}[theorem]{Algorithm}
+
+% TikZ Settings
+\tikzset{
+    cross/.style={cross out, draw=black, minimum size=2*(#1-2*\pgflinewidth), inner sep=0pt, outer sep=0pt},
+    cross/.default={1pt}
+}
+
+% Other Package and Document Settings
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\mathtoolsset{showonlyrefs=true}
+\renewcommand{\labelitemi}{$\circ$}
+
+
+\tikzset{
+    cross/.pic = {
+    \draw[rotate = 45] (-#1,0) -- (#1,0);
+    \draw[rotate = 45] (0,-#1) -- (0, #1);
+    }
+}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+cross/.default={1pt}}
+
+\newcounter{appendices}[chapter]
+
+%% per chapter appendices
+\renewcommand{\theappendices}{\thechapter.\Alph{appendices}}
+\newcommand{\appendixsection}[1]{%
+  \refstepcounter{appendices}% Increment the counter, make it ref-able
+  \section*{\appendixname~\theappendices: #1}% Print the unnumbered section title
+  \addcontentsline{toc}{section}{\appendixname~\theappendices: #1}% Add to ToC
+}
+
+%% per chapter abstracts
+\newenvironment{chapterabstract}{%
+  \begin{quotation} % Using quotation for indentation
+  \noindent\textbf{Abstract. }\itshape
+}{%
+  \end{quotation}
+  \par\vspace{\baselineskip}
+}

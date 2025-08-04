@@ -1,0 +1,120 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+Molecular dynamics (MD) is a set of computational techniques aimed at extracting properties of physical systems from carefully designed numerical simulations.
+Due to its flexibility, and steady increase in the availability of computational ressources over the last seventy years, MD has become a mainstay of computational physics, and is now routinely used in a variety of scientific applications from material science and biology.
+...
+
+\section{An overview of Molecular Dynamics}
+
+\subsection{Elements of statistical physics}
+Statistical mechanics is the rigorous attempt to reconcile the microscopic point of view, according to which a given system's many degrees of freedom evolve in time according to basic physical principles, and the macroscopic point of view, according to which only a handful of variables are relevant to describe the system's state and evolution.
+In this work, we present the necessary (Gibbsian) formalism to treat the molecular systems in thermal equilibrium generally studied with MD, and in particular, we restrict our scope to classical systems.
+We note however that similar a formalism has been used to study a variety of disordered systems, including .~\noe{à développer avec refs}.
+
+\paragraph{Microstates and macrostates.}
+In this thesis, we consider systems of $N>0$ point particles, representing classical atomic nuclei.
+The microscopic configuration, or microstate, of such a system is described by the positions and momenta of each one of these nuclei. The microstate therefore corresponds to a point in the phase space, 
+\begin{equation}
+    \label{eq:01:phase_space}
+    (q,p)\in \cE := \cX\times \R^d,
+\end{equation}
+where~$\cX$ is either the torus~$\cX = (L\T)^d$ or the full space~$\cX=\R^d$, with $d=3N$ giving the number of degrees of freedom and~$L>0$ is a fixed length parameter.
+For a configuration~$(q,p)\in\cE$, $q\in\cX$ is the position variable, and~$p\in \R^d$ is the associated momentum variable.
+One can also consider positions~$q\in\cX$ in more general position manifolds~$\cX$, in which case the momentum~$p\in T_q^*\cX$ is a corresponding cotangent vector, and the phase space~$\cE=T^*\cX$ is defined as the cotangent bundle of the manifold~$\cX$.
+
+To each microstate~$(q,p)\in\cE$, we associate its energy~$H(q,p)$, which is given by the expression
+\begin{equation}
+    \label{eq:01:hamiltonian}
+    H(q,p) = V(q) + \frac12p^\top M^{-1}p,
+\end{equation}
+where~$V:\cX\to\R$ is a potential energy function, and the term~$\frac12p^\top M^{-1}p$ corresponds to the kinetic energy of a given atomic configuration, with
+\[
+M = \begin{pmatrix}
+    m_1 \I_3 & 0 & \dotsm & 0 \\
+    0 & m_2 \I_3 & \dotsm & 0 \\
+    \vdots & \ddots & \ddots & \vdots\\
+    & \dotsm & 0 & m_N \I_3 
+\end{pmatrix}
+\]
+the diagonal matrix encoding the atomic masses in the system.
+
+The basic postulate of statistical physics is that the macroscopic configuration of a system, otherwise known as its macrostate, is given by a probability distribution~$\pi\in\cP(\cE)$ over the underlying set of microstates, also known as a~\textit{statistical ensemble}.
+Given a physical observable~$\varphi:\cE\to\R$, the macroscopic value of~$\varphi$ is defined as the~\textit{ensemble average}:
+\begin{equation}
+    \label{eq:01:ensemble_average}
+    \langle \varphi\rangle_{\pi} = \E_\pi\left[\varphi\right]= \int_{\cE}\varphi\,\d \pi.
+\end{equation}
+
+In this statistical description, the ensemble~$\pi$ plays a crucial role in assigning to each microstate the likelihood of underlying the observed macrostate.
+It is therefore a model parameter of paramount importance, for which some specific choices are overwhelmingly used in practice, and which we now present.
+
+\paragraph{On the choice of statistical ensemble}
+The statistical ensemble~$\pi$ is generally defined in terms of a handful of macroscopic constraints, meaning that the macroscopic value of a few observables determine~$\pi$.
+
+A common recipe to define the statistical ensemble is to define~$\pi$ as the solution to the entropy-maximization problem
+
+\begin{equation}
+    \pi\in\underset{\rho\in\mathcal{F}}{\argmax}\,S(\rho),
+\end{equation}
+where~$S$ is a suitable entropy functional and~$\mathcal{F}\subset\cP(\cE)$
+
+Boltzmann--Gibbs distribution
+\begin{equation}
+    \mu(\d q,\d p) = \frac1{\mathcal Z}\e^{-\beta H(q,p)},\qquad \mathcal Z = \int_{\cE}\e^{-\beta H(q,p)}\,\d q\,\d p
+\end{equation}
+
+\paragraph{Hamiltonian Dynamics.}
+The classical equations of motion, deduced from Newton's second law, can be written compactly using the Hamiltonian~\eqref{eq:01:hamiltonian}, via the following ordinary differential equation in phase space:
+\begin{equation}
+    \label{eq:01:hamiltonian_dynamics}
+    \frac{\d}{\d t}\,X_t = -J\nabla H(X_t),\qquad X_t = (q_t,p_t)\in \cE,
+\end{equation}
+where~$J$ is the antisymmetric matrix
+\begin{equation}
+    \label{eq:01:J}
+    J=\begin{pmatrix}
+        0&\I_{d}\\-\I_{d}&0
+    \end{pmatrix}.
+\end{equation}
+In this form, the trajectories of~\eqref{eq:01:hamiltonian_dynamics} are more commonly called~\textit{Hamiltonian trajectories}, or trajectories of~\textit{Hamiltonian dynamics}.
+
+
+
+\paragraph{Langevin dynamics.}
+
+\paragraph{More general families of stochastic dynamics.}
+
+\paragraph{Some orders of magnitude.}
+
+\subsection{Dynamical models.}
+
+\subsection{Sampling of equilibrium properties}
+\begin{equation}
+    \int_{\cE} \varphi(q,p)\,\mu(\d q,\d p)
+\end{equation}
+\begin{equation}
+    \nu(\d q) = \frac1{\mathcal Z_\nu}\e^{-\beta V},\qquad \kappa(\d p) = \left(\frac{\beta}{2\pi}\right)^{\frac{d}{2}}\left(\det\,M\right)^{-\frac12}\e^{-\frac{\beta}{2}p^\top M^{-1}p}
+\end{equation}
+
+\begin{equation}
+    \left\{
+        \begin{aligned}
+            \d q_t &= M^{-1}p_t\,\d t,\\ \d p_t &= -\nabla V(q_t)\,\d t - \gamma M^{-1}p_t\,\d t + \sqrt{\frac{2\gamma}{\beta}}\,\d W_t,
+        \end{aligned}\right.
+\end{equation}
+
+\begin{equation}
+    \d X_t = -\nabla V(X_t)\,\d t + \sqrt{\frac{2}{\beta}}\,\d W_t
+\end{equation}
+
+\subsection{Sampling dynamical properties}
+
+\section{Mathematical approaches to the problem of metastability}
+\subsection{Global descriptions}
+\subsection{Local descriptions}
+\subsection{Numerical methods}
+
+\section{Main contributions of this thesis}
+
+

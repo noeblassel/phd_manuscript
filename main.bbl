@@ -1,0 +1,465 @@
+\begin{thebibliography}{100}
+
+\bibitem{AGHVP20}
+{\sc A.~Agarwal, S.~Gnanakaran, N.~Hengartner, A.~Voter, and D.~Perez}, {\em Arbitrarily accurate representation of atomistic dynamics via {M}arkov {R}enewal {P}rocesses}, preprint arXiv:2008.11623,  (2020).
+
+\bibitem{ADMKT24}
+{\sc A.~Aleksian, P.~Del~Moral, A.~Kurtzmann, and J.~Tugaut}, {\em Self-interacting diffusions: Long-time behaviour and exit-problem in the uniformly convex case}, ESAIM: Probability and Statistics, 28 (2024), pp.~46--61.
+
+\bibitem{AS07}
+{\sc G.~Allaire and M.~Schoenauer}, {\em Conception optimale de structures}, vol.~58 of SMAI Math\'ematiques et Applications, Springer, 2007.
+
+\bibitem{AT17}
+{\sc M.~Allen and D.~Tildesley}, {\em Computer Simulation of Liquids}, Oxford University Press, 2017.
+
+\bibitem{AKKL12}
+{\sc H.~Ammari, K.~Kalimeris, H.~Kang, and H.~Lee}, {\em Layer potential techniques for the narrow escape problem}, Journal de math{\'e}matiques pures et appliqu{\'e}es, 97 (2012), pp.~66--84.
+
+\bibitem{A83}
+{\sc H.~Andersen}, {\em {RATTLE}: A “velocity” version of the {SHAKE} algorithm for molecular dynamics calculations}, Journal of Computational Physics, 52 (1983), pp.~24--34.
+
+\bibitem{A19}
+{\sc D.~Aristoff}, {\em Generalizing {P}arallel {R}eplica dynamics: {T}rajectory fragments, asynchronous computing, and {PDMP}s}, SIAM/ASA Journal on Uncertainty Quantification, 7 (2019), pp.~685--719.
+
+\bibitem{AJP23}
+{\sc D.~Aristoff, M.~Johnson, and D.~Perez}, {\em Arbitrarily accurate, nonparametric coarse graining with {M}arkov renewal processes and the {M}ori--{Z}wanzig formulation}, AIP Advances, 13 (2023), p.~095131.
+
+\bibitem{A67}
+{\sc S.~Arrhenius}, {\em On the reaction velocity of the inversion of cane sugar by acids}, in Selected Readings in Chemical Kinetics, Elsevier, 1967, pp.~31--35.
+
+\bibitem{AB92}
+{\sc M.~Ashbaugh and R.~Benguria}, {\em A sharp bound for the ratio of the first two eigenvalues of {D}irichlet {L}aplacians and extensions}, Annals of Mathematics, 135 (1992), pp.~601--628.
+
+\bibitem{B91}
+{\sc R.~Balian}, {\em From Microphysics to Macrophysics}, vol.~3 of Theoretical and Mathematical Physics, Springer, 1991.
+
+\bibitem{BS12}
+{\sc F.~Berezin and M.~Shubin}, {\em The {S}chr{\"o}dinger {E}quation}, vol.~66, Springer Science \& Business Media, 2012.
+
+\bibitem{B13}
+{\sc N.~Berglund}, {\em Kramers' law: Validity, derivations and generalisations}, Markov Processes And Related Fields, 19 (2013), pp.~459--490.
+
+\bibitem{BFLS22}
+{\sc E.~Bernard, M.~Fathi, A.~Levitt, and G.~Stoltz}, {\em Hypocoercivity with {S}chur complements}, Annales Henri Lebesgue, 5 (2022), pp.~523--557.
+
+\bibitem{BLS15}
+{\sc A.~Binder, T.~Leli{\`e}vre, and G.~Simpson}, {\em A generalized parallel replica dynamics}, Journal of Computational Physics, 284 (2015), pp.~595--616.
+
+\bibitem{github}
+{\sc N.~Blassel}, {\em Paper code repository: \url{https://github.com/noeblassel/sosad}}, 2025.
+
+\bibitem{data}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Paper data repository: \url{https://zenodo.org/records/15727493}}, 2025.
+
+\bibitem{BLS25a}
+{\sc N.~Blassel, T.~Leli\`evre, and G.~Stoltz}, {\em Quantitative low-temperature asymptotics for reversible diffusions in temperature-dependent domains}, preprint arXiv:2501.16082,  (2025).
+
+\bibitem{BLS25b}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Shape optimization of metastable states}, preprint arXiv:2507.12575,  (2025).
+
+\bibitem{BDC00}
+{\sc P.~Bolhuis, C.~Dellago, and D.~Chandler}, {\em Reaction coordinates of biomolecular isomerization}, Proceedings of the National Academy of Sciences, 97 (2000), pp.~5877--5882.
+
+\bibitem{BLPM24}
+{\sc J.~Bony, D.~Le~Peutrec, and L.~Michel}, {\em Eyring--{K}ramers law for {F}okker--{P}lanck type differential operators}, Journal of the European Mathematical Society, Online First (2024).
+
+\bibitem{BR16}
+{\sc F.~Bouchet and J.~Reygner}, {\em Generalisation of the {E}yring--{K}ramers transition rate formula to irreversible diffusion processes}, Annales Henri Poincar{\'e}, 17 (2016), pp.~3499--3532.
+
+\bibitem{BGK05}
+{\sc A.~Bovier, V.~Gayrard, and M.~Klein}, {\em Metastability in reversible diffusion processes. {II}: {P}recise asymptotics for small eigenvalues}, Journal of the European Mathematical Society, 7 (2005), pp.~69--99.
+
+\bibitem{C78}
+{\sc R.~Carmona}, {\em Pointwise bounds for {S}chr{\"o}dinger eigenstates}, Communications in Mathematical Physics, 62 (1978), pp.~97--106.
+
+\bibitem{C21}
+{\sc M.~Chen}, {\em Collective variable-based enhanced sampling and machine learning}, The European Physical Journal B, 94 (2021), pp.~1--17.
+
+\bibitem{C75}
+{\sc D.~Chenais}, {\em On the existence of a solution in a domain identification problem}, Journal of Mathematical Analysis and Applications, 52 (1975), pp.~189--219.
+
+\bibitem{MK10}
+{\sc M.~Christian and N.~Karel}, {\em Rigorous meaning of {McLennan} ensembles}, Journal of Mathematical Physics, 51 (2010), p.~015219.
+
+\bibitem{CJ75}
+{\sc G.~Ciccotti and G.~Jacucci}, {\em Direct computation of dynamical response by molecular dynamics: The mobility of a charged {L}ennard-{J}ones particle}, Physical Review Letters, 35 (1975), pp.~789--792.
+
+\bibitem{CKS05}
+{\sc G.~Ciccotti, R.~Kapral, and A.~Sergi}, {\em Non-equilibrium molecular dynamics}, Handbook of Materials Modeling, 1 (2005), pp.~1--17.
+
+\bibitem{CLVE08}
+{\sc G.~Ciccotti, T.~Leli\`evre, and E.~Vanden-Eijnden}, {\em Projection of diffusions on submanifolds: {A}pplication to mean force computation}, Communications on Pure and Applied Mathematics, 61 (2008), pp.~371--408.
+
+\bibitem{CMSM13}
+{\sc P.~Collet, S.~Mart{\'\i}nez, and J.~San~Mart{\'\i}n}, {\em Quasi-{S}tationary {D}istributions}, Probability and its Applications, Springer, 2013.
+
+\bibitem{CGHLPC15}
+{\sc J.~Comer, J.~Gumbart, J.~H{\'e}nin, T.~Leli{\`e}vre, A.~Pohorille, and C.~Chipot}, {\em The adaptive biasing force method: {E}verything you always wanted to know but were afraid to ask}, The Journal of Physical Chemistry B, 119 (2015), pp.~1129--1151.
+
+\bibitem{CTZ24}
+{\sc T.~Cui, X.~Tong, and O.~Zahm}, {\em Optimal {R}iemannian metric for {P}oincar{\'e} inequalities and how to ideally precondition {L}angevin dynamics}, preprint arXiv:2404.02554,  (2024).
+
+\bibitem{DFOP18}
+{\sc C.~Dapogny, P.~Frey, F.~Omn{\`e}s, and Y.~Privat}, {\em Geometrical shape optimization in fluid mechanics using {F}ree{F}em++}, Structural and Multidisciplinary Optimization, 58 (2018), pp.~2761--2788.
+
+\bibitem{DES24}
+{\sc S.~Darshan, A.~Eberle, and G.~Stoltz}, {\em Sticky coupling as a control variate for sensitivity analysis}, preprint arXiv:2409.15500,  (2024).
+
+\bibitem{DG06}
+{\sc F.~De~Gournay}, {\em Velocity extension for the level-set method and multiple eigenvalues in shape optimization}, SIAM Journal on Control and Optimization, 45 (2006), pp.~343--367.
+
+\bibitem{DMM00}
+{\sc P.~Del~Moral and L.~Miclo}, {\em A {M}oran particle system approximation of {F}eynman--{K}ac formulae}, Stochastic processes and their applications, 86 (2000), pp.~193--216.
+
+\bibitem{DGLLPN19}
+{\sc G.~Di~Ges{\`u}, T.~Leli{\`e}vre, D.~Le~Peutrec, and B.~Nectoux}, {\em Sharp asymptotics of the first exit point density}, Annals of PDE, 5 (2019).
+
+\bibitem{DGLLPN20}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em The exit from a metastable state: Concentration of the exit point distribution on the low energy saddle points, part 1}, Journal de Math{\'e}matiques Pures et Appliqu{\'e}es, 138 (2020), pp.~242--306.
+
+\bibitem{DS99}
+{\sc M.~Dimassi and J.~Sjostrand}, {\em Spectral asymptotics in the semi-classical limit}, no.~268 in London Mathematical Society Lecture Note Series, Cambridge University Press, 1999.
+
+\bibitem{D14}
+{\sc M.~Dobson}, {\em Periodic boundary conditions for long-time nonequilibrium molecular dynamics simulations of incompressible flows}, The Journal of Chemical Physics, 141 (2014), p.~184103.
+
+\bibitem{E93}
+{\sc D.~Evans}, {\em The equivalence of {Norton} and {Thévenin} ensembles}, Molecular Physics, 80 (1993), pp.~221--224.
+
+\bibitem{EE86}
+{\sc D.~Evans and J.~Ely}, {\em Viscous flow in the stress ensemble}, Molecular Physics, 59 (1986), pp.~1043--1048.
+
+\bibitem{EHFML83}
+{\sc D.~Evans, W.~Hoover, B.~Failor, B.~Moran, and A.~Ladd}, {\em Nonequilibrium molecular dynamics via {Gauss}'s principle of least constraint}, Physical Review A, 28 (1983), pp.~1016--1021.
+
+\bibitem{EM08}
+{\sc D.~Evans and G.~Morriss}, {\em Statistical {Mechanics} of {Nonequilibrium} {Liquids}}, Cambridge University Press, 2008.
+
+\bibitem{EM85}
+{\sc D.~Evans and G.~P. Morriss}, {\em Equilibrium-fluctuation expression for the resistance of a {Norton} circuit}, Physical Review A, 31 (1985), pp.~3817--3819.
+
+\bibitem{E22}
+{\sc L.~Evans}, {\em Partial Differential Equations}, vol.~19 of Graduate Studies in Mathematics, American Mathematical Society, 2022.
+
+\bibitem{E35}
+{\sc H.~Eyring}, {\em The activated complex in chemical reactions}, The Journal of Chemical Physics, 3 (1935), pp.~107--115.
+
+\bibitem{FNO21}
+{\sc V.~Felli, B.~Noris, and R.~Ognibene}, {\em Eigenvalues of the {L}aplacian with moving mixed boundary conditions: the case of disappearing {D}irichlet region}, Calculus of Variations and Partial Differential Equations, 60 (2021).
+
+\bibitem{F18}
+{\sc A.~Ferguson}, {\em Machine learning and data science in soft materials engineering}, Journal of Physics: Condensed Matter, 30 (2018), p.~043002.
+
+\bibitem{FKH13}
+{\sc G.~Fiorin, M.~Klein, and J.~H{\'e}nin}, {\em Using collective variables to drive molecular dynamics simulations}, Molecular Physics, 111 (2013), pp.~3345--3362.
+
+\bibitem{FW12}
+{\sc M.~Freidlin and A.~Wentzell}, {\em Random {Perturbations} of {Dynamical} {Systems}}, vol.~260 of A Series of Comprehensive Studies in Mathematics, Springer, 2012.
+
+\bibitem{FS01}
+{\sc D.~Frenkel and B.~Smit}, {\em Understanding Molecular Simulation}, vol.~1 of Computational Science Series, Academic Press, 2001.
+
+\bibitem{GT01}
+{\sc D.~Gilbarg and N.~Trudinger}, {\em {E}lliptic {Partial} {Differential} {Equations} of {Second} {Order}}, vol.~224, Springer, 2001.
+
+\bibitem{GSal20}
+{\sc P.~Gkeka, G.~Stoltz, A.~Fariman, Z.~Belkacemi, M.~Ceriotti, J.~Chodera, A.~Dinner, A.~Ferguson, J.-B. Maillet, H.~Minoux, C.~Peter, F.~Pietrucci, A.~Silveira, A.~Tkatchenko, Z.~Trstanova, R.~Wiewiora, and T.~Lelièvre}, {\em Machine learning force fields and coarse-grained variables in molecular dynamics: application to materials and biological systems}, Journal of {C}hemical {T}heory and {C}omputation, 16 (2020), pp.~4757--4775.
+
+\bibitem{GHRCNL21}
+{\sc A.~Glielmo, B.~Husic, A.~Rodriguez, C.~Clementi, F.~No{\'e}, and A.~Laio}, {\em Unsupervised learning methods for molecular simulation data}, Chemical Reviews, 121 (2021), pp.~9722--9758.
+
+\bibitem{G10}
+{\sc A.~Gonz{\'a}lez}, {\em Measurement of areas on a sphere using {F}ibonacci and latitude--longitude lattices}, Mathematical Geosciences, 42 (2010), pp.~49--64.
+
+\bibitem{GMS73}
+{\sc E.~Gosling, I.~McDonald, and K.~Singer}, {\em On the calculation by molecular dynamics of the shear viscosity of a simple fluid}, Molecular Physics, 26 (1973), pp.~1475--1484.
+
+\bibitem{G54}
+{\sc M.~Green}, {\em Markoff random processes and the statistical mechanics of time‐dependent phenomena. {II. I}rreversible processes in fluids}, The Journal of Chemical Physics, 22 (1954), pp.~1281--1295.
+
+\bibitem{molly}
+{\sc J.~Greener}, {\em Differentiable simulation to develop molecular dynamics force fields for disordered proteins}, Chemical Science, 15 (2024), pp.~4897--4909.
+
+\bibitem{G11}
+{\sc P.~Grisvard}, {\em Elliptic problems in nonsmooth domains}, vol.~69 of Classics in Applied Mathematics, SIAM, 2011.
+
+\bibitem{H08}
+{\sc J.~Hadamard}, {\em M{\'e}moire sur le probl{\`e}me d'analyse relatif {\`a} l'{\'e}quilibre des plaques {\'e}lastiques encastr{\'e}es}, vol.~33 of M\'emoires présentés par divers savants à l'Acad\'emie des sciences de l'Institut de France., Imprimerie nationale, 1908.
+
+\bibitem{HWL06}
+{\sc E.~Hairer, G.~Wanner, and C.~Lubich}, {\em Geometric Numerical Integration}, vol.~31 of Springer Series in Computational Mathematics, Springer, 2006.
+
+\bibitem{HR80a}
+{\sc E.~Haug and B.~Rousselet}, {\em Design sensitivity analysis in structural mechanics. {I}. {S}tatic response variations}, Journal of Structural Mechanics, 8 (1980), pp.~17--41.
+
+\bibitem{HR80b}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Design sensitivity analysis in structural mechanics. {II}. {E}igenvalue variations}, Journal of Structural Mechanics, 8 (1980), pp.~161--186.
+
+\bibitem{HR83}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Design sensitivity analysis in structural mechanics. {III}. {E}ffects of shape variation}, Journal of Structural Mechanics, 10 (1982), pp.~273--310.
+
+\bibitem{freefem}
+{\sc F.~Hecht, O.~Pironneau, A.~Le~Hyaric, and K.~Ohtsuka}, {\em {FreeFem++} {M}anual}, Laboratoire Jacques Louis Lions,  (2005), pp.~1--188.
+
+\bibitem{HL19}
+{\sc F.~H{\'e}din and T.~Leli{\`e}vre}, {\em {G}en. par{R}ep: A first implementation of the {G}eneralized {P}arallel {R}eplica dynamics for the long time simulation of metastable biochemical systems}, Computer Physics Communications, 239 (2019), pp.~311--324.
+
+\bibitem{HKN04}
+{\sc B.~Helffer, M.~Klein, and F.~M.Nier}, {\em Quantitative analysis of metastability in reversible diffusion processes via a {W}itten complex approach.}, Matem{\'a}tica contempor{\^a}nea, 26 (2004), pp.~41--85.
+
+\bibitem{HN04}
+{\sc B.~Helffer and F.~Nier}, {\em Quantitative analysis of metastability in reversible diffusion processes via a {W}itten complex approach: The case with boundary}, Matem{\'a}tica contempor{\^a}nea, 26 (2004), pp.~41--85.
+
+\bibitem{HN06}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Quantitative analysis of metastability in reversible diffusion processes via a {W}itten complex approach: the case with boundary}, no.~105 in Mémoires de la Soci\'et\'e Math\'ematique de France, Mémoires de la Soci\'et\'e Math\'ematique de France and Centre Nationale de la Recherche Scientifique, 2006.
+
+\bibitem{HS85}
+{\sc B.~Helffer and J.~Sj{\"o}strand}, {\em Puits multiples en m\'ecanique semi-classique. {IV}: {\'E}tude du complexe de {W}itten}, Communications in Partial Differential Equations, 10 (1985), pp.~245--340.
+
+\bibitem{H06}
+{\sc A.~Henrot}, {\em Extremum {P}roblems for {E}igenvalues of {E}lliptic {O}perators}, Frontiers in Mathematics, Birkh{\"a}user Basel, 2006.
+
+\bibitem{HP05}
+{\sc A.~Henrot and M.~Pierre}, {\em Variation et optimisation de formes : une analyse g{\'e}om{\'e}trique}, vol.~48 of Math\'ematiques et applications, Springer, 2005.
+
+\bibitem{H05}
+{\sc D.~Henry}, {\em Perturbation of the boundary in boundary-value problems of partial differential equations}, no.~318 in London Mathematical Society Lecture Note Series, Cambridge University Press, 2005.
+
+\bibitem{HHS08a}
+{\sc F.~H{\'e}rau, M.~Hitrik, and J.~Sj{\"o}strand}, {\em Tunnel effect for {K}ramers--{F}okker--{P}lanck type operators}, Annales Henri Poincar{\'e}, 9 (2008), pp.~209--274.
+
+\bibitem{HHS08b}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Tunnel effect for {K}ramers--{F}okker--{P}lanck type operators: return to equilibrium and applications}, International Mathematics Research Notices, 2008 (2008), pp.~rnn057:1--48.
+
+\bibitem{HHS11}
+{\sc F.~H{\'e}rau, M.~Hitrik, and J.~Sj{\"o}strand}, {\em Tunnel effect and symmetries for {K}ramers--{F}okker--{P}lanck type operators}, Journal of the Institute of Mathematics of Jussieu, 10 (2011), pp.~567--634.
+
+\bibitem{HPC93}
+{\sc W.~Hoover, H.~Posch, and L.~Campbell}, {\em Thermal heat reservoirs via {Gauss}’ principle of least constraint: {Dissipation}, chaos, and phase‐space dimensionality loss in one‐dimensional chains}, Chaos, 3 (1993), pp.~325--332.
+
+\bibitem{H67}
+{\sc L.~H{\"o}rmander}, {\em Hypoelliptic second order differential equations}, Acta Mathematica, 119 (1967), pp.~147--171.
+
+\bibitem{HMVW15}
+{\sc S.~Hottovy, A.~McDaniel, G.~Volpe, and J.~Wehr}, {\em The {S}moluchowski-{K}ramers limit of stochastic differential equations with arbitrary state-dependent friction}, Communications in Mathematical Physics, 336 (2015), pp.~1259--1283.
+
+\bibitem{HS06}
+{\sc W.~Huisinga and B.~Schmidt}, {\em Metastability and dominant eigenvalues of transfer operators}, in New {A}lgorithms for {M}acromolecular {S}imulation, vol.~49 of Lecture Notes in Computational Science and Engineering, Springer, 2006, pp.~167--182.
+
+\bibitem{JS12}
+{\sc R.~Joubaud and G.~Stoltz}, {\em Nonequilibrium {Shear} {Viscosity} {Computations} with {Langevin} {Dynamics}}, Multiscale Modeling \& Simulation, 10 (2012), pp.~191--216.
+
+\bibitem{JM22}
+{\sc L.~Journel and P.~Monmarch{\'e}}, {\em Uniform convergence of the {F}leming--{V}iot process in a hard killing metastable case}, The Annals of Applied Probability, 35 (2025), pp.~1019--1048.
+
+\bibitem{K95}
+{\sc T.~Kato}, {\em {P}erturbation {T}heory for {L}inear {O}perators}, vol.~132 of Classics in Mathematics, Springer, 1995.
+
+\bibitem{CFKS87}
+{\sc W.~Kirsch, H.~Cycon, R.~Froese, and B.~Simon}, {\em {S}chr{\"o}dinger {O}perators}, Theoretical and Mathematical Physics, Springer, 1987.
+
+\bibitem{K87}
+{\sc W.~Kliemann}, {\em Recurrence and {invariant} {measures} for {degenerate} {diffusions}}, The Annals of Probability, 15 (1987), pp.~690--107.
+
+\bibitem{KLOS22}
+{\sc T.~Komorowski, J.~Lebowitz, S.~Olla, and M.~Simon}, {\em On the conversion of work into heat: microscopic models and macroscopic equations}, Ensaios Matema{\'a}ticos, 38 (2023), pp.~325--341.
+
+\bibitem{K40}
+{\sc H.~Kramers}, {\em Brownian motion in a field of force and the diffusion model of chemical reactions}, Physica, 7 (1940), pp.~284--304.
+
+\bibitem{KP08}
+{\sc S.~Krantz and H.~Parks}, {\em Geometric {I}ntegration {T}heory}, Cornerstones, Birkh{\"a}user Boston, 2008.
+
+\bibitem{KPPK15}
+{\sc S.~Krumscheid, M.~Pradas, G.~Pavliotis, and S.~Kalliadasis}, {\em Data-driven coarse graining in action: {M}odeling and prediction of complex systems}, Physical Review E, 92 (2015), p.~042139.
+
+\bibitem{Tinker18}
+{\sc L.~Lagard{\`e}re, L.~Jolly, F.~Lipparini, F.~Aviat, B.~Stamm, Z.~Jing, M.~Harger, H.~Torabifard, G.~Cisneros, and M.~Schnieders}, {\em Tinker-{HP}: {A} massively parallel molecular dynamics package for multiscale simulations of large complex systems with advanced point dipole polarizable force fields}, Chemical Science, 9 (2018), pp.~956--972.
+
+\bibitem{LMS19}
+{\sc C.~Landim, M.~Mariani, and I.~Seo}, {\em {D}irichlet’s and {T}homson’s principles for non-selfadjoint elliptic operators with application to non-reversible metastable diffusion processes}, Archive for Rational Mechanics and Analysis, 231 (2019), pp.~887--938.
+
+\bibitem{LBLLP12}
+{\sc C.~Le~Bris, T.~Leli\`evre, M.~Luskin, and D.~Perez}, {\em A mathematical formalization of the parallel replica dynamics}, Monte--Carlo Methods and Applications, 18 (2012), pp.~119--146.
+
+\bibitem{LP10}
+{\sc D.~Le~Peutrec}, {\em Small eigenvalues of the {N}eumann realization of the semiclassical {W}itten {L}aplacian}, Annales de la Facult{\'e} des sciences de Toulouse: Math{\'e}matiques, Series 6, 9 (2010), pp.~735--809.
+
+\bibitem{LPM20}
+{\sc D.~Le~Peutrec and L.~Michel}, {\em Sharp spectral asymptotics for nonreversible metastable diffusion processes}, Probability and Mathematical Physics, 1 (2020), pp.~3--53.
+
+\bibitem{LPN21}
+{\sc D.~Le~Peutrec and B.~Nectoux}, {\em Small eigenvalues of the {W}itten {L}aplacian with {D}irichlet boundary conditions: the case with critical points on the boundary}, Analysis \& PDE, 14 (2021), pp.~2595--2651.
+
+\bibitem{LS22}
+{\sc J.~Lee and I.~Seo}, {\em Non-reversible metastable diffusions with {G}ibbs invariant measure {I}: {E}yring--{K}ramers formula}, Probability Theory And Related Fields, 182 (2022), pp.~849--903.
+
+\bibitem{LL10}
+{\sc F.~Legoll and T.~Leli\`evre}, {\em Effective dynamics using conditional expectations}, Nonlinearity, 23 (2010), pp.~21--31.
+
+\bibitem{LSY98}
+{\sc R.~Lehoucq, D.~Sorensen, and C.~Yang}, {\em {ARPACK} users' guide: Solution of large-scale eigenvalue problems with implicitly restarted {A}rnoldi methods}, {S}oftware, {E}nvironments, and {T}ools, SIAM, 1998.
+
+\bibitem{LM13a}
+{\sc B.~Leimkuhler and C.~Matthews}, {\em Rational construction of stochastic numerical methods for molecular sampling}, Applied Mathematics Research eXpress, 2013 (2013), pp.~34--56.
+
+\bibitem{LM13b}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Robust and efficient configurational molecular sampling via {L}angevin dynamics}, The Journal of Chemical Physics, 138 (2013), p.~174102.
+
+\bibitem{LM15}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Molecular Dynamics}, vol.~39 of Interdisciplinary Applied Mathematics, Springer, 2015.
+
+\bibitem{LMS16}
+{\sc B.~Leimkuhler, C.~Matthews, and G.~Stoltz}, {\em The computation of averages from equilibrium and nonequilibrium {L}angevin molecular dynamics}, IMA Journal of Numerical Analysis, 36 (2016), pp.~13--79.
+
+\bibitem{LR04}
+{\sc B.~Leimkuhler and S.~Reich}, {\em Simulating {H}amiltonian {D}ynamics}, vol.~14 of Cambridge Monographs on Applied and Computational Mathematics, Cambridge University Press, 2004.
+
+\bibitem{LLPN19}
+{\sc T.~Leli{\`e}vre, D.~Le~Peutrec, and B.~Nectoux}, {\em Exit event from a metastable state and {E}yring-{K}ramers law for the overdamped {L}angevin dynamics}, in Stochastic Dynamics Out of Equilibrium, Springer Proceedings in Mathematics \& Statistics, Springer, 2019, pp.~331--363.
+
+\bibitem{LLPN22}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em {E}yring-{K}ramers exit rates for the overdamped {L}angevin dynamics: the case with saddle points on the boundary}, Journal de l'\`Ecole Polytechnique -- Math\`ematiques, 12 (2025), pp.~881--982.
+
+\bibitem{LN15}
+{\sc T.~Leli{\`e}vre and F.~Nier}, {\em Low temperature asymptotics for quasistationary distributions in a bounded domain}, Analysis \& PDE, 8 (2015), pp.~561--628.
+
+\bibitem{LPRSS24}
+{\sc T.~Leli{\`e}vre, G.~Pavliotis, G.~Robin, R.~Santet, and G.~Stoltz}, {\em Optimizing the diffusion coefficient of overdamped {L}angevin dynamics}, preprint arXiv:2404.12087,  (2024).
+
+\bibitem{LRS24}
+{\sc T.~Leli\`evre, M.~Rachid, and G.~Stoltz}, {\em A spectral approach to the narrow escape problem in the disk}, preprint arXiv:2401.06903,  (2024).
+
+\bibitem{LRS10}
+{\sc T.~Leli\`evre, M.~Rousset, and G.~Stoltz}, {\em Free Energy Computations - A Mathematical Perspective}, Imperial College Press, 2010.
+
+\bibitem{LRS12}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Langevin dynamics with constraints and computation of free energy differences}, Mathematics of Computation, 81 (2012), pp.~2071--2125.
+
+\bibitem{LSS24}
+{\sc T.~Leli{\`e}vre, R.~Santet, and G.~Stoltz}, {\em Improving sampling by modifying the effective diffusion}, preprint arXiv:2410.00525,  (2024).
+
+\bibitem{LS16}
+{\sc T.~Leli{\`e}vre and G.~Stoltz}, {\em Partial differential equations and stochastic methods in molecular dynamics}, Acta Numerica, 25 (2016), pp.~681--880.
+
+\bibitem{MV12}
+{\sc S.~M{\'e}l{\'e}ard and D.~Villemonais}, {\em Quasi-stationary distributions and population processes}, Probability Surveys, 9 (2012), pp.~340--410.
+
+\bibitem{MS14}
+{\sc G.~Menz and A.~Schlichting}, {\em {P}oincar\'e and logarithmic {S}obolev inequalities by decomposition of the energy landscape}, The Annals of Probability, 42 (2014), pp.~1809 -- 1884.
+
+\bibitem{MRTT53}
+{\sc N.~Metropolis, A.~W. Rosenbluth, M.~Rosenbluth, A.~Teller, and E.~Teller}, {\em Equation of {state} {calculations} by {fast} {computing} {machines}}, The Journal of Chemical Physics, 21 (1953), pp.~1087--1092.
+
+\bibitem{NN24}
+{\sc V.~Nateghi and F.~N\"uske}, {\em Kinetically consistent coarse graining using kernel-based extended dynamic mode decomposition}, preprint arXiv:2409.16396,  (2024).
+
+\bibitem{N20}
+{\sc B.~Nectoux}, {\em Sharp {E}stimate of the {M}ean {E}xit {T}ime of a {B}ounded {D}omain in the {Z}ero {W}hite {N}oise {L}imit}, Markov Processes And Related Fields, 26 (2020), pp.~403--422.
+
+\bibitem{NW99}
+{\sc J.~Nocedal and S.~Wright}, {\em Numerical {O}ptimization}, vol.~2 of Springer Series in Operations Research and Financial Engineering, Springer, 1999.
+
+\bibitem{NN13}
+{\sc F.~No{\'e} and F.~N\"uske}, {\em A variational approach to modeling slow processes in stochastic dynamical systems}, Multiscale Modeling \& Simulation, 11 (2013), pp.~635--655.
+
+\bibitem{NKBC21}
+{\sc F.~N{\"u}ske, P.~Koltai, L.~Boninsegna, and C.~Clementi}, {\em Spectral properties of effective dynamics from conditional expectations}, Entropy, 23 (2021), p.~134.
+
+\bibitem{O04}
+{\sc E.~Oudet}, {\em Numerical minimization of eigenmodes of a membrane with respect to the domain}, ESAIM: Control, Optimisation and Calculus of Variations, 10 (2004), pp.~315--330.
+
+\bibitem{P14}
+{\sc G.~A. Pavliotis}, {\em Stochastic Processes and Applications}, vol.~60 of Texts in Applied Mathematics, Springer, 2014.
+
+\bibitem{PPW56}
+{\sc L.~Payne, G.~P{\'o}lya, and H.~Weinberger}, {\em On the ratio of consecutive eigenvalues}, Journal of Mathematical Physics, 35 (1956), pp.~289--298.
+
+\bibitem{PCWKV16}
+{\sc D.~Perez, E.~Cubuk, A.~Waterland, E.~Kaxiras, and A.~Voter}, {\em Long-time dynamics through parallel trajectory splicing}, Journal of Chemical Theory and Computation, 12 (2016), pp.~18--28.
+
+\bibitem{PUV15}
+{\sc D.~Perez, B.~Uberuaga, and A.~Voter}, {\em The parallel replica dynamics method – {Coming} of age}, Computational Materials Science, 100 (2015), pp.~90--103.
+
+\bibitem{RLR22}
+{\sc M.~Ramil, T.~Leli{\`e}vre, and J.~Reygner}, {\em Mathematical foundations for the {P}arallel {R}eplica algorithm applied to the underdamped {L}angevin dynamics}, MRS Communications, 12 (2022), pp.~454--459.
+
+\bibitem{RS75}
+{\sc M.~Reed and B.~Simon}, {\em {II}: {S}elf-adjointness}, vol.~2 of Methods of Modern Mathematical Physics, Elsevier Science, 1975.
+
+\bibitem{RB06}
+{\sc L.~Rey-Bellet}, {\em Ergodic properties of {M}arkov processes}, in Open Quantum Systems II: The Markovian Approach, vol.~1881 of {L}ecture {N}otes in {M}athematics, Springer, 2006, pp.~1--39.
+
+\bibitem{R89}
+{\sc H.~Rodenhausen}, {\em {E}instein's relation between diffusion constant and mobility for a diffusion model}, Journal of Statistical Physics, 55 (1989), pp.~1065--1088.
+
+\bibitem{R18}
+{\sc J.~Roussel}, {\em {Theoretical and {N}umerical {A}nalysis of {N}on-{R}eversible {D}ynamics in {C}omputational {S}tatistical {P}hysics}}, PhD thesis, Universit\'e Paris-Est, 2018.
+
+\bibitem{R83}
+{\sc B.~Rousselet}, {\em Shape design sensitivity of a membrane}, Journal of Optimization Theory and Applications, 40 (1983), pp.~595--623.
+
+\bibitem{R06}
+{\sc M.~Rousset}, {\em On the control of an interacting particle estimation of {S}chr{\"o}dinger ground states}, SIAM journal on mathematical analysis, 38 (2006), pp.~824--844.
+
+\bibitem{RCB77}
+{\sc J.~Ryckaert, G.~Ciccotti, and H.~Berendsen}, {\em Numerical integration of the {C}artesian equations of motion of a system with constraints: molecular dynamics of n-alkanes}, Journal of Computational Physics, 23 (1977), pp.~327--341.
+
+\bibitem{S42}
+{\sc A.~Sard}, {\em The measure of the critical values of differentiable maps}, Bulletin of the American Mathematical Society, 48 (1942), pp.~883--990.
+
+\bibitem{S83}
+{\sc B.~Simon}, {\em Semiclassical analysis of low lying eigenvalues. {I.} {N}on-degenerate minima: {A}symptotic expansions}, Annales de l'Institut Henri Poincar\'e: Physique Th{\'e}orique, 38 (1983), pp.~295--308.
+
+\bibitem{SL13}
+{\sc G.~Simpson and M.~Luskin}, {\em Numerical analysis of parallel replica dynamics}, ESAIM: Mathematical Modelling and Numerical Analysis, 47 (2013), pp.~1287--1314.
+
+\bibitem{SS23}
+{\sc R.~Spacek and G.~Stoltz}, {\em Extending the {R}egime of {L}inear {R}esponse with {S}ynthetic {F}orcings}, Multiscale Modeling \& Simulation, 21 (2023), pp.~1602--1643.
+
+\bibitem{S22}
+{\sc G.~Stoltz}, {\em Error {E}stimates and {V}ariance {R}eduction for {N}onequilibrium {S}tochastic {D}ynamics}, in Monte Carlo and Quasi-Monte Carlo Methods, Springer, 2022.
+
+\bibitem{S39}
+{\sc G.~Szeg{\"o}}, {\em Orthogonal polynomials}, vol.~23 of Colloqium Publications, American Mathematical Society, 1939.
+
+\bibitem{SV00}
+{\sc M.~Sørensen and A.~Voter}, {\em Temperature-accelerated dynamics for simulation of infrequent events}, The Journal of Chemical Physics, 112 (2000), pp.~9599--9606.
+
+\bibitem{T14}
+{\sc G.~Teschl}, {\em {M}athematical {M}ethods in {Q}uantum {M}echanics}, vol.~157 of Graduate Studies in Mathematics, American Mathematical Society, 2014.
+
+\bibitem{TD07}
+{\sc B.~D. Todd and P.~J. Daivis}, {\em Homogeneous non-equilibrium molecular dynamics simulations of viscous flow: {T}echniques and applications}, Molecular Simulation, 33 (2007), pp.~189--229.
+
+\bibitem{TD17}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Nonequilibrium Molecular Dynamics}, Cambridge University Press, 2017.
+
+\bibitem{T10}
+{\sc M.~Tuckerman}, {\em Statistical Mechanics: Theory and Molecular Simulation}, Oxford Graduate Texts, Oxford University Press, 2010.
+
+\bibitem{USV07}
+{\sc B.~Uberuaga, S.~Stuart, and A.~Voter}, {\em Parallel replica dynamics for driven systems: {D}erivation and application to strained nanotubes}, Physical Review B—Condensed Matter and Materials Physics, 75 (2007), p.~014301.
+
+\bibitem{VDV00}
+{\sc A.~Van~der Vaart}, {\em Asymptotic Statistics}, vol.~3 of Cambridge Series in Statistical and Probabilistic Mathematics, Cambridge University Press, 2000.
+
+\bibitem{V06}
+{\sc C.~Villani}, {\em Hypocoercivity}, Memoirs of the American Mathematical Society, 202 (2009).
+
+\bibitem{V14}
+{\sc D.~Villemonais}, {\em General approximation method for the distribution of {M}arkov processes conditioned not to be killed}, ESAIM: Probability and Statistics, 18 (2014), pp.~441--467.
+
+\bibitem{V97}
+{\sc A.~Voter}, {\em Hyperdynamics: {A}ccelerated molecular dynamics of infrequent events}, Physical Review Letters, 78 (1997), p.~3908.
+
+\bibitem{V98}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Parallel replica method for dynamics of infrequent events}, Physical Review B, 57 (1998), pp.~9599--9606.
+
+\bibitem{W82}
+{\sc E.~Witten}, {\em {S}upersymmetry and {M}orse theory}, Journal of Differential Geometry, 17 (1982), pp.~661--692.
+
+\bibitem{ZHS16}
+{\sc W.~Zhang, C.~Hartmann, and C.~Sch{\"u}tte}, {\em Effective dynamics along given reaction coordinates, and reaction rate theory}, Faraday Discussions, 195 (2016), pp.~365--394.
+
+\end{thebibliography}
