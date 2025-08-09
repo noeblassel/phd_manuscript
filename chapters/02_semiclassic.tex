@@ -195,7 +195,7 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
         \label{02:eq:stable_manifold}
         \mathcal W^{\pm}(z_i) = \left\{x\in\R^d\middle|\underset{t\to\pm\infty}{\lim}\,\phi_t(x)=z_i\right\}.
     \end{equation}
-    The stable manifold theorem (see~\cite[Section 9.2]{T24}) asserts that these sets are smooth submanifolds with boundary. The manifold~$\mathcal W^+(z_i)$ is called the stable manifold and~$\mathcal W^-(z_i)$ is called the unstable manifold. Moreover their tangent spaces at~$z_i$ are given by
+    The stable manifold theorem (see~\cite[Section 9.2]{T00}) asserts that these sets are smooth submanifolds with boundary. The manifold~$\mathcal W^+(z_i)$ is called the stable manifold and~$\mathcal W^-(z_i)$ is called the unstable manifold. Moreover their tangent spaces at~$z_i$ are given by
     \[T_{z_i}(\mathcal W^{\pm}) = \mathrm{Vect}\,\left\{\hessEigvec{i}{j},\,1\leq j\leq d:\,\pm\hessEigval{i}{j} > 0 \right\},\]
     so that~$\mathcal W^+(z_i)$ and~$\mathcal W^-(z_i)$ are of dimensions~$d-\mathrm{Ind}(z_i)$ and~$\mathrm{Ind}(z_i)$, respectively.
 
@@ -1547,7 +1547,7 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
                 \end{equation}
             \end{lemma}
             \begin{proof}
-                Let~$T>0$ and~$i\in I_{\min}$. In a neighborhood of~$z_i$, the decomposition~\eqref{02:eq:boundary_decomposition} shows that~$\partial \overline{\basin{z_0}} = \mathcal S(z_0)$ coincides with~$\mathcal W^{+}(z_0)$.The stable manifold theorem (see~\cite[Section 9.2]{T24}) implies that~$\mathcal S(z_0)$ is smooth in a neighborhood of~$z_i$, with furthermore~$\n_{\overline{\basin{z_0}}}(z_i) = \hessEigvec{i}{1}$.
+                Let~$T>0$ and~$i\in I_{\min}$. In a neighborhood of~$z_i$, the decomposition~\eqref{02:eq:boundary_decomposition} shows that~$\partial \overline{\basin{z_0}} = \mathcal S(z_0)$ coincides with~$\mathcal W^{+}(z_0)$.The stable manifold theorem (see~\cite[Section 9.2]{T00}) implies that~$\mathcal S(z_0)$ is smooth in a neighborhood of~$z_i$, with furthermore~$\n_{\overline{\basin{z_0}}}(z_i) = \hessEigvec{i}{1}$.
                 Recall that~$\sigma_{\overline{\basin{z_0}}}$ denotes the signed distance function to~$\partial\overline{\basin{z_0}}$ with the convention~\eqref{02:eq:sdf}. Its regularity in a neighborhood of~$z_i$ is guaranteed by the fact that, according to the definition~\eqref{02:eq:vstar_bis},~$z_i$ is a separating saddle point.
                 Note that in the case where~$z\in\partial \basin{z_0}$ is a non-separating saddle point, the outward normal~$\n_{\basin{z_0}}(z) = -\nabla \sigma_{\basin{z_0}}(z)$ is not well-defined.
                 A Taylor expansion gives
@@ -1774,7 +1774,7 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
                 
                 The property~\eqref{02:eq:energy_cutoff_support} follows from~\eqref{02:eq:energy_cutoff},~\eqref{02:eq:basin_local_geometry} and~\eqref{02:eq:corona_high_energy_strip}, once one imposes~$\largeRadius(\beta)$ to be smaller than~$\varepsilon_0(C_\xi)$ obtained in Lemma~\ref{02:lemma:stable_manifold} and than~$\varepsilon_0$ from Lemma~\ref{02:lemma:taylor_saddle}, at least for~$\beta$ sufficiently large.
 
-                Let us now define~$\mathcal U_0$ and prove~\eqref{02:eq:quasimode_support}. For any local minimum~$m\in\R^d$ of~$V$, standard arguments (see~\cite[Chapter 8]{T24}) show that the basin~$\basin{z_0}$ is open and its boundary contains no local minimum of~$V$.
+                Let us now define~$\mathcal U_0$ and prove~\eqref{02:eq:quasimode_support}. For any local minimum~$m\in\R^d$ of~$V$, standard arguments (see~\cite[Chapter 8]{T00}) show that the basin~$\basin{z_0}$ is open and its boundary contains no local minimum of~$V$.
                 Furthermore, for~$\varepsilon<2\varepsilon_0(V,z_0)$, $\overline{B(z_i,\varepsilon)}$ contains no local minimum of~$V$ for any~$i\in I_{\min}$. Let us then define
                 \[\mathcal U_0 = \left[\right(\overline{\basin{z_0}}\setminus \mathcal S(z_0)\left)\cap \left\{V<\Vstar + \varepsilon \right\}\right] \cup\bigcup_{i\in I_{\min}} B(z_i,\varepsilon).\]
                 Note that, according to~\eqref{02:hyp:energy_well_bounded} and for~$\varepsilon$ sufficiently small, this set is bounded and since~$\Vstar>V(z_0)$, we may also choose~$\varepsilon$ sufficiently small so that $z_0$ is the unique minimum of~$V$ in~$\overline{\mathcal U}_0$.

@@ -1,2 +1,676 @@
-\chapter{Quantitative spectral asymptotics for reversible diffusions in temperature-dependent domains.}
+\chapter{A simple approach to the Kramers--Smoluchowski approximation in the case of position-dependent matrix-valued frictions.}
 \label{chap:overdamped}
+
+\begin{chapterabstract}
+    This note gives a simple proof of the Kramers--Smoluchowski (or overdamped) limit of the (kinetic) Langevin dynamics in the case of a matrix-valued, position-dependent friction coefficient,
+    obtaining convergence of time-rescaled trajectories to those of a limiting process, in the large friction limit.
+    Rather than following a stochastic averaging approach, our convergence result (while admittedly weaker than similar results obtained in~\cite{HMVW15} in the small-mass limit) is based on functional-analytic estimates from~$L^2$-hypocoercivity theory, allowing for a very direct proof.
+    We hope will be of interest in its own right in providing an intuitive explanation of the noise-induced drift in the limiting equation.
+    Additionally, we use our result to identify the overdamped limit for a class of kinetic dynamics with position-dependent mass matrices, which are of innterest for Monte--Carlo methods, due to their use as preconditioners.
+\end{chapterabstract}
+
+\section{Introduction and statement of the result}
+\label{05:sec:intro}
+
+\paragraph{Underdamped dynamics.}
+We study the overdamped limit of the kinetic Langevin equation
+\begin{equation}
+    \label{05:eq:underdamped_friction_dependent}
+    \left\{
+    \begin{aligned}
+            \d q_t^\lambda &= M^{-1}p_t^\lambda \d t,\\
+            \d p_t^\lambda &= -\nabla V(q_t^\lambda) \d t - \lambda D(q_t^\lambda)^{-1}M^{-1}p_t^\lambda\,\d t + \sqrt{\frac{2\lambda}{\beta}}D(q_t^\lambda)^{-1/2}\,\d W_t^\lambda,
+        \end{aligned}
+    \right.
+\end{equation}
+in the high friction regime~$\lambda\to+\infty$, where $D:\cX\to \cSpd$ is a symmetric positive-definite matrix field, and $W^\lambda$ is a standard Wiener process in $\R^d$. By~$D^{-1/2}$ in~\eqref{05:eq:underdamped_friction_dependent}, we mean any matrix-field $A:\cX\to\R^{d\times d}$ such that~$AA^\top=D^{-1}$. In~\eqref{05:eq:underdamped_friction_dependent},~$M\in \cSpd$ is a fixed mass matrix.
+
+The position variable~$q$ evolves in~$\mathcal X$, where $\cX$ is either the $d$-dimensional torus~$L\mathbb T^d$ for some~$L>0$, or~$\cX=\R^d$, while the momentum variable~$p\in\R^d$ is in all cases unrestricted.
+% We stress that our result can be adapted to the case of unbounded configurational domains, at the cost of standard regularity and confinement hypotheses on~$V$ (and~$D$), which are automatically verified in the case~$\cX$ is compact. We restrict to this setting to avoid some purely technical considerations.
+
+\noe{(Pas nécessaire, je pense): However, let us fix the convention that~$D^{-1/2}:\cX\to\cSpd$, keeping in mind that alternative conventions can be recovered by changing~$W^\lambda$ to $O W^\lambda$}
+
+\noe{En fait, condition d'integrabilité~\eqref{05:eq:global_integrability_condition} assez restrictive pour~$\cX =\mathbb T^d$.. Peut-être vaut le coup d'étendre à $\cX=\R^d$.}
+
+In the name of consistency, we assume that~$W^\lambda$ is given by a diffusive rescaling of a reference Wiener process $W$, i.e. $W_t^\lambda = \sqrt{\lambda}W_{t/\lambda}$ for all~$\lambda,t>0$. Besides, we assume that there exists random variable~$X_0,p_0$, with values in~$\cX$ and~$\R^d$ respectively, such that
+\begin{equation}
+    \label{05:eq:initial_conditions}
+    (q_0^\lambda,p_0^\lambda)=(X_0,p_0)\,\qquad \forall\,\lambda >0.
+\end{equation}
+
+We introduce the following family of rescaled-in-time,~$W$-adapted processes:
+\begin{equation}
+    \label{05:eq:underdamped_time_rescaled}
+    X_t^\lambda := q_{\lambda t}^\lambda,\qquad\forall\,\lambda>0,\,t>0.
+\end{equation}
+
+The main result, stated in Proposition~\ref{05:prop:overdamped_limit} below, is a convergence result on compact time intervals for the trajectories of the process~$X^\lambda$ defined in~\eqref{05:eq:underdamped_time_rescaled} towards those of the Kramers--Smoluchowski dynamics, defined as solutions on~$\cX$ to the stochastic differential equation
+\begin{equation}
+    \label{05:eq:overdamped_friction_dependent}
+    \d X_t = -\left[D(X_t)\nabla V(X_t)\d t - \frac1\beta\div\, D(X_t)\right]\,\d t + \sqrt{\frac{2}{\beta}}D^{1/2}(X_t)\d W_t,
+\end{equation}
+with initial data $X_0\in\cX$, and where~$\div\,D:\cX\to\R^d$ denotes the row-wise (or column-wise) divergence of the symmetric matrix~$D$.
+
+\paragraph{Invariant measure.}
+Throughout this work, we slightly abuse notation by equating diffuse probability measures with their densities with respect to the Lebesgue measure. With this convention, the Boltzmann--Gibbs measure~$\mu$ is given by
+\begin{equation}
+    \label{05:eq:boltzmann_gibbs}
+    \mu(\d q,\d p) = \mu(q,p)\,\d q\,\d p = \exp\left(-\beta H(q,p)\right)/Z_{\mu,\beta}\,\d q\,\d p,\qquad Z_{\mu}=\int_{\cX\times\R^d}\e^{-\beta H},
+\end{equation}
+where the Hamiltonian function is given by
+\begin{equation}
+    \label{05:eq:hamiltonian_mass_dependent}
+    H(q,p) = \frac12 p^\top M^{-1}p + V(q).
+\end{equation}
+The measure~\eqref{05:eq:gibbs} is a product measure~$\mu=\kappa\otimes\nu$, formed from a Gaussian kinetic marginal~$\kappa$ with covariance matrix~$\frac1\beta M$, and a configurational marginal~$\nu$ given by the so-called Gibbs distribution
+\begin{equation}
+    \label{05:eq:gibbs}
+    \nu(q)\,\d q = \exp(-\beta V(q))\,\d q,\qquad Z_{\nu}=\int_{\cX}\e^{-\beta V}.
+\end{equation}
+
+For any $f\in L^1(\cX\times \R^d,\mu)$, we define the partial average with respect to the kinetic variable, defined by
+\begin{equation}
+    \label{05:eq:kappa_proj}
+    \sP f(q) = \int_{\R^d}f(q,p)\,\kappa(\d p) = \left(\frac{2\pi}{\beta}\right)^{-d/2}\det M^{-1/2}\int_{\R^d}f(q,p)\e^{-\frac{\beta}{2}p^\top M^{-1}p}\,\d p,
+\end{equation}
+which plays a key role in the proof of Proposition~\ref{05:prop:overdamped_limit} below.
+\paragraph{Assumptions and main result.}
+The following two assumptions will be assumed throughout this work.
+\begin{hypothesis}
+    The coefficients of~\eqref{05:eq:underdamped_friction_dependent} are smooth
+    \begin{equation}
+        \label{05:hyp:smoothness}
+        V\in\mathcal C^\infty(\cX),\qquad D^{-1}\in\mathcal C^\infty(\cX;\cSpd),\qquad D^{-1/2}\in\mathcal C^\infty(\cX;\R^{d\times d})\tag{\bf{H1}}.
+    \end{equation}
+    \end{hypothesis}
+    \begin{hypothesis}
+        The diffusion profile is bounded:
+        \begin{equation}
+            \label{05:hyp:elliptic}
+            \exists\,M_D >0:\forall\,x\in\cX,\qquad D(x) < M_D \mathrm{Id}\tag{\bf{H2}}
+        \end{equation}
+        in the sense of symmetric matrices.
+        \end{hypothesis}
+        \noe{Automatique, et $D^{-1}$ unif. elliptique}
+
+We show the following convergence result, which was proven in~
+\begin{proposition}
+\label{05:prop:overdamped_limit}
+Assume that~$(X_0,p_0)\sim \mu_0$ with $\mu_0\ll\mu$ and~$\frac{\d\mu_0}{\d\mu}\in L^\infty(\cX\times \R^d)$. Then, for all~$T>0$:
+\begin{enumerate}
+    \item{\begin{equation}
+    \label{05:eq:convergence_in_l2}
+    \underset{0\leq t\leq T}{\sup}\,\E_{\mu_0}\left[|X_t^\lambda-X_t|^2\right]\xrightarrow{\lambda\to+\infty}0,
+    \end{equation}}
+    \item{\begin{equation}
+    \label{05:eq:convergence_in_law}
+    X^\lambda_* \P_{\mu_0}\xrightarrow{\lambda\to +\infty}X_*\P_{\mu_0}\qquad\text{weakly in }\mathcal P(\mathcal C([0,T];\cX)).
+\end{equation}}
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+    While other works, such as~\cite{HMVW15}, formulate the Kramers--Smoluchowski approximation in terms of a small mass parameter~$m\to 0$, we use a large friction parameter~$\lambda\to+\infty$ and a time-rescaling. The two point of views can be seen to be equivalent upon applying an appropriate adimensionalization procedure to the dynamics~\eqref{05:eq:underdamped_friction_dependent}, see the discussion in~\cite[Section 2.2.4]{LRS10}.
+\end{remark}
+
+\noe{Remarque/question: ce résultat montre que les marginales de dimension finie de $X^\lambda$ convergent (dans $L^2$ et en loi) vers celles de $X$. Si on montre la tension de $(X^\lambda)_{\lambda>0}$ dans $\mathcal C([0,T];\cX)$, on montre CV en loi de $X^\lambda$ vers $X$ dans cet espace, par Prokhorov.
+Un critère pour ça est une estimée uniforme en $\lambda$:
+$$\exists \gamma,\alpha,\delta,M>0:\E[|X^\lambda_0|^\gamma]\leq M,\qquad \E |X_s^\lambda - X_t^\lambda|^\alpha \leq M|t-s|^{1+\delta},$$
+potentiellement plus facile à controller que $\sup_{t\leq T}|X_t^\lambda-X_t|$. Autre critère plus faible:
+$$
+\exists \gamma\geq 0,\forall\,\delta>0,\,s,t\in[0,T],\qquad \P(|X_t^\lambda-X_s^\lambda|\geq \delta)\leq \delta^{-\gamma}\E|\Gamma(t)-\Gamma(s)|^\alpha,
+$$
+où~$\Gamma$ est un processus croissant, continu, à valeurs réelles. (Kisielewicz 2006)
+}
+\paragraph{Functional setting.}
+We make use of the weighted~$L^2$-space
+\begin{equation}    
+    \wLmu = \left\{f\in L^1_{\mathrm{loc}}(\cX\times\R^d)\,: \int_{\cX\times \R^d}f^2 \,\d \mu < +\infty\right\},
+\end{equation}
+and its subspace of~$\mu$-centered observables
+\begin{equation}
+    \wLmuz = \left\{f\in \wLmu:\,\int_{\cX\times\R^d}f\,\d\mu = 0\right\}.
+\end{equation}
+Note that, since~$\mu = \nu\otimes\kappa$, it holds that $\wLmu\cap\ker\sP \subset \wLmuz$ and~$\sP^*=\sP$, where we denote by~$A^*$ the formal~$\wLmu$-adjoint of any operator~$A$.
+
+On~$\testfuncs(\cX\times\R^d)$, the generator of the evolution semigroup for the dynamics~\eqref{05:eq:underdamped_friction_dependent} coincides with the differential operator
+\begin{equation}
+    \cL_\lambda = \cLham + \lambda \cLou,
+\end{equation}
+where~$\cLham$ and~$\cLou$ are respectively the Hamiltonian transport and fluctuation-dissipation operators, defined by
+\begin{equation}
+    \cLham = p^\top M^{-1}\nabla_q - \nabla V^\top\nabla_p,\qquad\cLou = -(D^{-1}M^{-1}p)^\top\nabla_p + \frac1\beta D^{-1}:\nabla_p^2.
+\end{equation}
+The~$\wLmu$-adjoints of partial derivatives are easily found by integration by parts to be
+\begin{equation}
+    \partial_{q_i}^* = -\partial_{q_i}+\beta\partial_{q_i}V,\qquad \partial_{p_i}^* = -\partial_{p_i}+\beta (M^{-1}p)_i,\qquad\,\forall 1\leq i\leq d,
+\end{equation}
+which shows that
+\begin{equation}
+    \cLham = \frac1\beta\left[\nabla_p^{*}\nabla_q-\nabla_q^{*}\nabla_p\right],\qquad \cLou =-\frac1\beta \nabla_p^{*}D^{-1}\nabla_p,
+\end{equation}
+so that $\lambda\cLou$ and~$\cLham$ correspond respectively to the~$\wLmu$-symmetric and antisymmetric components of the operator~$\cL_\lambda$.
+\noe{$\cL_\lambda$ maximal accretive,~$\e^{t\cL_\lambda}$ is a $\mathcal C_0$-semigroup on $L^2(\mu)$ par Lummer--Philips.}
+
+\section{Proof of Proposition~\ref{05:prop:overdamped_limit}.}
+\noe{Resume de la stratégie de preuve}
+
+\begin{equation}
+    \label{05:eq:convergence}
+    \forall\,T>0,\qquad\underset{0\leq t\leq T}{\sup}\,\E_{\mu_0}\left[ \left|X_t^\lambda-X_t\right|^2\right]\xrightarrow{\lambda\to+\infty}0.
+\end{equation}
+\paragraph{An It\^o computation.}
+By an integration by parts, for any~$\lambda>0$, and noting that the quadratic covariation process $\left\langle q^\lambda\right\rangle = 0$ vanishes, it holds
+\begin{equation}
+    \d\left[D(q_t^\lambda)p_t^\lambda\right] = -D(q_t^\lambda)\nabla V(q_t^\lambda)\,\d t - \lambda\,\d q_t^\lambda + \sqrt{\frac{2\lambda}{\beta}}D^{1/2}(q_t^\lambda)\,\d W_t^\lambda + \nabla D(q_t^\lambda) M^{-1}p_t^\lambda\cdot p_t^\lambda\,\d t.
+\end{equation}
+Isolating~$\d q_t^\lambda$ and integrating over~$[0,\lambda t]$, we get:
+    \begin{equation}
+        \label{05:eq:ipp_sto}
+        \begin{aligned}
+        q_{\lambda t}^\lambda- q_0^\lambda &= -\frac{1}{\lambda}\int_0^{\lambda t}D(q_s^\lambda)\nabla V(q_s^\lambda)\,\d s+ \sqrt{\frac{2}{\lambda\beta}}\int_0^{\lambda t}D^{1/2}(q_s^\lambda)\,\d W_s^\lambda\\
+        &+ \frac{1}{\lambda}\int_0^{\lambda t}\nabla D(q_s^\lambda)M^{-1}p_s^\lambda\cdot p_s^\lambda\,\d s+\frac{D(q_0^\lambda)p_0^\lambda - D(q_{\lambda t}^\lambda)p_{\lambda t}^\lambda}{\lambda}.
+        \end{aligned}
+    \end{equation}
+
+Defining~$X^\lambda_t = q_{\lambda t}$, this time-rescaling changes~\eqref{05:eq:ipp_sto} into
+\begin{equation}
+    \label{05:eq:perturbed_overdamped}
+    X_t^\lambda = X_0 -\int_0^t \left[D(X_s^\lambda)\nabla V(X_s^\lambda)-\frac1\beta\div\, D(X_s^\lambda)\right]\,\d s + \sqrt{\frac{2}{\beta}}\int_0^t D^{1/2}(X_t^\lambda)\,\d W_s + R(t,\lambda),
+\end{equation}
+where we introduced a remainder term
+\begin{equation}
+    \label{05:eq:remainder}
+    R(t,\lambda) = \frac{D(q_0^\lambda)p_0^\lambda-D(q_{\lambda t}^\lambda)p_{\lambda t}^\lambda}{\lambda} + \frac1\lambda\int_0^{\lambda t} \psi(q_s^\lambda,p_{s}^\lambda)\,\d s,\qquad \psi(q,p) = \nabla D(q)M^{-1}p\cdot p - \frac1\beta\,\div D(q),
+\end{equation}
+and use~$X_0^\lambda=q_0^\lambda=X_0$.
+The components of the vector-valued observable~$\psi$ write
+$$\psi_k(q,p) = \sum_{i,j=1}^d \frac{\partial}{\partial q_i} D_{kj}(q)\left((M^{-1}p)_i p_j -\frac{\delta_{ij}}\beta\right),\qquad\forall\,1\leq k\leq d,$$
+and an easy computation using~$\mathrm{Cov}_\kappa(p)=M$ therefore shows that~$\psi\in\,\left(\ker\sP\right)^d \subset L_0^2(\mu)^d$, where the projector~$\sP$ is defined in~\eqref{05:eq:kappa_proj}.
+In view of~\eqref{05:eq:perturbed_overdamped}, the term~$R(t,\lambda)$ can be viewed as a perturbation term, which the remainder of the proof of the first item in Proposition~\ref{05:prop:overdamped_limit} seeks to control.
+
+To this end, we introduce, for each~$\lambda>0$, the solution $\Phi_\lambda\in \wLmu^d$ to the (vectorial) Poisson equation:
+\begin{equation}
+    \label{05:eq:poisson_equation}
+    \forall\,1\leq k\leq d,\qquad\cL_\lambda\Phi_{\lambda,k} = \psi_k,
+\end{equation}
+whose existence is guaranteed by the first item in Lemma~\ref{05:lemma:hypocoercivity} below.
+Since~$\cL_\lambda$ is hypoelliptic under Assumptions~\eqref{05:hyp:smoothness} and~\eqref{05:hyp:elliptic} (see Lemma~\noe{lemme en appendice} below),~$\Phi_\lambda$ is smooth, and we may write the integral in~\eqref{05:eq:remainder} as 
+\begin{equation}
+    \frac1\lambda\int_0^{\lambda t} \psi(q_s^\lambda,p_{ s}^\lambda)\,\d s = \frac{\Phi_\lambda(X_t^\lambda,p_{\lambda t}^\lambda) - \Phi_\lambda(X_0,p_0^\lambda)}{\lambda} - \sqrt{\frac{2}{\beta}}\int_0^t \nabla_p \Phi_{\lambda}(X_s^\lambda,p_{\lambda s}^\lambda)^\top D(X_s^\lambda)^{-1/2}\,\d W_s,
+\end{equation}
+by applying It\^o's formula, and making the same time-rescaling as the one leading to~\eqref{05:eq:perturbed_overdamped}. To prove Proposition~\ref{05:prop:overdamped_limit}, the main difficulty is to control the remainder term~$R(\lambda,t)$. To this end, we use uniform-in-$\lambda$~estimates based on the~$L^2$-hypocoercivity framework of~\cite{DMS15}.
+\paragraph{Hypocoercivity properties in $\wLmuz$.}
+We show in Appendix~\ref{05:app:technical_results} the following result.
+\begin{lemma}
+    \label{05:lemma:hypocoercivity}
+     The following properties hold in the limit~$\lambda\to+\infty$.
+    \begin{enumerate}[i)]
+        \item{
+        The generator~$\cL_\lambda$ is invertible on~$\wLmuz\to\wLmuz$, with the bound    
+        \begin{equation}
+        \|\cL_\lambda^{-1}\|_{\mathcal B(\wLmuz)} = \bigo(\lambda).
+        \end{equation}}
+        \item{Furthermore, if~$\varphi\in \wLmu\cap\ker\,\sP\subset L_0^2(\mu)$, it holds
+        \begin{equation}
+        \|\cL_\lambda^{-1}\varphi\|_{\wLmu} = \bigo(1)\|\varphi\|_{\wLmu},
+        \end{equation}}
+        \item{
+        and
+            \begin{equation}
+                \|\nabla_p\cL_\lambda^{-1}\varphi\|^2_{\wLmu} = \bigo(1/\lambda)\|\varphi\|^2_{\wLmu}.
+            \end{equation}
+        }
+    \end{enumerate}
+\end{lemma}
+Using these estimates, the proof of the first item~\eqref{05:eq:convergence_in_l2} in Proposition~\ref{05:prop:overdamped_limit} follows from a standard Gr\"onwall-type argument, which we now detail.
+
+\paragraph{Conclusion in the case~$\mu_0=\mu$.}
+We fix~$T>0$. By stationarity,~$X_t,X_t^\lambda\sim \nu$ and~$p_{\lambda t}^\lambda\sim\kappa$ for all~$0\leq t\leq T$. We aim to bound the difference process
+\begin{equation}
+    E_t^\lambda := X_t^\lambda - X_t
+\end{equation}
+in~$L^2$, uniformly in~$[0,T]$. We write, for~$0\leq t \leq T$:
+\begin{equation}
+    \label{05:eq:young_inequality}
+        |E_t^\lambda|^2 \leq 3 \left[\left|\int_0^t \left[b(X_s^\lambda)-b(X_s)\right]\,\d s\right|^2+\left|\int_0^t \left[\sigma(X_s^\lambda)-\sigma(X_s)\right]\,\d W_s\right|^2 + \left|R(t,\lambda)\right|^2\right],
+\end{equation}
+where~$b(x) = -\nabla V(x) + \frac1\beta\div\, D(x)$ and~$\sigma(x) = \sqrt{\frac2\beta}D(x)^{1/2}$. We estimate each of these terms separately. Let~$L_b,L_\sigma>0$ be Lipschitz constants for~$b,\sigma$ (for the Frobenius norm on~$\cSpd$ in the case of $\sigma$).
+Then the first two terms inside the bracket on the right side of~\eqref{05:eq:young_inequality} are bounded in expectation by
+\begin{equation}
+    \label{05:eq:lipschitz_bound}
+    (L_b^2+L_\sigma^2)\int_0^t \E_\mu\left[|E_s^\lambda|^2\right]\,\d s,
+\end{equation}
+ using It\^o's isometry to bound the second term. To control the remainder, we write
+ \begin{equation}
+    \begin{aligned}
+    \E_\mu\left[\left|R(t,\lambda)\right|^2\right] &\leq 5\left(\frac{2}{\lambda^2}\left[\|Dv\|^2_{\wLmu}+\|\Phi_\lambda\|^2_{\wLmu}\right] + \E_\mu\left[\left|\int_0^t \nabla_v \Phi_\lambda(X_s^\lambda,v_{\lambda s}^\lambda)^\top D(X_s^\lambda)^{-1/2}\,\d W_s\right|^2\right]\right)\\
+    &\leq 5\left(\frac{2}{\lambda^2}\left[\|Dv\|^2_{\wLmu}+\|\Phi_\lambda\|^2_{\wLmu}\right] + T\|D\|_{L^\infty(\cX;\cSpd)}\|\nabla_v\Phi\|^2_{\wLmu}\right),
+    \end{aligned}
+ \end{equation}
+using once again It\^o's isometry in the second line. We may now use the second and third items of Lemma~\ref{05:lemma:hypocoercivity} to obtain
+\begin{equation}
+    \label{05:eq:l2_bounds}
+    \E_\mu\left[\left|R(\lambda,t)\right|^2\right] \leq \frac{C}{\lambda}
+\end{equation}
+for some constant~$C>0$ independent of~$\lambda$. Collecting the estimates~\eqref{05:eq:young_inequality},~\eqref{05:eq:lipschitz_bound} and~\eqref{05:eq:l2_bounds}, we get, taking expectations,
+\begin{equation}
+    \E_\mu\left[|E_t^\lambda|^2\right] \leq 3\left(L_b^2+L_\sigma^2\right)\int_0^t\E_\mu\left[|E_s^\lambda|^2\right]\,\d s + \frac{3C}{\lambda},
+\end{equation}
+whereby Gr\"onwall's lemma gives
+\begin{equation}
+    \underset{0\leq t\leq T}{\sup}\,\E_\mu\left[|E_t^\lambda|^2\right] \leq \frac{3C}{\lambda}\e^{3T(L_b^2+L_\sigma^2)},
+\end{equation}
+which concludes the proof of~\eqref{05:eq:convergence_in_l2} for~$\mu_0=\mu$ upon letting~$\lambda\to +\infty$.
+\paragraph{Conclusion for general~$\mu_0$.}
+To conclude, we simply condition with respect to the initial state, writing
+\begin{equation}
+    \label{05:eq:conditioning_argument}
+    \begin{aligned}
+    \E_{\mu_0}\left[|E_t^\lambda|^2\right] &= \int_{\cX\times\R^d} \E_{(q,p)}\left[|E_t^\lambda|^2\right]\mu_0(\d q\,\d p)\\
+    &= \int_{\cX\times\R^d} \E_{(q,p)}\left[|E_t^\lambda|^2\right]\frac{\d\mu_0}{\d \mu}(q,p)\mu(\d q\,\d p)\\
+    &\leq C_{\mu_0}\int_{\cX\times\R^d}\E_{(q,p)}\left[|E_t^\lambda|^2\right]\mu(\d q\,\d p)\\
+    &=C_{\mu_0}\E_{\mu}\left[|E_t^\lambda|^2\right],
+    \end{aligned}
+\end{equation}
+where we used the notation
+\begin{equation}
+    C_{\mu_0} :=\left\|\frac{\d\mu_0}{\d\mu}\right\|_{L^\infty(\cX\times\R^d)},
+\end{equation}
+with which the proof of~\eqref{05:eq:convergence_in_l2} follows from the previous paragraph.
+
+\paragraph{Tightness.}
+We now prove~\eqref{05:eq:convergence_in_law}.
+Since all finite-dimensional marginals of~$X^\lambda$ converge to those of~$X$ by~\eqref{05:eq:convergence_in_l2}, it is sufficient, in order to conclude the result of Proposition~\ref{05:prop:overdamped_limit}, to prove tightness for the family of pushforward measures~$(X^\lambda_* \P_{\mu_0})_{\lambda>0}$ on~$\mathcal C([0,T];\cX)$.
+The weak convergence~$X^\lambda_*\P_{\mu_0}\xrightarrow{\lambda\to+\infty} X_*\P_{\mu_0}$ then follows by a classical corollary of Prokhorov's theorem.\noe{Billingsley}
+
+Fix~$0\leq s\leq t \leq T$. The first step is to write the velocity~$M^{-1}p_t^\lambda$ in a more explicit form, viewing the equation
+\begin{equation}
+    \d(M^{-1/2}p^\lambda)_t = -M^{-1/2}\nabla V(q_t^\lambda)\,\d t - \left(M^{-1/2}D^{-1}(q_t^\lambda)M^{-1/2}\right)M^{-1/2}p_t^\lambda\,\d t + \sqrt{\frac{2\lambda}{\beta}}M^{-1/2}D^{-1/2}(q_t^\lambda)\,\d W_t 
+\end{equation}
+as a time-dependent linear equation with a source term. for~$M^{-1/2}p$.
+We introduce the matrix of fundamental solutions to the associated homogeneous problem, namely the~$\cSpd$-valued process defined pathwise by the ODE:
+\begin{equation}
+    \label{05:eq:fundamental_matrix_ode}
+    \d\cR^\lambda_t = -\lambda M^{-1/2} D(q_t^\lambda)^{-1}M^{-1/2}\cR^\lambda_t\,\d t,\qquad \cR^\lambda_0 = \Id.
+\end{equation}
+Using Duhamel's principle, we may then write
+\begin{equation}
+    M^{-1/2}p^\lambda_t = \cR_{t}^\lambda M^{-1/2}p_0^\lambda - \cR_t^\lambda\int_0^t (\cR_{s}^\lambda)^{-1}M^{-1/2}\nabla V(q_s^\lambda)\,\d s+\sqrt{\frac{2\lambda}{\beta}}\cR_t^\lambda\int_0^t (\cR_{s}^\lambda)^{-1} M^{-1/2}D(q_s^\lambda)^{-1/2}\,\d W^\lambda_s.
+\end{equation}
+The validity of this equation may be checked a posteriori by applying Itô's product rule to~$(\cR_t^\lambda)^{-1}M^{-1/2}p_t^\lambda$, using the expression
+\begin{equation}
+    \label{05:eq:matrix_diff_expr}
+    \d\left(\cR_t^\lambda\right)^{-1} = \lambda \left[\cR_t^\lambda\right]^{-1}M^{-1/2}D(q_t^\lambda)^{-1}M^{-1/2}\,\d t,
+\end{equation}
+which itself is a consequence the well-known matrix identity $\partial_t (A(t)^{-1}) = - A(t)^{-1}\partial_t A(t) A(t)^{-1}$.
+
+Left-multiplying by~$M^{-1/2}$ and integrating over~$[\lambda s,\lambda t]$, it follows, according to~\eqref{05:eq:underdamped_friction_dependent}, that the time-rescaled position increments can be written
+    \begin{equation}
+        \begin{aligned}
+        X_t^\lambda - X_s^\lambda = \int_{\lambda s}^{\lambda t}M^{-1}p_r^\lambda\,\d r = \int_{\lambda s}^{\lambda t}\left(M^{-1/2}\cR_{r}^\lambda M^{-1/2}p_0- M^{-1/2}\cR_r\int_0^r (\cR_{u}^\lambda)^{-1}M^{-1/2}\nabla V(q_u^\lambda)\,\d u\right.\\\left.+\sqrt{\frac{2\lambda}{\beta}}M^{-1/2}\cR^\lambda_r\int_0^r \left(\cR_{u}^{\lambda}\right)^{-1}M^{-1/2} D(q_u^\lambda)^{-1/2}\,\d W^\lambda_u\right)\,\d r,
+    \end{aligned}
+\end{equation}
+which we split into three summands:
+\begin{equation}
+    I_1(s,t)+I_2(s,t)+I_3(s,t).
+\end{equation}
+
+Fix~$\alpha\geq 1$. Bounding with~$|X_t^\lambda-X_s^\lambda|^\alpha\leq 3^{\alpha-1}(|I_1(s,t)|^\alpha + |I_2(s,t)|^\alpha + |I_3(s,t)|^\alpha)$, we treat these contributions separately, seeking uniform-in-$\lambda$ estimates for each term.
+We shall make frequent use of the inequality:
+\begin{equation}
+    \label{05:eq:fundamental_matrix_bound}
+    \forall\,0\leq s\leq t\leq T,\qquad \|\cR_t^\lambda\left(\cR_{s}^\lambda\right)^{-1}\|\leq \e^{-\lambda\varepsilon_D(t-s)}\qquad \P_{\mu_0}\text{-almost surely},
+\end{equation}
+where~$\|\cdot\|$ is the operator norm induced by the Euclidean norm on~$\R^d$, for some~$\varepsilon_D>0$ independent of~$\lambda$.
+This identity follows from the uniform bound~\eqref{05:hyp:elliptic}, upon applying pathwise, for any~$v_0\in\R^d$, a Gr\"onwall argument to~$|v(t)|^2 = \left|\cR_t^\lambda (\cR_s^\lambda)^{-1}v_0\right|^2$, where~$v$ solves the ODE:
+\begin{equation}
+\frac{\d}{\d t}v(t) = -\lambda M^{-1/2} D (q_t^\lambda)^{-1}M^{1/2}v(t),\qquad v(s) = v_0,
+\end{equation}
+ see also~\cite[Problem 3.31]{T00}.
+
+Applying~\eqref{05:eq:fundamental_matrix_bound} to~$I_1$, we get the following almost-sure inequality:
+\begin{equation}
+    \left|I_1(s,t)\right|^\alpha \leq |p_0|^\alpha\left(\int_{\lambda s}^{\lambda t} \e^{-\lambda\varepsilon_D r}\,\d r\right)^\alpha,
+\end{equation}
+which gives, upon taking the expectation with respect to~$\mu_0$,
+\begin{equation}
+    \label{05:eq:i1_estimate}
+    \E_{\mu_0}\left[\left|I_1(s,t)\right|^p\right] \leq \frac{\mu_0(|p_0|^\alpha)}{\lambda^\alpha \varepsilon_D^\alpha}[\e^{-\lambda^2\varepsilon_D s}-\e^{-\lambda^2\varepsilon_D t}]^\alpha \leq \frac{2^\alpha\mu(|p_0|^\alpha)}{\lambda^\alpha \varepsilon_D^\alpha}C_{\mu_0}.
+\end{equation}
+using the conditioning argument of~\eqref{05:eq:conditioning_argument} in the last inequality. Since~$p_0$ is Gaussian under~$\mu$, the~$\alpha$-th moment~$\mu(|p_0|^\alpha)$ is finite, and the estimate~\eqref{05:eq:i1_estimate} controls the contribution of~$I_1(s,t)$ to~$\E_{\mu_0}[|X_s^\lambda-X_t^\lambda|^\alpha]$ uniformly with respect to~$\lambda$.
+
+Next, we treat the second term, writing:
+\begin{equation}
+    \begin{aligned}
+    |I_2(s,t)|^\alpha &\leq \left(\int_{\lambda s}^{\lambda t}\int_{0}^r \left|\cR_r^\lambda(\cR_{u}^\lambda)^{-1} \nabla V(q_u^\lambda)\right|\,\d u\,\d r\right)^\alpha\\
+    &\leq (\lambda(t-s))^{\alpha-1}\int_{\lambda s}^{\lambda t}\left(\int_0^r \e^{-\lambda\varepsilon_D(r-u)}|\nabla V(q_u^\lambda)|\,\d u\right)^\alpha\,\d r\\
+    &\leq (\lambda(t-s))^{\alpha-1}\int_{\lambda s}^{\lambda t}\left(\int_{0}^r \e^{-\lambda\varepsilon_D(r-u)}\,\d u\right)^{\alpha-1}\int_{0}^r \e^{-\lambda\varepsilon(r-u)}|\nabla V(q_u^\lambda)|^\alpha\,\d u\,\d r\\
+    &\leq \frac{2^{\alpha-1}(t-s)^{\alpha-1}}{\varepsilon_D^{\alpha-1}}\int_{\lambda s}^{\lambda t}\int_{0}^r \e^{-\lambda\varepsilon_D(r-u)}|\nabla V(q_u^\lambda)|^\alpha\,\d u\,\d r,
+    \end{aligned}
+\end{equation}
+where we used Hölder's inequality twice: once in~$r$ in the second line for the Lebesgue measure, and once in~$u$ in the third line for the exponentially-weighted measure~$\e^{-\lambda\varepsilon_D(r-u)}\,\d u$.
+Taking the expectation with respect to~$\P_{\mu_0}$, we get, with the usual conditioning argument:
+\begin{equation}
+    \label{05:eq:i2_estimate}
+    \begin{aligned}
+    \E_{\mu_0}\left[|I_2(s,t)|^\alpha\right] &\leq \underset{0\leq u\leq t}{\sup}\,\E_{\mu_0}[|\nabla V(q_u^\lambda)|^\alpha]\frac{2^{\alpha-1}(t-s)^{\alpha-1}}{\varepsilon_D^{p-1}}\int_{\lambda s}^{\lambda t}\int_0^r \e^{-\lambda \varepsilon_D(r-u)}\,\d u\,\d r\\
+    &\leq C_{\mu_0}\mu\left(|\nabla V|^p\right)\frac{2^{p-1}(t-s)^{p-1}}{\varepsilon_D^{p-1}}\frac{\lambda t-\lambda s}{\lambda \varepsilon_D}\\
+    &= C_{\mu_0}\mu\left(|\nabla V|^p\right)\frac{2^{p-1}(t-s)^p}{\varepsilon_D^p}.
+    \end{aligned}
+\end{equation}
+
+We finally treat the last term, which requires some care. In their proof of~\cite[Lemma 3.1]{WSW24}, the authors suggest controlling a similar term by an application of the Fubini theorem, followed by Doob's inequality. However, this appears to be a mistake, as the resulting time-swapped integral is not a~$W$-adapted Itô integral, and in particular not a martingale. Instead, we write
+\begin{equation}
+    I_3(s,t) = \int_{\lambda s}^{\lambda t}Z_r^\lambda\,\d r,\qquad Z_t^\lambda := \sqrt{\frac{2\lambda}{\beta}}\cR_t^\lambda \int_0^t \left(\cR_s^\lambda\right)^{-1}D(x_s^\lambda)^{-1/2}\,\d W^\lambda_s,
+\end{equation}
+from which we get, using~\eqref{05:eq:fundamental_matrix_ode},
+\begin{equation}
+    \d Z_t^\lambda = \sqrt{\frac2\beta}\left[\lambda^{1/2}D(x_t^\lambda)^{-1/2}\,\d W_t^\lambda-\lambda^{3/2}D(x_t^\lambda)^{-1}Z_t^\lambda \,\d t\right],
+\end{equation}
+so that, rearranging and integrating over~$[\lambda s,\lambda t]$:
+\begin{equation}
+    I_3(s,t) = \sqrt{\frac{\beta}{2}}\left(\lambda^{-1}\int_{\lambda s}^{\lambda t}D(x_r^\lambda)\d W^\lambda_r-\lambda^{-3/2}\int_{\lambda s}^{\lambda t}D(x_r^\lambda)\d Z_r^\lambda\right).
+\end{equation}
+To treat the first term, we use the Burkholder--Davis--Gundy inequality for the existence of~$C_p>0$ such that
+\begin{equation}
+    \E_{\mu_0}\left[\left|\int_{\lambda s}^{\lambda t}D(x_r^\lambda)\,\d W_r^\lambda\right|^p\right] \leq C_p \E_{\mu_0}\left[\left(\int_{\lambda s}^{\lambda t}|D(x_r^\lambda)|^2_{\mathrm{F}}\d r\right)^{p/2}\right]\leq C_p\|D\|_{L^\infty(\cX;\mathcal S^{++})}^{p/2}\lambda^{p/2}(t-s)^{p/2}.
+\end{equation}
+We rewrite the second term by integration by parts, so that
+\begin{equation}
+    a
+\end{equation}
+% The first step is to transform the stochastic term, following the computation from~\noe{Hottovy et. al Riemannien}
+% \begin{equation}
+%     \begin{aligned}
+%         \label{05:eq:ito_integral_rewrite_step1}
+%     \cR_t^\lambda\int_0^t \left(\cR_s\right)^{-1}D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda &= \int_0^t \d\cR_s^\lambda\left(\int_0^s \left(\cR_r^\lambda\right)^{-1}D(x_r^\lambda)^{-1/2}\,\d W_r^\lambda\right)\,\d s + \int_0^t \cR_s^\lambda(\cR_s^{\lambda})^{-1}D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda\\
+%     &= \int_0^t (-\lambda D(x_s^\lambda)^{-1})\cR_s^\lambda\left(\int_0^s (\cR_r)^{-1}D(x_r^\lambda)^{-1/2}\,\d W_r^\lambda\right)\,\d s + \int_0^t D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda\\
+%     &= -\lambda\cR_t^\lambda\int_0^t(\cR_s^\lambda)^{-1}D(x_s^\lambda)^{-1}\left(\int_0^s D(x_r^\lambda)^{-1/2}\,\d W_r^\lambda\right)\,\d s + \int_0^t D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda,
+%     \end{aligned}
+% \end{equation}
+% where we used integration by parts in the first line, and recognize in the second line a linear integral equation for~$Z_t:=\cR_t^\lambda \int_0^t \left(\cR_s\right)^{-1}D(x_s^\lambda)^{-1/2}\,\d W^\lambda_s$:
+% $$ Z_t = \int_0^t \left(-\lambda D(x_s^\lambda)^{-1}\right) Z_s\,\d s + \int_0^t \left(\cR_s\right)^{-1}D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda,$$
+% which is solved pathwise in the last line (\noe{KEDEM 1981, Theoreme 1}), with the same fundamental matrix~$\cR^\lambda$ as in~\eqref{05:eq:fundamental_matrix_ode}.
+
+% We further rewrite the term~$\int_0^t D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda$, introducing~$\Id = \cR_t^\lambda\left(\cR_t^\lambda\right)^{-1}$ and using~\eqref{05:eq:matrix_diff_expr} to write~$\left(\cR_t^\lambda\right)^{-1}$ in integral form:
+% \begin{equation}
+%     \begin{aligned}
+%         \int_0^t D(x_r^\lambda)^{-1/2}\,\d W_r^\lambda &= \cR_t^\lambda \left(I + \lambda\int_0^t \left(\cR_s^\lambda\right)^{-1}D(x_s^\lambda)^{-1}\,\d s\right)\int_0^t D(x_r^\lambda)^{-1/2}\,\d W_r^\lambda,
+%     \end{aligned}
+% \end{equation}
+% which, substituted into the last line of~\eqref{05:eq:ito_integral_rewrite_step1}, gives:
+% \begin{equation}
+%     \begin{aligned}
+%     \cR_t^\lambda\int_0^t \left(\cR^{\lambda}_s\right)^{-1}D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda &= \lambda\int_0^t \cR_t^\lambda\left(\cR_s^\lambda\right)^{-1}D(x_s^\lambda)^{-1}\left(\int_s^t D(x_r^\lambda)^{-1/2}\,\d W_r\right)\,\d s\\
+%     &+\cR_t^\lambda\int_0^t D(x_s^\lambda)^{-1/2}\,\d W_s^\lambda.
+%     \end{aligned}
+% \end{equation}
+
+% Finally, using the stochastic Fubini theorem, the last term can be rewritten as a local martingale:~\noe{Voir Protter-hypothèse de mesurabilité jointe à vérifier}
+% \begin{equation}
+%     I_3(s,t) = \sqrt{\frac{2\lambda}{\beta}}\int_{0}^{\lambda t}\int_{\max(u,\lambda s)}^{\lambda t}\cR^\lambda_r(\cR^\lambda_{u})^{-1}D(x_u^\lambda)^{-1/2}\,\d r\,\d W_u,
+% \end{equation}
+% so that~$|I_3(s,t)|^p$ is stochastically dominated by~\noe{..Pas sur que ça fasse le job car $\int_{\max(u;\lambda s)}^{\lambda t}\cR^\lambda_r(\cR^\lambda_u)^{-1}D(x_u^\lambda)^{-1/2}\,\d r$ n'est pas $W$-adapté $\implies$ pas de Doob ni de BDG ?}
+% \begin{equation}
+%     a
+% \end{equation}
+\section{Overdamped limit for a class of variable-mass matrices.}
+\label{05:sec:mass_matrices}
+We consider in this section a slightly different dynamical setting than the one considered in Section~\ref{05:sec:intro}, that of underdamped Langevin dynamics with position-dependent mass matrices, and explain how Proposition~\ref{05:prop:overdamped_limit} can be leveraged to obtain a limiting equation in the overdamped regime.
+We consider dynamics of the form
+\begin{equation}
+    \label{05:eq:general_langevin}
+    \left\{\begin{aligned}
+    \d q_t^\lambda &= \nabla_p H_M(q_t^\lambda,p_t^\lambda)\,\d t,\\
+    \d p_t^\lambda &= -\nabla_q H_M(q_t^\lambda,p_t^\lambda)\,\d t -\lambda\Sigma(q_t^\lambda)\nabla_p H_M(q_t^\lambda,p_t^\lambda)\,\d t + \sqrt{\frac{2\lambda}{\beta}}\Sigma(q_t^\lambda)^{1/2}\,\d W_t^\lambda,
+    \end{aligned}\right.
+\end{equation}
+on~$\cX\times\R^d$, where~$H_M$ is given by the Hamiltonian
+\begin{equation}
+    \label{05:eq:modified_hamiltonian}
+    H_M(q,p) := \frac12 p^\top M^{-1}(q) p + W(q),\qquad W(q)=V(q) +\frac1{2\beta} \log\det M(q)
+\end{equation}
+with~$M,\Sigma:\cX\to\cSpd$ are smooth, symmetric positive-definite matrix fields. Physically, the variables~$(q,p)$ correspond respectively to the positions and momenta, and the matrix~$M$ to a ``position-dependent mass'' parameter. Note that the corresponding Boltzmann--Gibbs measure
+\begin{equation}
+    \label{05:eq:mass_dependent_boltzmann_gibbs}
+    \mu_M(\d q,\d p) = \mu_M(q,p)\,\d q\,\d p = \frac1{Z_{\mu}}\e^{-\beta H_M(q,p)}\,\d q\,\d p
+\end{equation}
+is such that conditionally on~$q$, the momentum~$p$ is again Gaussian, with a covariance matrix~$\frac{1}{\beta}M(q)$. Note also that the normalization constant in~\eqref{05:eq:mass_dependent_boltzmann_gibbs} is the same as in~\eqref{05:eq:boltzmann_gibbs}, thanks to the term~$\frac1{2\beta}\log\det M(q)$ appearing in the potential~$W$, which incorporates the $q$-dependence of the normalization of the kinetic conditional distribution.
+Since~$H_M$ is non-separable, the Boltzmann--Gibbs measure can no longer be written as a product measure, however the marginal in~$q$ is again the Gibbs measure~\eqref{05:eq:gibbs}, i.e.
+\begin{equation}
+    \int_{\R^d}\mu_M(q,p)\,\d p = \nu(q).
+\end{equation}
+For this reason, the dynamics~\eqref{05:eq:general_langevin} can be used to sample canonical configurations. It has been proposed in the sampling communities~\noe{refs} as an alternative to~\eqref{05:eq:underdamped_friction_dependent} (with~$D=\mathrm{Id}$, say). In this context,~$M$ plays the role of a preconditioner, adapting the diffusion~\eqref{05:eq:general_langevin} to local anisotropic features of the target distribution~$\nu$.
+
+\paragraph{A canonical transformation.}
+We consider the class of dynamics which can be transformed into one of the form~\eqref{05:eq:underdamped_friction_dependent} via a change of variables
+
+\begin{equation}
+    \label{05:eq:change_of_variables}
+    \Gamma(q,p) = \left(x,v\right) = \left(x(q),M^{-1/2}(q)p\right).
+\end{equation}
+The reason to seek~$x$ solely as a function of~$q$ in~\eqref{05:eq:change_of_variables} is that it will allow to recover the overdamped limit of~\eqref{05:eq:general_langevin} via a reciprocal change of variables on the dynamics~\eqref{05:eq:overdamped_friction_dependent}.
+
+Let us stress here that~$M^{-1/2}:\cX\to\cSpd$ designates the principal square root of the matrix-field~$M^{-1}$. The symmetry of this matrix field is a crucial condition for this change of variables to work, see Lemma~\ref{05:lemma:commutation} below.
+
+In the case~$\gamma=0$, both the dynamics~\eqref{05:eq:underdamped_friction_dependent} and~\eqref{05:eq:general_langevin} are of Hamiltonian form. The requirement that~$\Gamma$ encodes an equivalence between time-independent Hamiltonian dynamics imposes that it should be a canonical transformation, that is, that the symplecticity condition
+\begin{equation}
+    \label{05:eq:symplecticity}
+    \nabla \Gamma^\top J \nabla\Gamma = J,\qquad J = \begin{pmatrix}
+        0 & \mathrm{Id}_{\R^d}\\ -\mathrm{Id}_{\R^d}&0
+    \end{pmatrix}
+\end{equation}
+should be satisfied pointwise.
+
+In turn, this requirement imposes some restrictions on the class of allowable mass matrices: writing, for convenience,~$A(q)=M^{-1/2}(q)$, the condition~\eqref{05:eq:symplecticity} gives
+\begin{equation}
+    \begin{aligned}
+    \begin{pmatrix}
+        \nabla_q x & \nabla_p x \\ \nabla_q v & \nabla_p v
+    \end{pmatrix}^\top J \begin{pmatrix}
+        \nabla_q x & \nabla_p x \\ \nabla_q v & \nabla_p v
+    \end{pmatrix} &= \begin{pmatrix}
+    \nabla_q x^\top & \left(\nabla_q A\cdot p\right)^\top \\ 0 & A^\top
+    \end{pmatrix}\begin{pmatrix}\nabla_q A \cdot p & A\\ -\nabla_q x & 0\end{pmatrix}\\
+    &=\begin{pmatrix}
+        \nabla_q x^\top\nabla_q A\cdot p-\left(\nabla_q A\cdot p\right)^\top\nabla_q x & \nabla_q x^\top A\\ - A^\top\nabla_q x & 0
+    \end{pmatrix},
+\end{aligned}
+\end{equation}
+which imposes
+\begin{equation}
+    \label{05:eq:x_gradient_condition}
+    \nabla_q x = A^{-1}=M^{1/2}, \qquad \left(\nabla_q A\cdot p\right)^\top M^{1/2} = M^{1/2}\left(\nabla_q A\cdot p\right).
+\end{equation}
+Assume that~$M^{1/2}$ satisfies the global integrability condition
+\begin{equation}
+    \label{05:eq:global_integrability_condition}
+    \int_0^1 M^{1/2}(\gamma(t))\gamma'(t)\,\d t = 0,\qquad\forall\,\gamma\in\left\{f\in\mathcal C_{\mathrm{pw}}^1([0,1];\cX):\,f(0)=f(1)\right\},\tag{\bf Int}
+\end{equation}
+where~$\mathcal C_{\mathrm{pw}}^1([0,1];\cX)$ denotes the set of piecewise continuously differentiable functions from~$[0,1]$ to~$\cX$.
+\noe{ie les lignes de $M^{1/2}$ sont des 1-formes exactes}
+Then, it also satisfies the symmetry property
+\begin{equation}
+    \label{05:eq:integrability_condition}
+    \forall 1\leq i,j,k \leq d,\qquad \frac{\partial M_{ij}^{1/2}}{\partial q_k} = \frac{\partial M_{ik}^{1/2}}{\partial q_j},\tag{\bf Sym}
+\end{equation}
+\noe{ie les lignes de $M^{1/2}$ sont des 1-formes fermées (=exactes si $\cX$ est simplement connexe -- Lemme de Poincaré)}
+and using~$\nabla_q A = - A (\nabla_q M^{1/2}) A$, we check by an index computation~(see Lemma~\ref{05:lemma:commutation} in Appendix~\ref{05:app:technical_results} below), that the commutation relation in~\eqref{05:eq:x_gradient_condition} holds, and we may furthermore define
+\begin{equation}
+    \label{05:eq:x_definition}
+    x(q) = \int_{0}^1 M^{1/2}(\gamma(t))\gamma'(t)\,\d t,\qquad\forall\,\gamma\in\left\{f\in\mathcal C_{\mathrm{pw}}^1([0,1];\cX):\, f(0)=q_0,f(1)=q\right\},
+\end{equation}
+where the integral is independent of the choice of path~$\gamma$ and base point~$q_0\in\cX$, by the condition~\eqref{05:eq:global_integrability_condition}.
+
+We recall a sufficient condition for~\eqref{05:eq:global_integrability_condition} to be satisfied is~$M^{1/2}=\nabla^2 \Phi$ for some~$\mathcal C^2$ function~$\Phi$ defined on~$\cX$. If~$\cX=\R^d$, this condition is moreover necessary.
+\paragraph{It\^o computation.}
+Denote~$(x_t^\lambda,v_t^\lambda) := \lambda(q_t^\lambda,p_t^\lambda)$. We apply It\^o's lemma to~\eqref{05:eq:general_langevin} in order to derive an SDE in these new variables.~\noe{bien rappeler avant que $\lambda$ est $\mathcal C^\infty$.}
+The first simplification follows from noting that, since~$\lambda(q,p)$ is linear with respect to~$p$, the partial Hessian of each component of~$\lambda$ with respect to~$p$ vanishes, and consequently, so do the quadratic covariation terms in It\^o's formula, due to the degeneracy of the noise in~\eqref{05:eq:general_langevin}, which only acts on the momenta.
+
+We first write
+\begin{equation}
+    \d x_t^\lambda = \nabla_q x(q_t^\lambda)\nabla_p H_M(q_t^\lambda,p_t^\lambda)\,\d t = M^{1/2}(q_t^\lambda)M^{-1}(q_t^\lambda)p_t^\lambda\,\d t = v_t^\lambda\,\d t,
+\end{equation}
+using~\eqref{05:eq:x_gradient_condition} and the form~\eqref{05:eq:hamiltonian_mass_dependent} of the Hamiltonian in the third equality. Next,
+\begin{equation}
+    \begin{aligned}
+    \d v_t^\lambda &= \nabla_q v(q_t^\lambda,p_t^\lambda)\,\d q_t^\lambda + \nabla_p v(q_t^\lambda,p_t^\lambda)\,\d p_t^\lambda\\
+    &= \left(\nabla_q A(q_t^\lambda)\cdot p_t^\lambda\right)M^{-1}(q_t^\lambda)p_t^\lambda\,\d t\\
+    &+ A(q_t^\lambda)\left(-\nabla_q H_M(q_t^\lambda,p_t^\lambda)\,\d t -\lambda\Sigma(q_t^\lambda)\nabla_p H_M(q_t^\lambda,p_t^\lambda)\,\d t + \sqrt{\frac{2\lambda}{\beta}}\Sigma(q_t^\lambda)^{1/2}\,\d W_t^\lambda\right)\\
+    \end{aligned}
+\end{equation}
+
+The fluctuation-dissipation term writes
+\begin{equation}
+    -\lambda A(q_t^\lambda)\Sigma(q_t^\lambda)M^{-1}(q_t^\lambda)p_t^\lambda\,\d t + \sqrt{\frac{2\lambda}{\beta}}A(q_t^\lambda)\Sigma(q_t^\lambda)^{1/2}\,\d W_t^\lambda = -\lambda \widetilde{\Sigma}(q_t^\lambda)v_t^\lambda \,\d t+ \sqrt{\frac{2\lambda}{\beta}}\widetilde{\Sigma}(q_t^\lambda)^{1/2}\,\d W_t^\lambda,
+\end{equation}
+where~$\widetilde{\Sigma}(q) = M^{-1/2}(q)\Sigma(q)M^{-1/2}(q)$, and it can be easily checked that~$\widetilde{\Sigma}(q)^{1/2}:=A(q)\Sigma(q)^{1/2}$ is indeed a square root for~$\widetilde{\Sigma}(q)$, due to the symmetry of~$A(q)$.
+
+We now compute the contribution of the force term, writing~$\nabla_q H_M(q,p) = \frac12 \nabla_q\left(p^\top M^{-1}(q)p\right) + \nabla W(q)$, which gives a term
+\begin{equation}
+    -A(q_t^\lambda)\nabla W(q_t^\lambda)\,\d t = -\left[\nabla_q x\right]^{-1}(q_t^\lambda)\nabla_q W(q_t^\lambda)\,\d t = -\nabla_x\left(W\circ q\right)(x_t^\lambda)\,\d t,
+\end{equation}
+using the first equality of~\eqref{05:eq:x_gradient_condition} to write~$A(q) = \left[\nabla_q x\right]^{-1}(q)$, leaving a final term
+\begin{equation}
+    \left(\nabla_q A(q_t^\lambda)\cdot p_t^\lambda\right)M^{-1}(q_t^\lambda)p_t^\lambda\,\d t - \frac12 A(q_t^\lambda)\nabla_q\left(p_t^{\lambda\top} M^{-1}(q_t^\lambda)p_t^\lambda\right)\,\d t=0,
+\end{equation}
+which vanishes due to the symmetry property~\eqref{05:eq:integrability_condition}, as shown in Lemma~\ref{05:lemma:commutation} below. Collecting terms, we obtain
+\begin{equation}
+    \label{05:eq:final_equation}
+    \left\{\begin{aligned}
+    \d x_t^\lambda &= v_t^\lambda\,\d t,\\
+    \d v_t^\lambda &= -\nabla W_M(x_t^\lambda)\,\d t - \lambda\Sigma_M(x_t^\lambda)\,\d t + \sqrt{\frac{2\lambda}{\beta}}\Sigma_M(x_t^\lambda)^{1/2}\,\d W_t^\lambda,
+    \end{aligned}\right.
+\end{equation}
+for the modified potential~$W_M$ and friction matrix~$\Sigma_M$, given respectively by
+\begin{equation}
+    \label{05:eq:modified_coefficients}
+    W_M(x) = \left[W\circ q\right](x),\qquad \Sigma_M(x) = \left[M^{-1/2}\circ q\right](x)\left[\Sigma\circ q\right](x) \left[M^{-1/2}\circ q\right](x).
+\end{equation}
+\paragraph{Overdamped limit.}
+By Proposition~\ref{05:prop:overdamped_limit}, if~$M^{1/2}$ satisfies the integrability condition~\eqref{05:eq:integrability_condition}, 
+\begin{equation}
+    a
+\end{equation}
+\appendixsection{Proof of Lemma~\ref{05:lemma:hypocoercivity} and auxilliary technical results.}
+\label{05:app:technical_results}
+We specialize the abstract framework of~\noe{DMS} to our setting, ensuring the well-posedness of the Poisson equation~\eqref{05:eq:poisson_equation}, and crucial estimates to prove of our main result.
+Introducing the operator
+\begin{equation}
+    \label{05:eq:hypocoercivity_A}
+    \mathcal A = \left(1+(\cLham\sP)^*\cLham\sP\right)^{-1}(\cLham\sP)^* = \left(1-\sP\cLham^2\sP\right)^{-1}(\cLham\sP)^*,
+\end{equation}
+define, for~$\varepsilon>0$ to be fixed later and all~$\varphi\in \testfuncs(\cX\times\R^d)\cap \wLmuz$, the modified entropy functional
+\begin{equation}
+    \label{05:eq:mod_entropy}
+    \sH_\varepsilon[\varphi] = \frac12\|\varphi\|^2_{L^2(\mu)} - \varepsilon\langle \cA\varphi,\varphi\rangle_{L^2(\mu)}.
+\end{equation}
+
+The corresponding \textit{dissipation} of modified entropy, given for~$\lambda,\varepsilon>0$ by
+\begin{equation}
+    \label{05:eq:dissipation_mod_entropy}
+    \sD_\varepsilon^\lambda[\varphi] = \langle -\cL_\lambda\varphi,\varphi\rangle_{\wLmu} - \varepsilon\langle\cA\cL_\lambda\varphi,\varphi\rangle_{\wLmu} - \varepsilon\langle \cA \varphi,\cL_\lambda\varphi\rangle_{\wLmu},
+\end{equation}
+is defined so that, formally
+\begin{equation}
+    \label{05:eq:dissipation_ode}
+    \forall\,t\geq 0,\qquad\frac{\d}{\d t}\sH_\varepsilon\left[\e^{t\cL_\lambda}\varphi\right] = -\sD_\varepsilon^\lambda[\e^{t\cL_\lambda}\varphi].
+\end{equation}
+
+In~\noe{DMS}, a set of sufficient conditions and appropriate ranges of values for~$\varepsilon>0$ (as a function of~$\lambda$) are identified to ensure the equivalence of~$\sqrt{\sH_\varepsilon[\cdot]}$ with~${\|\cdot\|_{L^2(\mu)}}$, as well as the strict positivity of~$\sD_\varepsilon^\lambda$.
+In turn, these two properties ensure exponential convergence of~$\e^{t\cL_\lambda}\varphi$ to $0$ in~$L^2(\mu)$, by a standard argument using Gr\"onwall's lemma.
+\begin{theorem}[\cite{DMS15}, Theorem 2]
+    Let~$\varphi\in L_0^2(\mu)$, and assume that the following conditions hold.
+    \begin{enumerate}[i)]
+        \item{There exists~$\Cmicro>0$ such that\begin{equation}
+            \forall\,\varphi\in\testfuncs(\cX\times\R^d),\qquad-\left\langle\cLou\varphi,\varphi\right\rangle_{\wLmu} \geq \Cmicro\left\|(1-\sP)\varphi\right\|^2_{\wLmu}.
+        \end{equation}
+        }
+        \item{There exists~$\Cmacro>0$ such that\begin{equation}
+            \forall\,\varphi\in\testfuncs(\cX\times\R^d)\cap \wLmuz,\qquad \left\|\cLham\sP\varphi\right\|^2_{\wLmu} \geq \Cmacro\left\|\sP\varphi\right\|^2_{\wLmu}.
+        \end{equation}
+        }
+        \item{It holds on~$\testfuncs(\cX\times\R^d)$:\begin{equation}
+            \sP \cLham \sP = 0.
+        \end{equation}}
+        \item{
+            The operators~$\cA \cLham (1-\sP)$, $\cA \cLou$ are bounded, and for each~$\lambda>0$, there exists~$\Caux(\lambda)>0$ such that
+            \begin{equation}
+                \forall\,\varphi\in \wLmuz,\qquad\left\|\cA\cLham(1-\sP)\varphi\right\|_{\wLmu} + \lambda\left\|\cA\cLou \varphi\right\|_{\wLmu} \leq \Caux(\lambda)\left\|(1-\sP)\varphi\right\|_{\wLmu}.
+            \end{equation}
+        }
+    \end{enumerate}
+    then, there exist
+\end{theorem}
+
+\begin{equation}
+    \llangle u,v \rrangle_\varepsilon := \langle u,v\rangle_{L^2(\mu)}-\varepsilon\left(\langle \cA u,v\rangle_{L^2(\mu)}+\langle u,\cA v\rangle_{L^2(\mu)}\right).
+\end{equation}
+
+\noe{Controle de $\|\nabla_v \Phi_\lambda\|_{L^2}$}
+\begin{equation}
+    \label{05:eq:control_v_grad}
+    \begin{aligned}
+    \cL_\lambda \Phi_\lambda &= \left(\cLham + \lambda\cLou\right)\Phi_\lambda\\
+    \left\langle (\cLham+\lambda\cLou)\Phi_\lambda,\Phi_\lambda\right\rangle_{L^2(\mu)} &= \left\langle \psi,\Phi_\lambda\right\rangle_{L^2(\mu)}\\
+    &=\lambda\left\langle \cLou \Phi_\lambda,\Phi_\lambda\right\rangle_{L^2(\mu)}\\
+    \left\|\nabla_v\Phi_\lambda\right\|^2_{L^2(\mu)} &\leq C|\left\langle \cLou \Phi_\lambda,\Phi_\lambda\right\rangle|\qquad \text{\noe{$H^1$-coercivité de $\cLou$ en $v$}}\\
+    &= \frac{C}{\lambda}|\langle \psi,\Phi_\lambda\rangle|\\
+    &\leq \frac{C}{\lambda}\|\psi\|_{L^2(\mu)}\|\Phi_\lambda\|_{L^2(\mu)}
+    \end{aligned}
+\end{equation}
+\noe{A changer un peu pour prendre en compte $D^{-1/2}$ et côté matriciel}
+
+\noe{Donc: manque contrôle $L^2$ de $\Phi_\lambda$ uniforme en $\lambda$.}
+\begin{lemma}[Index computations.]
+    \label{05:lemma:commutation}
+    Let~$M:\cX\to\cSpd$ be such that the integrability conditions~\eqref{05:eq:integrability_condition} hold. Then, the following equations hold for all~$(q,p)\in\cX\times\R^d$:
+    \begin{equation}
+        \label{05:eq:commutation}
+        \left(\nabla_q M^{-1/2}(q)\cdot p\right)^\top M^{1/2}(q) = M^{1/2}(q)\nabla_q M^{-1/2}(q)\cdot p,
+    \end{equation}
+    \begin{equation}
+        \label{05:eq:derivative_identity}
+        \left(\nabla A(q)\cdot p\right)M^{-1}(q)p = \frac12 A(q)\nabla_q\left(p^\top M^{-1}(q)p\right)
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    We begin by showing~\eqref{05:eq:commutation}.
+    Set $A = M^{-1/2}$,~$B = M^{1/2}$,~$C=\nabla_q M^{1/2}$. Since~$M^{1/2}(q)\in\cSpd$, the condition~\eqref{05:eq:integrability_condition} implies that $C$ is a symmetric tensor field. With implied summation over repeated indices, we need to check
+    \begin{equation}
+        \label{05:eq:tensor_expression}
+        \forall\,1\leq i,j\leq d,\qquad\left(\partial_{q_i} A\right)_{\alpha_1\alpha_2}p_{\alpha_2} B_{\alpha_1 j} = B_{i\alpha_1}\left(\partial_{q_j}A\right)_{\alpha_1\alpha_2}p_{\alpha_2}.
+    \end{equation}
+    Now, using the well-known formula~$\partial_{q_i} A= - A \left(\partial_{q_i} B\right) A$, due to the relation~$A=B^{-1}$, we rewrite the left-hand side of~\eqref{05:eq:tensor_expression} as
+    \begin{equation}
+        \label{05:eq:tensor_expression_transform}
+        \begin{aligned}
+        \left(\partial_{q_i} A\right)_{\alpha_1\alpha_2}p_{\alpha_2} B_{\alpha_1 j} &= -A_{\alpha_1\alpha_3}C_{\alpha_3\alpha_4 i}A_{\alpha_4 \alpha_2}p_{\alpha_2} B_{\alpha_1 j}\\
+        &=-\delta_{\alpha_3 j}C_{\alpha_3\alpha_4 i}A_{\alpha_4\alpha_2}p_{\alpha_2}\\
+        &=-C_{j\alpha_4 i}A_{\alpha_4\alpha_2}p_{\alpha_2}\\
+        &=-C_{ij\alpha_4}A_{\alpha_4\alpha_2}p_{\alpha_2},
+        \end{aligned}
+    \end{equation}
+    where we use the symmetry of~$A,B$ and~$A=B^{-1}$ to introduce a Kronecker~$\delta$ in the second line, and the symmetry of~$C$ in the last line.
+    A similar computation allows to rewrite the right-hand side of~\eqref{05:eq:tensor_expression} in an identical form. This concludes the proof of~\eqref{05:eq:commutation}.
+
+    We now proceed to show~\eqref{05:eq:derivative_identity}. In coordinates, we require
+    \begin{equation}
+        \forall1\leq i\leq d,\qquad(\partial_{q_{\alpha_1}} A)_{i{\alpha_2}}p_{\alpha_2}\left(A^2\right)_{{\alpha_1}{\alpha_3}}p_{\alpha_3} = \frac12 A_{i{\alpha_1}}p_{\alpha_2}\left(\partial_{q_{\alpha_1}}A^2\right)_{{\alpha_2}{\alpha_3}}p_{\alpha_3}.
+    \end{equation}
+    Writing~$\partial_{q_{\alpha_1}}A^2 =  A\partial_{q_{\alpha_1}} A + \partial_{q_{\alpha_1}} A$, and writing~$\partial_{q_{\alpha_1}} A$ as in~\eqref{05:eq:tensor_expression_transform}, the relation transforms into
+    \begin{equation}
+        2A_{i{\alpha_4}}C_{{\alpha_4}{\alpha_5}{\alpha_1}}A_{{\alpha_5}{\alpha_2}}p_{\alpha_2}(A^2)_{{\alpha_1}{\alpha_3}}p_{\alpha_3} =  A_{i{\alpha_1}}p_{\alpha_2}\left((A^2)_{{\alpha_2}{\alpha_4}}C_{{\alpha_4}{\alpha_5}{\alpha_1}}A_{{\alpha_5}{\alpha_3}}+A_{{\alpha_2}{\alpha_4}}C_{{\alpha_4}{\alpha_5}{\alpha_1}}(A^2)_{{\alpha_5}{\alpha_3}}\right)p_{\alpha_3},
+    \end{equation}
+    and introducing new variables~$u=Ap$,~$v=A^2p$, further simplifies into:
+    \begin{equation}
+        \label{05:eq:symmetry_lemma_final_form}
+        2A_{i{\alpha_4}}C_{{\alpha_4}{\alpha_5}{\alpha_1}}u_{{\alpha_5}}v_{\alpha_1} = A_{i{\alpha_1}}C_{{\alpha_4}{\alpha_5}{\alpha_1}}\left(v_{\alpha_4} u_{{\alpha_5}}  + v_{{\alpha_5}}u_{{\alpha_4}}\right),
+    \end{equation}
+    which is easily seen to hold given the symmetry of~$C$. Indeed, relabelling~$\alpha_4\leftrightarrow\alpha_5$ on the second summand in the right hand-side of~\eqref{05:eq:symmetry_lemma_final_form}, we get
+    \begin{equation}
+        A_{i\alpha_1}C_{\alpha_4\alpha_5\alpha_1}v_{\alpha 5}u_{\alpha_4} = A_{i\alpha_1}C_{\alpha_5\alpha_4\alpha_1}v_{\alpha_4}u_{\alpha_5}=A_{i\alpha_1}C_{\alpha_4\alpha_5\alpha_1}v_{\alpha_4}u_{\alpha_5},
+    \end{equation}
+    since~$C$ is symmetric. This implies the two sides of~\eqref{05:eq:symmetry_lemma_final_form} are equal, upon relabelling~$\alpha_1\leftrightarrow\alpha_4$ on the right-hand-side.
+\end{proof}
