@@ -1,20 +1,22 @@
 \chapter{Introduction}
 \label{chap:introduction}
-
-\section{An overview of Molecular Dynamics}
+In Section~\ref{sec:01:MD}, we introduce the broader scientific context of molecular dynamics simulations.
+\section{An overview of molecular dynamics}
+\label{sec:01:MD}
 Molecular dynamics (MD) is a set of techniques aimed at extracting properties of atomistic systems from carefully designed computer simulations.
 Due to the development of flexible and efficient methodologies, as well as the steady increase in available computational power over the last seventy years, MD has become a mainstay of computational physics, and is now routinely used in a variety of scientific applications from computational thermodynamics and material science to drug discovery and cell biology.
 Fundamentally, MD simulates the time-evolution of systems at the atomic scale, by treating atoms as classical point particles, whose trajectories are governed by a defined set of interaction laws and dynamics. From the simulation and recording of these trajectories, several important scientific needs can be covered. Indeed, MD is simultaneously:
 \begin{itemize}
 \item \textit{A means to measure properties of matter}: MD provides numerical estimators for thermodynamic, structural and dynamical quantities that may be difficult or impossible to measure experimentally, due to extreme conditions or prohibitive costs. Typical outputs include radial distribution functions, free-energy differences, pressure and enthalpy, defect formation energies, reaction rates, and transport coefficients. With sufficiently long sampling, MD yields statistically converged values that can be used to parametrize coarser models. The computation of dynamical properties, and the associated need for long-time microscopic sampling, are a central motivation for Chapters~2--4.
-  \item \textit{A numerical microscope}: MD simulations allows to resolve molecular trajectories at a level of detail which is far beyond the reach of physical experiments. The analysis of MD trajectories can help to visualize reaction pathways, identify transition states, observe collective rearrangements (such as nucleation, crystal defect propagation or fast protein folding), and extract mechanistic hypotheses that guide theoretical developments and experiments. These insights are especially valuable for understanding rare events and conformational changes, where a single trajectory can reveal the sequence of microscopic steps behind an observed macroscopic transition. These~\textit{in silico} experiments have become an important tool of modern research in materials science and biology.
+  \item \textit{A numerical microscope}: MD simulations allows to resolve molecular trajectories at a level of detail which is far beyond the reach of physical experiments. The analysis of MD trajectories can help to visualize reaction pathways, identify transition states, observe collective rearrangements (such as nucleation, crystal defect propagation or fast protein folding), and extract mechanistic hypotheses that guide theoretical developments and experiments. These insights are especially valuable for understanding rare events and conformational changes, where a single trajectory can reveal the sequence of microscopic steps behind an observed macroscopic transition. MD simulations can be understood as \textit{in silico} experiments, which have become an important tool of modern materials and biological research.
   \item \textit{A benchmark for new methods}: due to its inherent flexibility, it is perhaps unsurprising that a major use case of MD is the development and testing of novel numerical and modelling tools for computational science at large, which in turn become useful for MD itself. New methods are validated on MD testbeds precisely because realistic atomistic models naturally combine the challenges of high dimensionality, nonlinearity and multiscale behavior.
   \item \textit{A hurdle for theory}: high-fidelity MD simulations have themselves become a source of “ground truth’’ data. Notably, long trajectories produced on bespoke hardware~\cite{SDDKLSYBBCal08} are routinely used to test biophysical hypotheses and to train data-driven models. At the same time, algorithms used in MD simulations expose some interesting mathematical questions, which are still a fruitful area of research, to which this thesis makes some contributions.
 \end{itemize}
 \noe{hyperrefs aux chapitres-- à ajouter}
 
 \paragraph{Orders of magnitude}
-In order to get a sense for what MD simulations can and cannot do, it is first useful to recall some characteristic scales.
+{
+Appreciating the vast discrepancies between the atomic, macroscopic and computational realms is key to understanding the scope of molecular dynamics simulations. It is therefore instructive to review some of the characteristic scales at play.
 
 \noindent
 \begin{minipage}[t]{0.48\textwidth}
@@ -30,18 +32,32 @@ In order to get a sense for what MD simulations can and cannot do, it is first u
 \begin{itemize}
   \item A 2018 projection~\cite{RGR18} estimates the size of the global ``datasphere'' (the total amount of digital information on Earth) to be reach $175$~zettabytes by 2025, which corresponds to~$0.29\,N_{\mathrm{A}}$~bytes.
   \item Typical consumer machines provide on the order of~$10^{12}$~bytes of storage capacity, whereas data centers and high-performance computing facilities operate at the~$10^{15}$--$10^{18}$ bytes scale.
-  \item Consumer CPUs and GPUs deliver on the order of~$10^{9}$--$10^{12}$ floating-point operations by second (FLOPS), while modern exascale machines target sustained performance around~$10^{18}$~FLOPS~\cite{Sc22}.
+  \item Consumer CPUs and GPUs deliver on the order of~$10^{9}$--$10^{12}$ floating-point operations by second (FLOPS), while modern exascale machines target sustained performance at around~$10^{18}$~FLOPS~\cite{Sc22}.
 \end{itemize}
 \end{minipage}
-
+}
+\newline\newline
+\noindent   
+This profound disparity between computational resources and atomic scales implies that MD falls short of fully resolving the microscopic trajectories of macroscopic systems. More critically, it reveals a fundamental bottleneck for observing phenomena of scientific interest. With timesteps on the order of femtoseconds, simulating even a single microsecond of a system's evolution requires executing on the order of a billion sequential steps. To compound this difficulty, the floating-point operation cost of a single timestep typically scales linearly with the number of atoms in the system.
+Even with modern GPUs delivering trillions of operations per second, this fact imposes a hard limit on the total~$\text{simulation length }\times{ system size}$. While acceleration in the spatial domain is achievable using parallel architectures and domain decomposition schemes, the sequential nature of trajectories prevents a similar acceleration in the time domain. For a typical solvated protein, a full day of computation on a high-performance GPU yields, at best, a few hundred nanoseconds of trajectory time~\cite{HD18}, and much less for the large systems of interest to materials science. Yet, many important processes are observed to unfold over microseconds to seconds timescales, or even longer.
 
 \paragraph{Some historical milestones.}
-Despite these limitations, MD simulations have been successfully applied to various problems. A few MD simulations, notable for their historical significance, are listed below.
+\label{par:01:milestones}
+Despite these inherent limitations, full-atom ``brute-force'' MD simulations have been successfully applied to various problems. Some simulations, notable for their historical importance and/or their novel magnitude, are listed below.
 \begin{itemize}
-    \item{\cite{MRTT53}, \cite{AWal57}}
-    \item{\cite{R64}}
-    \item{\cite{LW75}}
+    \item{\textit{1953}: Metropolis et al.~\cite{MRTT53} compute by the Monte--Carlo method an equation of state for a hard-sphere model, spawning the field of computational statistical physics. This early work is followed in \textit{1957} by the first simulation~\cite{AWal57} of the molecular dynamics of a hard sphere model.}
+    \item{\textit{1964}: Rahman~\cite{R64} measures properties of liquid argon using a MD simulation of interacting Lennard--Jones particles. Results are consistent with experimental measurements. This is followed in~\textit{1971} by the more challenging case of liquid water~\cite{RS71} by Rahman and Stillinger.}
+    \item{\textit{1975}: Levitt and Warshel~\cite{LW75} simulate a protein folding using a coarse-grained energy minimization procedure.}
+    \item{\textit{1988}: Levitt and Sharon~\cite{LS88} perform the first simulation of a protein in explicit water solvent, a~$0.2$\,nanosecond-long trajectory.}
+    \item{\textit{1998}: Duan and Kollman~\cite{DK98} publish the first microsecond-long simulation of a fast-folding protein in explicit solvent, the villin headpiece, exposing the intricate mechanisms underlying protein folding.}
+    \item{\textit{2002}: Abraham et al.~\cite{AWGDDDLRS02} carry out the first MD simulation involving more than a billion atoms, a short trajectory of a flawed FCC crystal undergoing ductile failure.}
+    \item{\textit{2008}: Germann and Kadau~\cite{GK08} report the first MD simulation involving a trillion atoms, 40 timesteps of a Lennard--Jones crystal.}
+    \item{\textit{2010}: Shaw et al.~\cite{SMLLPDEBJSSal10} perform the first millisecond-long simulation of a protein in explicit solvent, at great cost, using a dedicated machine design~\cite{SDDKLSYBBCal08}.}
+    \item{\textit{2017}: Perilla and Schulten~\cite{PS17} publish a full-atom simulation of the HIV-1 viral capsid in water (64 million atoms for~$1.2\,\mu$s).}
 \end{itemize}
+
+MD simulations provide valuable insight into the thermodynamic and kinetic properties of molecular system, using methods rooted in statistical mechanics. 
+
 \subsection{Elements of statistical mechanics}
 Statistical mechanics is the rigorous attempt to reconcile the microscopic point of view, in which a system's many microscopic degrees of freedom evolve according to fundamental physical laws, and the macroscopic point of view, according to which only a handful of variables are relevant to describe the system's state and evolution.
 Here, we present the necessary formalism to treat the molecular systems of interest in MD. In particular, we restrict our scope to classical systems.
@@ -73,29 +89,50 @@ The classical equations of motion, as described by Newton's second law, can then
     \label{eq:01:hamiltonian_dynamics}
     \frac{\d}{\d t}\,X_t = -J\nabla H(X_t),\qquad X_t = (q_t,p_t)\in \cE,
 \end{equation}
-where~$J$ is the antisymmetric matrix
+where~$J$ is the~\textit{symplectic matrix}
 \begin{equation}
     \label{eq:01:J}
     J=\begin{pmatrix}
         0&\I_{3N}\\-\I_{3N}&0
     \end{pmatrix}.
 \end{equation}
-In this form, the equation~\eqref{eq:01:hamiltonian_dynamics} is commonly known as~\textit{Hamiltonian dynamics}, and its trajectories in phase space describe the time-evolution of an isolated system of classical particles.
+In this form, the equation~\eqref{eq:01:hamiltonian_dynamics} is known as~\textit{Hamiltonian dynamics}, and its trajectories in phase space describe the time-evolution of an isolated system of classical particles.
 
 \paragraph{On the choice of the interaction potential~$V$.}
-The potential~$V$ is the crucial physical parameter, since it encodes the interactions between nuclei, and therefore their dynamics. Ideally, it is defined by the ground-state energy of the electronic Schr\"odinger operator in the Borne--Oppenheimer approximation~\cite{BO27}:
+The potential~$V$ is the crucial physical parameter, as it encodes the interactions between nuclei, and therefore their dynamics. Ideally, it is defined by the ground-state energy of the electronic Schr\"odinger operator in the Borne--Oppenheimer approximation~\cite{BO27}:
 \begin{equation}
     \label{eq:01:schrodinger}
     V_{\mathrm{BO}}(q) = \inf\left\{\left\langle\psi, H(q) \psi\right\rangle_{\mathcal H_\cX}:\,\psi \in \mathcal H^1_{\cX,q},\,\|\psi\|_{\mathcal H_\cX}=1\right\},
 \end{equation}
-where~$\mathcal H_{\cX}$ and~$H(q)$ are respectively the Hilbert space of electronic wave functions and the electronic Hamiltonian associated with a given position configuration of nuclei~$q\in\cX$, with form domain~$\mathcal H^1_{\cX,q}\subset \mathcal H_{\cX}$.
+where~$\mathcal H_{\cX}$ and~$H(q)$ are respectively the Hilbert space of electronic wave functions and the electronic Hamiltonian associated with a given position of classical nuclei~$q\in\cX$, and~$\mathcal H^1_{\cX,q}\subset \mathcal H_{\cX}$ is the associated form domain.
 
-However, for systems of interest in MD, the problem~\eqref{eq:01:schrodinger}, being a high-dimensional partial differential equation (PDE) eigenvalue problem, cannot be solved directly. Instead, one resorts to a variety of approximations.
+For systems of interest in MD, the problem~\eqref{eq:01:schrodinger} is a very high-dimensional partial differential equation (PDE) eigenvalue problem, and therefore cannot be solved directly. Instead, one resorts to a variety of approximations to approximate~$V_{\mathrm{BO}}$.
+Since the dynamics~\eqref{eq:01:hamiltonian_dynamics} only depends on the force~$\nabla V$, these classes of approximations are also known as~\textit{force fields}, of which we distinguish three main families.
 \begin{itemize}
-    \item{\textit{Ab initio potentials}: very precise, but limited to small systems/short timescales}
-    \item{\textit{Empirical potentials}: historical importance, functional form of the AMBER family}
-    \item{\textit{Machine learning force fields}: able to reach close to ab initio accuracy, but may suffer from generalizability issues}
+    \item{\textit{Ab initio methods} leverage the extensive progress in electronic structure theory over the last 100 years. Many numerical methods have been developed to address the problem~\eqref{eq:01:schrodinger}: with no claim of exhaustivity, popular schemes include the Hartree--Fock method, the more precise (and costly) post--Hartree--Fock methods, as well as methods rooted in density functional theory (DFT), see~\cite{J99} for a comprehensive introduction. While such methods are very accurate, as they incorporate effects of the electronic structure on the nuclear dynamics, their poor scaling with respect to system size and their high cost of evaluation limit their applications to small systems and short simulation times. They are nevertheless essential to capture some phenomena, such as bond-breaking in chemical reactions.}
+    \item{\textit{Empirical force fields}, which constitute the most important class of methods historically, proceed by first selecting a set of prototypical systems~$\mathcal S$, and for each~$s\in\mathcal S$, introducing a parametric ansatz~$V^{s}_\theta(q)$ for the minimum~\eqref{eq:01:schrodinger}. The functional form of~$V^s_\theta$ is hand-crafted by finding a balance between physical priors and computational efficiency concerns. A crucial point is that the functional form should be defined unambiguously for systems~$s'\not\in\mathcal S$, to allow for extrapolation. A regression can then be performed to select an optimal parameter~$\theta^*$, in order to replicate a set of targeted structural properties over~$\mathcal S$, measured either experimentally or using ab initio computations. The empirical potential~$V_{\theta^*}^{s'}$ can then be used to probe the system~$s'\not\in\mathcal S$.
+    The oldest and simplest example of empirical potential is the Lennard--Jones pair-potential~\eqref{eq:01:lennard_jones}, which only uses two parameters, but many families of force-fields of this type are still widely used, such as CHARMM~\cite{BBOSSK83},~AMBER~\cite{PCCRCDFSK95} and GROMOS~\cite{SHTMBFTHKVG99} for biomolecules, EAM~\cite{DB84} for metallic systems, or Tersoff-type potentials~\cite{T89} for multi-species solids.}
+    \item{\textit{Machine-learned interatomic potentials} (MLIP) can be understood as the application of modern machine-learning architectures in the empirical approach described above. While they are conceptually the same, the two approaches nevertheless differ in that the parameters no longer have any clear physical meaning. MLIPs has recently gathered interest, due to the hope of nearly matching the accuracy of ab-initio methods at a fraction of their cost. This promise has gained some credence in the past few years, due to the demonstrated flexibility of neural-network architectures in other fields of computational science, and to the rapid increase in the availability of ab-initio training data.
+    A common feature of these methods is to first represent the local atomic environment of each atom by a set of descriptors, or~\textit{symmetry functions}, which are invariant by translation, rotation, and permutation of identical atoms, and to then use these descriptors as inputs to a machine learning model which outputs atomic energies. Popular architectures include Behler-Parrinello Neural Networks (BPNN)~\cite{BP07}, Gaussian Approximation Potentials (GAP)~\cite{BKKM10} which are based on kernel-ridge regression, and more recently deep neural network architectures such as ANI~\cite{SIBR17} or SchNet~\cite{SKT+17}. A major challenge for the development of such methods remains the generation of large, diverse and high-quality training datasets, which is itself an active area of research~\cite{GET+20}.
+    } % @Gemini expand here
 \end{itemize}
+
+The AMBER family of force-fields, like most biomolecular empirical force fields, has a functional form which decomposes the potential energy into a sum of terms associated with covalent bonds, bond angles, dihedral angles, and non-bonded interactions, which include both van der Waals and electrostatic forces. A typical expression is:
+\begin{equation}
+\begin{split}
+    \label{eq:01:amber}
+    V(q) = &\sum_{\text{bonds}} \frac{k_b}{2}(l-l_0)^2 + \sum_{\text{angles}} \frac{k_a}{2}(\theta-\theta_0)^2 \\
+    &+ \sum_{\text{dihedrals}} \frac{V_n}{2}\left(1+\cos(n\phi-\delta)\right) \\
+    &+ \sum_{i<j}\left(4\varepsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^6\right] + \frac{Q_iQ_j}{4\pi\epsilon_0 r_{ij}}\right),
+\end{split}
+\end{equation}
+where the first sum runs over pairs of covalently bonded atoms, the second over triplets of atoms forming an angle, and the third over quartets of atoms defining a dihedral angle. The final sum runs over all pairs of atoms~$i,j$ that are not involved in the same bond or angle (or are separated by a fixed number of bonds, e.g., 3, depending on the specific implementation) to avoid double-counting. The parameters~$\{k_b,l_0,k_a,\theta_0,V_n,n,\delta,\varepsilon_{ij},\sigma_{ij},Q_i\}$ are specific to atom types and are meticulously parametrized to reproduce experimental and quantum mechanical data.
+
+The Lennard--Jones potential has the form
+\begin{equation}
+    \label{eq:01:lennard_jones}
+    V(q) = \sum_{1\leq i < j \leq N} V_{\mathrm{LJ}}\left(|q_i-q_j|\right),\qquad V_{\mathrm{LJ}}(r) = 4\varepsilon \left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6\right].
+\end{equation}
 
 \paragraph{Boundary conditions.}
 The specific definition of the phase space~$\cE$ depends on the physical model and properties of interest. We distinguish several common choices,  listed here in approximate order of frequency of use in MD simulations.
@@ -103,7 +140,7 @@ The specific definition of the phase space~$\cE$ depends on the physical model a
     \item{\textit{Periodic boundary conditions}: this common choice corresponds to setting~$\cX = (L\T)^d$ and~$\cM=\R^d$, where~$\T=\R/\Z$ is the unit one-dimensional torus,~$d=3N$ is the number of position degrees of freedom in the system, and~$L>0$ is a length parameter fixing the size of the domain. This setup is essential for studying the bulk properties of matter, as the periodic unit cell models a small portion of the molecular medium while its images represent the surrounding environment, eliminating surface effects.}
     \item{\textit{Non-flat position manifolds}: for certain applications, it is useful to restrict the particle positions to a non-flat manifold~$\cX$. This can be useful for enforcing geometric constraints, such as fixed bond length or angles, or for expressing the equations of motion in non-Cartesian coordinates~\cite{VJ15}. Such constraints can improve the stability of numerical schemes~\cite{RCB77,A83,BKLS95}, allowing for larger time steps, and can be used for computing free energy differences~\cite{SC98,LRS12}. In this geometric setting, the momentum associated to a given position~$q\in\cX$ is a cotangent vector~$p\in T_q^*\cX$, and the phase space~$\cE$ is the cotangent bundle:~$\cE=T^*\cX$.}
     \item{\textit{Unbounded domains}: setting~$\cX$ and~$\cM$ equal to~$\R^d$ is appropriate for studying molecular systems in isolation, such as small atomic clusters or single molecules in vacuum.}
-    \item{\textit{Exotic boundary conditions}: for the purpose of some specialized simulations, one can consider a variety of additional boundary conditions. For instance, one can consider walls at the boundary of a domain~$\partial\cX$, on which particles are subject to specular or diffuse reflections, or absorption~(the case of absorbing boundaries is considered in Chapters~2 and~3 of this thesis). Mixed conditions, which are periodic with respect to a subset of coordinates, can be used to study interfaces. One can even consider time-dependent definitions, such as Lees--Edwards boundary conditions~\cite{LE72}, which allow to study shear flows.}
+    \item{\textit{Exotic boundary conditions}: for the purpose of some specialized simulations, one can consider a variety of additional boundary conditions. For instance, one can consider walls at the boundary of a domain~$\partial\cX$, on which particles are subject to specular or diffuse reflections, or absorption~(the role of absorbing boundaries is crucial in Chapters~2 and~3 of this thesis). Mixed conditions, which are periodic with respect to a subset of coordinates, can be used to study interfaces. One can even consider time-dependent definitions, such as Lees--Edwards boundary conditions~\cite{LE72}, which allow to study shear flows.}
 \end{itemize}
 
 \paragraph{Statistical ensembles.}
@@ -126,9 +163,9 @@ We distinguish two families of methods to satisfy this goal.
     It also the viewpoint which constitutes the theoretical underpinning the computation of thermodynamic quantities in equilibrium and nonequilibrium molecular dynamics.
     }
     \item{Variational definitions based on the \textit{principle of maximal entropy}, as described in \cite{J57a,J57b}, offer a fairly general alternative.
-    This approach frames the problem of determining the ensemble from the knowledge of macroscopic data as a problem of statistical inference.
+    This approach frames the problem of determining the ensemble from the knowledge of macroscopic data as one of statistical inference.
     Namely, the ensemble~$\pi$ is defined as the probability distribution which maximizes the information entropy, given by the ensemble average $S[\pi] = -\langle\log\pi\rangle_\pi$ (with some abuse of notation), subject to a set of constraints derived from the observation of the values of a number of macroscopic variables.
-    Informally, this principle selects the most uninformative distribution compatible with the available information, and draws a connection between statistical mechanics and information theory. Solving for~$\pi$ generally leads to explicit expressions, regardless of existence of some ergodic microscopic dynamics.}
+    Informally, this principle selects the most uninformative distribution compatible with the available information, and draws a connection between statistical mechanics and information theory. Solving for~$\pi$ generally leads to explicit expressions, independently of any hypotheses concerning the microscopic dynamics.}
 \end{itemize}
 
 \paragraph{Examples of statistical ensembles.}
@@ -157,37 +194,49 @@ We now give some examples, the first two of which were introduced by Gibbs in~\c
     \item{Other equilibrium ensembles can be constructed to model more general physical conditions. The \textit{isothermal-isobaric ensemble} ($NPT$) describes systems at constant temperature and pressure~$P$, which are sometimes relevant for biological applications, and is derived from the maximal entropy principle by fixing the average energy and average volume of the system (related to the pressure~$P$). The \textit{grand-canonical ensemble} ($\mu$VT) describes systems that can exchange both heat and particles with a bath, and is defined by fixing the average energy and average particle number (related to the chemical potential $\mu$).}
     \item{\textit{Nonequilibrium ensembles}, describe systems driven away from thermal equilibrium by the application of non-conservative forces or thermal gradients. These systems are characterized by the presence of irreversible fluxes and entropy production. Most often, these ensembles are defined dynamically, as the invariant measure of some nonequilibrium process, in which case the ensemble is also known as a nonequilibrium steady-states~(NESS). The question of finding variational constructions for nonequilibrium ensembles has been investigated in the physical literature~(see~\cite{J80}), but does not appear to be fully settled at this time.}
 \end{itemize}
-Finally, let us mention that \textit{equivalence of ensembles} results allow to relate averages in one ensemble to averages in another. For instance, it has been shown that, for systems with short-range interactions, the~$NVE$ and~$NVE$ ensembles are equivalent (on several levels, see~\cite{T15}) in the thermodynamic limit~$N,V\to +\infty$ keeping the particle density~$\rho = N/V$ fixed.
-Such an equivalence implies in particular that~$\langle\varphi\rangle_{NVT} \approx \langle \varphi\rangle_{NVE}$ when~$N$ is large and~$T$ is chosen such that~$\langle H\rangle_{NVT}=E$.
-An example of equivalence for nonequilibrium ensembles is discussed in~\cite{CT13}.
+Finally, let us mention that \textit{equivalence of ensembles} results allow to relate averages in one ensemble to averages in another. For instance, it has been shown that, for systems with short-range interactions, the~$NVE$ and~$NVT$ ensembles are equivalent (in several ways, and under technical conditions, see~\cite{T15} for a detailed discussion) in the thermodynamic limit~$N,V\to +\infty$ keeping the particle density~$\rho = N/V$ fixed.
+In particular, so called~\textit{macrostate equivalence} results imply that, for intensive observables~$\varphi$, the canonical averages~$\langle\varphi\rangle_{NVT}$  and corresponding microcanonical averages $\langle \varphi\rangle_{NVE}$ converge to a common limit when~$N\to +\infty$, where~$T$ and~${E=Nu}$ are chosen so that the canonical specific energy~$\langle H/N\rangle_{NVT}$ converges to the microcanonical one~$u$.
+Equivalence results for nonequilibrium ensembles is also a current topic of interest, see~\cite{CT13} for an example.
 
 \subsection{Sampling equilibrium properties}
 \label{subsec:01:sampling}
+
+\paragraph{The Monte--Carlo method.}
+
 \paragraph{Langevin dynamics.}
 - Formula for underdamped Langevin dynamics
 - Historical reference of derivation from coupled oscillators (Ford, Kac, Mazur)
 - Use for sampling Boltzmann--Gibbs
 - Overdamped limit
 
-\paragraph{More general families of stochastic dynamics.}
+\paragraph{Other dynamics for canonical sampling.}
 - More general diffusion and frictions coefficients
-- Generalized Langevin dynamics and Mori--Zwanzig formalism
+- PDMPS
+- Nosé--Hoover chains
+- Adaptive
 
-\subsection{Dynamical properties}
-- Reaction rates
+\paragraph{Collective variables and free-energy computations.}
+
+\paragraph{Enhanced sampling.}
+
+\subsection{Sampling dynamical properties}
+- State-to-state transition statistics
+- Transition states
 - Transport coefficients
 
-\subsection{Challenges}
-- Metastability and the timescale problems
+\subsection{Challenges in MD}
+- Metastability
+- The timescale problem
+- Response properties
 
 \section{Mathematical approaches to the problem of metastability}
+\label{sec:01:metastability}
 \subsection{Global descriptions}
 \subsection{Local descriptions}
 \subsection{Numerical methods}
 
 \section{Main contributions of this thesis}
+\label{sec:01:contributions}
 \paragraph{On the mathematical study of metastability}
 \paragraph{Accelerated MD methodology}
 \paragraph{Nonequilibrium sampling}
-
-
