@@ -1,6 +1,6 @@
 \chapter{Shape optimization of metastable states}
 \label{chap:shape_optimization}
-\epigraph{He move in space with minimum waste and maximum joy.}{---Sade,\,\textit{Smooth Operator},\,1984}
+\epigraph{He move in space with minimum waste and maximum joy.}{---Sade Adu \& Ray St. John, \textit{Smooth Operator}, 1984}
 
 \begin{chapterabstract}
     The definition of metastable states is a ubiquitous task in the design and analysis of molecular simulation, and is a crucial input in a variety of acceleration methods for the sampling of long configurational trajectories.
@@ -427,7 +427,8 @@ Compared to~\eqref{03:eq:derivative_volume_expression}, the form~\eqref{03:eq:bo
     \begin{equation}
         \begin{aligned}
         \frac1\beta\int_{\partial\Omega}\frac{\partial u}{\partial \n}\frac{\partial v}{\partial\n}\n^\top a\n \theta^\top\n\,\e^{-\beta V} &= -\lambda\int_{\Omega}\theta^\top\nabla u v\,\e^{-\beta V} + \frac1\beta\int_{\Omega}\nabla\left(\theta^\top\nabla u\right)^\top a \nabla v\,\e^{-\beta V}\\
-        &= -\lambda\int_\Omega \theta^\top \nabla u v\,\e^{-\beta V} + \frac1\beta\int_\Omega \nabla u^\top \nabla\theta^\top a \nabla v\,\e^{-\beta V}+\frac1\beta \int_\Omega \theta^\top \nabla^2 u a \nabla v\,\e^{-\beta V}.
+        &= -\lambda\int_\Omega \theta^\top \nabla u v\,\e^{-\beta V} + \frac1\beta\int_\Omega \nabla u^\top \nabla\theta^\top a \nabla v\,\e^{-\beta V}\\
+        &\quad+\frac1\beta \int_\Omega \theta^\top \nabla^2 u a \nabla v\,\e^{-\beta V}.
         \end{aligned}
     \end{equation}
     Applying this identity to~\eqref{03:eq:derivative_volume_expression} twice (exchanging the roles of~$u$ and~$v$ the second time), we get
@@ -443,7 +444,10 @@ Compared to~\eqref{03:eq:derivative_volume_expression}, the form~\eqref{03:eq:bo
     by the Green--Ostrogradski formula and the boundary condition~$u,v\in H_0^1(\Omega)$.
     It then suffices to notice that
     \begin{equation}
-        \div\left(\nabla u^\top a \nabla v \theta \e^{-\beta V}\right) = \theta^\top\left(\nabla^2 u a\nabla v + \nabla^2 v a \nabla u\right)\e^{-\beta V} + \nabla u^\top \nabla a^\top \theta \nabla v\,\e^{-\beta V} + \nabla u^\top a \nabla v\,\div\left(\theta\e^{-\beta V}\right),
+        \begin{split}
+            \div\left(\nabla u^\top a \nabla v \theta \e^{-\beta V}\right) &= \theta^\top\left(\nabla^2 u a\nabla v+ \nabla^2 v a \nabla u\right)\e^{-\beta V}\\
+            &\quad+ \nabla u^\top \nabla a^\top \theta \nabla v\,\e^{-\beta V} + \nabla u^\top a \nabla v\,\div\left(\theta\e^{-\beta V}\right),
+        \end{split}
     \end{equation}
     to conclude that
     \begin{equation}
@@ -660,7 +664,10 @@ Note that one seeks a steepest ascent perturbation in the space~$\mathcal H(\Ome
 using~$\partial_{\lambda_2}J(\Omega)\geq 0$ and the fact that~$D\lambda_2(\Omega;\theta)$ is the smallest eigenvalue of the~$2\times2$ matrix~$M^{\Omega,2}(\theta)$ defined in~\eqref{03:eq:derivative_volume_expression}. The problem~\eqref{03:eq:steepest_ascent_problem} is therefore to maximize with respect to~$\theta$ the smallest eigenvalue of the symmetric matrix~$Q^\Omega(\theta)$ whose~$(i,j)$-th component is given by
 \begin{equation}
     \label{03:eq:perturbation_matrix_J_boundary_form}
-    Q_{ij}^{\Omega}(\theta) = \langle \phi^{ij}_{J}(\Omega)\n,\theta\rangle_{L^2(\partial\Omega)},\qquad \phi^{ij}_{J}(\Omega) = -\frac1\beta\left[\partial_{\lambda_2} J(\Omega)\frac{\partial u_2^{(i)}}{\partial\n}\frac{\partial u_2^{(j)}}{\partial\n} +\delta_{ij}\partial_{\lambda_1} J(\Omega)\left(\frac{\partial u_1}{\partial\n}\right)^2\right]\n^\top a\n\e^{-\beta V},
+    \begin{split}
+    Q_{ij}^{\Omega}(\theta) &= \langle \phi^{ij}_{J}(\Omega)\n,\theta\rangle_{L^2(\partial\Omega)},\\
+    \phi^{ij}_{J}(\Omega) &= -\frac1\beta\left[\partial_{\lambda_2} J(\Omega)\frac{\partial u_2^{(i)}}{\partial\n}\frac{\partial u_2^{(j)}}{\partial\n} +\delta_{ij}\partial_{\lambda_1} J(\Omega)\left(\frac{\partial u_1}{\partial\n}\right)^2\right]\n^\top a\n\e^{-\beta V},
+    \end{split}
 \end{equation}
 where we write~$u_1=u_1(\Omega)$,~$u_2^{{(i)}}=u_2^{(i)}(\Omega)$ for~$i=1,2$, and use the formula~\eqref{03:eq:boundary_form}. Crucially, this matrix depends linearly on~$\theta$, although its smallest eigenvalue does not.
 
@@ -1608,7 +1615,10 @@ Once this has been established, classical results of perturbation theory from~\c
     From now on, all bilinear forms act on the fixed domain~$\Omega$, which we therefore omit in the notation for the bilinear forms, i.e. we define for all~$u,v\in H_0^1(\Omega)$,
     \begin{equation}
         \label{03:eq:bilinear_forms}
-        \fa_\theta(u,v) = \frac1\beta\int_\Omega \nabla u^\top \nabla \Phi_\theta^{-\top}a\circ \Phi_\theta \nabla \Phi_\theta^{-1}\nabla v\e^{-\beta V\circ\Phi_\theta}\left|\det\,\nabla\Phi_\theta\right|,\qquad \fb_\theta(u,v) = \int_\Omega uv\e^{-\beta \circ \Phi_\theta}\left|\det\,\nabla\Phi_\theta\right|.
+        \begin{split}
+        \fa_\theta(u,v) &= \frac1\beta\int_\Omega \nabla u^\top \nabla \Phi_\theta^{-\top}a\circ \Phi_\theta \nabla \Phi_\theta^{-1}\nabla v\e^{-\beta V\circ\Phi_\theta}\left|\det\,\nabla\Phi_\theta\right|,\\
+         \fb_\theta(u,v) &= \int_\Omega uv\e^{-\beta \circ \Phi_\theta}\left|\det\,\nabla\Phi_\theta\right|.
+        \end{split}
     \end{equation}
 
     \paragraph{Spectral properties.}
@@ -1914,7 +1924,7 @@ Once this has been established, classical results of perturbation theory from~\c
     \end{equation}
     is~$\mathcal C^1$, at~$\theta=0$, hence Lipschitz on some neighborhood~$\widetilde{\mathcal N}_{S}\subset \Winf$ of $0$, where~$\mathcal K_{\mathrm{sa}}(L^2(\beta))$ denotes the subspace of compact self-adjoint operators in~$\mathcal B(L^2(\Omega))$.
 
-    A well-known consequence of the Courant--Fischer principle (the so-called Weyl perturbation inequality, see for example~\cite[Section 1.3.3]{T12} for the analogous case of Hermitian matrices) implies that, given a Hilbert space~$\mathcal H$, for any~$j\geq 1$, the eigenvalue map
+    A well-known consequence of the Courant--Fischer principle (the so-called Weyl perturbation inequality, see for example~\cite[Section 1.3.3]{Ta12} for the analogous case of Hermitian matrices) implies that, given a Hilbert space~$\mathcal H$, for any~$j\geq 1$, the eigenvalue map
     \begin{equation}
         \left\{\begin{aligned} \mathcal K_{\mathrm{sa}}(\mathcal H)&\to \R\\
             A&\mapsto \mu_j(A)\end{aligned}\right.

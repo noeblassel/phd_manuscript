@@ -1,0 +1,147 @@
+%--------------------
+\subsection{Connection with equilibrium fluctuations}
+\label{subsec:linear_response_theory}
+We briefly review linear response results giving alternative expressions for the coefficient~$\alpha$ in terms of equilibrium dynamical averages, and form the basis of numerical methods such as the celebrated Green--Kubo formula~\cite{green1954,kubo1957,kubo1957b}. Here, we only give a somewhat informal presentation in the~$L^2(\pi)$ framework, but we stress that similar results can be proven for a broad class of systems and functional settings, see for example~\cite{hairer_2010} or~\cite[Section 5.2]{lelievre2016}.
+
+We present two derivations of the Green--Kubo formula. While the first one is conceptually simple, it is less general than the second, and in particular does encompass the case of the nonequilibrium temperature profile.
+
+\paragraph{Expansion of the nonequilibrium steady state.}
+This derivation assumes that the nonequilibrium steady-state~$\pi_\eta$ admits a probability density with respect to the equilibrium steady-state~$\pi$, which can be perturbatively expanded (for~$|\eta|$ sufficiently small) into a power series
+\begin{equation}
+    \label{eq:nemd_steady_state_expansion}
+    \pi_\eta=\pi\sum_{k=0}^\infty \eta^k\psi_k,
+\end{equation}
+where~$\psi_k\in L^2(\pi)$ for all~$k\geq 0$.
+
+Setting~$\eta=0$ in~\eqref{eq:nemd_steady_state_expansion}, it necessarily holds that~$\psi_0=\1_{\cX}$.
+The formal expansion~\eqref{eq:nemd_steady_state_expansion} can be shown to be valid when the nonequilibrium perturbation is ``small'', e.g. when~$\wcL$ is~$\cL_0$-bounded on~$L^2(\pi)$ and~$|\eta|$ is small enough, see for instance the proof of~\cite[Theorem 5.2]{lelievre2016}. This is the case for perturbations of the dynamics by a non-conservative force~$F$, under tame assumptions on~$F$, see Table~\ref{tab:nemd_generator_perturbations}.
+
+Assuming the validity of such an ansatz, the stationary Fokker--Planck equation~\eqref{eq:fp_nemd} writes
+\begin{equation}
+    \label{eq:fp_equation_formal}
+    \left(\cL_0+\eta\wcL\right)^*\sum_{k=0}^\infty \eta^k\psi_k=0,
+\end{equation}
+where the adjoint is computed in $L^2(\pi)$.
+Matching terms in~$\eta$, it therefore holds for any~$k\geq 1$ that
+\begin{equation}
+    \wcL^*\psi_{k-1}=-\cL_0^*\psi_k,
+\end{equation}
+so that in particular~$\wcL^*\1_{\cX}=-\cL_0^*\psi_1$. 
+
+Provided the so-called conjugate flux
+\begin{align}
+\label{eq:conjugate_flux}
+    S=\wcL^*\1_{\cX},
+\end{align} 
+belongs to the space~$L_0^2(\pi)$ of~$\pi$-centered observables, we may write
+\begin{equation}\label{eq:psi_1}
+    \psi_1=-\left(\cL_0^{-1}\right)^*S,
+\end{equation}
+which in turn implies, by the definition~\eqref{eq:linear_response} the following expression for the transport coefficient
+\begin{equation}
+\label{eq:linear_response_eq}
+    \alpha = \underset{\eta\to 0}{\lim}\,\eta^{-1}\int_{\cX}\left(\1_{\cX}-\eta(\cL_0^{-1})^*S\right)R\,\d \pi- =-\int_{\cX}S\cL_0^{-1}R\,\d\pi.
+\end{equation}
+Note that expression for the conjugate response~$S$ can be computed explicitly by integration by parts. The expressions of the conjugate fluxes corresponding to the perturbations given in Table~\ref{tab:nemd_generator_perturbations} are given in Table~\ref{tab:conjugate_response} below, and can easily be checked to belong to~$L_0^2(\pi)$ under tame assumptions on~$V,\delta T$ and~$F$.
+
+The formulation~\eqref{eq:linear_response_eq} shows that the linear response~$\alpha$ can be expressed as the equilibrium average of the observable~$-S\cL_0^{-1}R$. Unfortunately, the various equilibrium sampling methods described in Section~\ref{sec:sampling_methods} cannot be applied outright, since they require the evaluation of the solution~$\cL_0^{-1}R$ to a high-dimensional Poisson equation.
+
+Instead, one can reformulate~\eqref{eq:linear_response_eq} as a dynamical average using the expression of the inverse of~$\cL_0$ in~\eqref{eq:generator_inverse}: we obtain the celebrated Green--Kubo formula
+\begin{equation}
+    \label{eq:green_kubo}
+    \alpha = \int_{0}^\infty\E_{\pi}\left[S(x_0)R(x_t)\right]\,\d t.
+\end{equation}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \backslashbox{Perturbation}{Dynamics}& Overdamped Langevin&Underdamped Langevin\\
+        \hline
+        Non-conservative force & $\beta F\cdot \nabla V - \nabla\cdot F$ & $\beta F\cdot M^{-1}p$\\
+        \hline
+        Temperature profile & $\begin{aligned}&\Delta\delta T-2\beta\nabla V\cdot \nabla\delta T\\&-\delta T\left(\beta^2|\nabla V|^2-\beta\Delta V\right)\end{aligned}$ & $\beta\gamma\delta T\left(\mathrm{Tr}\,M^{-1}-\beta\left|M^{-1}p\right|^2\right)$ \\
+        \hline
+    \end{tabular}
+    \caption{Expressions for the conjugate response~$S$, for usual dynamics and perturbation types.}
+    \label{tab:conjugate_response}
+\end{table}
+
+\paragraph{First-order expansion of the average flux.}
+When the perturbation~$\widetilde\cL$ is not~$\cL_0$-bounded, the expansion~\eqref{eq:nemd_steady_state_expansion} is not so easy to obtain. In this case, one
+
+The Green--Kubo formula~\eqref{eq:green_kubo} allows for the computation of multiple transport coefficients from equilibrium trajectories of the dynamics~\eqref{eq:formal SDE}, which is convenient from a practical point of view.
+
+%--------------------
+\subsection{Examples}
+\label{subsec:transport_coefficient_examples}
+We give some practical examples of nonequilibrium systems which are used in practice to compute physically relevant transport coefficients. We focus the presentation on the prototypical potentials discussed in Section~\ref{sec:example_systems}, and assume the system evolves according to the underdamped Langevin dynamics~\eqref{eq:langevin} in a periodic configurational domain~$\cD = (L\mathbb T)^d$.
+
+The first two examples are concerned with Lennard--Jones fluids.
+
+\paragraph{Mobility of a Lennard--Jones particle.} Arguably the simplest example of transport coefficient is provided by the mobility a particle moving in a fluid. Physically, this quantity measures how easily mass is transported through the fluid in response to an external driving field. It is closely related to the phenomenon of self-diffusion, a relationship which is quantified by the Einstein relation (see~\ref{eq:einstein_relation} below and~\cite{rodenhausen1989}).
+
+In the framework described in Section~\ref{subsec:nemd_dynamics}, and keeping the same notation, this corresponds to taking a constant forcing~$F\in\R^d$, and measuring the average particle flux through the hyperplane perpendicular to~$F$. In other words, we choose respectively
+\begin{equation}
+    R(q,p)=m^{-1}F^\top p,\qquad S(q,p) = m^{-1}\beta F^\top p,\qquad \wcL = F^\top\nabla_p,
+\end{equation}
+for the response/conjugate response observables and nonequilibrum perturbation of the generator. The mobility~$\alpha_F$ is the corresponding linear response~\eqref{eq:linear_response}.
+In view of the Green--Kubo formula~\eqref{eq:green_kubo}, it can also be written as
+\begin{equation}
+    \alpha_F = \beta F^\top \mathfrak{C}F,\qquad\mathfrak{C} := m^{-2}\E_{\mu}\left[p_0p_t^\top\right]\in \R^{d\times d}
+\end{equation}
+in terms of the velocity autocovariance matrix~$\mathfrak{C}$.
+
+The diffusion coefficient~$\mathfrak{D}$ entering in Fick's law can be computed from the linear response~$\alpha_F$, in the case~$F=e_{x,1}$ is a unit field acting only on the first particle, via the Einstein relation~\cite{rodenhausen1989}
+\begin{equation}
+    \label{eq:einstein_relation}
+    \alpha_{e_{x,1}} = \beta\mathfrak{D}.
+\end{equation}
+The coefficient~$\alpha_{e_{x,1}}$ is called the mobility.
+\noe{Resultats numériques}
+\paragraph{Shear viscosity of a Lennard--Jones fluid.}
+The second prototypical example of transport coefficient is the dynamic viscosity of a Newtonian fluid. Here, we present the computation of dynamic viscosity in monoatomic Lennard--Jones fluids, following the method described in~\cite{js12}, itself inspired by the sinusoidal transverse force (STF) method~\cite{gms73}. Another class of NEMD algorithms to measure the shear viscosity, consist of boundary-driven methods, such as the direct simulation of Couette flows via shearing boundary conditions~\cite{le72}, see~\cite[Section 6.3]{evans_morriss_2007} and~\cite[Section 9.3]{todd_daivis_2017}.
+
+The STF method proceeds by analogy with Newton's macroscopic law of viscosity, for a fluid subjected to a shear force~$f$ directed along the longitudinal $x$-coordinate, which varies in intensity in the transverse $y$-coordinate. At the continuum level, the shear viscosity~$\mu$ is defined via the constitutive relation
+\begin{equation}
+\label{eq:newton_equation}
+    \sigma_{xy} = -\mu\frac{\d u_x}{\d y},
+\end{equation}
+where~$\sigma_{xy}$ is the~$(x,y)$ component of the local stress tensor, and~$u_x$ is the local $x$-velocity field of the fluid. Both~$\sigma_{xy}$ and~$u_x$ are functions of the $y$ position in the fluid.
+
+Microscopically, the action of the shear forcing on the fluid particles is defined by the following non-conservative force field:
+\begin{equation}
+\label{eq:stf_forcing}
+    \forall\,1\leq j\leq N,\qquad F(q)_{j,x} = f(q_{j,y}),\qquad F(q)_{j,y}=F(q)_{j,z}=0.
+\end{equation}
+The forcing field~\eqref{eq:stf_forcing} acts on each component of the $x$-momentum variable, in a way which is dictated by the corresponding component of the $y$-position variable, according to a fixed forcing profile~$f$. The STF method derives its name from the standard choice $f(y) = \sin(2\pi y/L)$, although other profiles can be considered.
+
+The microscopic formulation of the relation~\eqref{eq:newton_equation} relies on appropriate definitions of the velocity profile~$u_x$ and shear-stress profile~$\sigma_{xy}$. These are defined as the linear responses~\eqref{eq:linear_response} for (a limit of)~$y$-dependent observables defined in~\cite{js12} following a mathematically rigorous version of the Irving--Kirkwood procedure~\cite{irving_kirkwood_1950}.
+
+Using the linear response formula~\eqref{eq:linear_response_eq}, one can show that the velocity and shear-stress linear response profiles~$u_x,\sigma_{xy}$ and forcing profile~$f$ are related as~(\cite[Proposition 1]{js12})
+\begin{equation}
+    \frac{1}{\rho}\frac{\d\sigma_{xy}(y)}{\d y}  + \gamma u_x(y) = f(y),
+\end{equation}
+where we recall that~$\gamma>0$ is the friction parameter in the underdamped Langevin dynamics~\eqref{eq:langevin}, and~$\rho=N/L^3$ is the particle density.
+
+Formally substituting in the Newton relation~\eqref{eq:newton_equation}, one arrives at the following differential equation for~$u_x$:
+\begin{equation}
+    -\frac{\mu}{\rho}\frac{\d^2 u_x(y)}{\d y^2} + \gamma u_x(y) = f(y),
+\end{equation}
+from which a Fourier analysis gives the viscosity~$\mu$ as
+\begin{equation}
+    \label{eq:viscosity_equation}
+    \mu = \rho\left(\frac{\mathfrak{f}_1}{\mathfrak{u}_1}-\gamma\right)\left(\frac{L}{2\pi}\right)^2,
+\end{equation}
+where~$\mathfrak{f}_1$,~$\mathfrak{u}_1$ are the first Fourier coefficients in~$y$ of the forcing profile~$f$ and the velocity linear response profile~$u_x$ respectively, on the periodic one-dimensional torus $L\mathbb T$.
+The only unknown quantity is the Fourier coefficient~$\mathfrak{u}_1$, but one can formally show that it is a transport coefficient in its own right, for the ``empirical Fourier flux''
+\begin{equation}
+\label{eq:fourier_flux}
+    R(q,p) = \frac1{Nm}\sum_{j=1}^N p_{j,x}\exp\left(\frac{2\mathrm{i}\pi q_{j,y}}{L}\right),
+\end{equation}
+whose linear response can be estimated from nonequilibrium trajectory averages, or using the Green--Kubo formula with the conjugate flux
+\begin{equation}
+    S(q,p) = \frac{\beta}{m} F(q)^\top p. 
+\end{equation}
+
+Various other approaches, relying on discretized estimates of~$\sigma_{xy},u_x$ or transformations thereof, via NEMD or equilibrium-fluctuation formulas, and based on the constitutive equation~\eqref{eq:newton_equation}, are of course possible.

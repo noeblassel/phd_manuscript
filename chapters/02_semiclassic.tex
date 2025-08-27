@@ -1,7 +1,7 @@
 \chapter{Quantitative spectral asymptotics for reversible diffusions in temperature-dependent domains.}
 \label{02:chap:semiclassic}
-    \epigraph{At the still point of the turning world. Neither flesh nor fleshless;\\
-Neither from nor towards; at the still point, there the dance is,\\
+    \epigraph{At the still point of the turning world.\\
+    $\dots$ at the still point, there the dance is,\\
 But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
     \begin{chapterabstract}
     We derive novel low-temperature asymptotics for the spectrum of the infinitesimal generator of the overdamped Langevin dynamics. The novelty is that this operator is endowed with homogeneous Dirichlet conditions at the boundary of a domain which depends on the temperature. From the point of view of stochastic processes, this gives information on the long-time behavior of the diffusion conditioned on non-absorption at the boundary, in the so-called quasistationary regime. Our results provide precise estimates of the spectral gap and principal eigenvalue, extending the Eyring--Kramers formula. The phenomenology is richer than in the case of a fixed boundary and gives new insight into the sensitivity of the spectrum with respect to the shape of the domain near critical points of the energy function. Our work is motivated by--and is relevant to--the problem of finding optimal hyperparameters for accelerated molecular dynamics algorithms.
@@ -134,7 +134,7 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             -d(x,\partial\Omega_\beta)&&\quad\textrm{for }x\not\in\Omega_\beta.
         \end{aligned}\right.
     \end{equation}
-    While the opposite sign is sometimes preferred in the definition of the signed distance, our choice of convention is motivated by the identities ~$A\cap B = (\sigma_A \land \sigma_B)^{-1}(\R_+^*)$,~$A\cup B = (\sigma_A \lor \sigma_B)^{-1}(\R_+^*)$ for two open sets~$A,B\subset \R^d$.
+    While the opposite sign is sometimes preferred in the definition of the signed distance, our choice of convention is motivated by the identities ~${A\cap B = (\sigma_A \land \sigma_B)^{-1}(\R_+^*)}$,${A\cup B = (\sigma_A \lor \sigma_B)^{-1}(\R_+^*)}$ for two open sets~$A,B\subset \R^d$.
     We denote the unit outward normal at a point~$x\in\partial \Omega_\beta$ by~$\n_{\Omega_\beta}(x) = -\nabla \sigma_{\Omega_\beta}(x)$.
 
     Various other assumptions which will enter in the statement of our results are given in Section~\ref{02:subsec:geometric_assumptions}.
@@ -767,7 +767,10 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
     These last two facts imply that there is an upper bound on the asymptotics of~$\lambda_{2,\beta}$, with respect to~$(\epsLimit{i})_{i\in I_{\min}}$, namely
     \begin{equation}
         \label{02:eq:upper_bound}
-        \ell(z_0)  = \min\left\{\underset{1\leq j\leq d}{\min}\,\hessEigval{0}{j},\underset{i\in\mathcal X(z_0)}{\min}\,\lambda_i(+\infty)\right\}=\min\left\{\underset{1\leq j\leq d}{\min}\,\hessEigval{0}{j},\underset{i\in\mathcal X(z_0)}{\min}\,\sum_{1\leq j\leq d}\abs{\hessEigval{i}{j}}\1_{\hessEigval{i}{j}<0}\right\}>0.
+        \begin{split}
+        \ell(z_0)  &= \min\left\{\underset{1\leq j\leq d}{\min}\,\hessEigval{0}{j},\underset{i\in\mathcal X(z_0)}{\min}\,\lambda_i(+\infty)\right\}\\
+        &=\min\left\{\underset{1\leq j\leq d}{\min}\,\hessEigval{0}{j},\underset{i\in\mathcal X(z_0)}{\min}\,\sum_{1\leq j\leq d}\abs{\hessEigval{i}{j}}\1_{\hessEigval{i}{j}<0}\right\}>0.
+        \end{split}
     \end{equation}
     In many cases, the set~$\mathcal X(z_0)$ is empty, and so~$\ell(z_0)$ is in this case simply given by the smallest eigenvalue of the Hessian~$\nabla^2 V(z_0)$ at the minimum.
     If, for~$i\in I_{\min}$, it holds that~$\lambda_i(+\infty)=|\hessEigvec{i}{1}|\geq\ell(z_0)$ (i.e. when the unstable mode at the saddle point is sharp enough), then the choice~$\epsLimit{i}=+\infty$ is in fact optimal, since it maximally decreases the asymptotic behavior of~$\lambda_{1,\beta}$ without affecting that of~$\lambda_{2,\beta}$.
@@ -870,7 +873,7 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
     \subsection{Dirichlet oscillators}\label{02:subsec:dirichlet_oscillators}
     In this section, we introduce the appropriate Dirichlet realizations for the harmonic oscillator, which serve as the basis for the construction of local models for~$H_\beta$ around critical points which are close to the boundary.
     We consider the following dense subspace of~$L^2(\R_+^*)$:
-    \[\mathcal D(\widetilde{\mathfrak H_0}) = \left\{f:x^2 f\in L^2(\R_+^*),\,f\text{ is differentiable, }f'\text{ is absolutely continuous, }f''\in L^2(\R_+^*),\,f(0)=0\right\}.\]
+    \[\mathcal D(\widetilde{\mathfrak H_0}) = \left\{f:x^2 f\in L^2(\R_+^*),\,f\in\mathcal C^1(\R_+^*),f'\in\mathrm{AC}(\R_+^*),\,f''\in L^2(\R_+^*),\,f(0)=0\right\}.\]
     We first recall classical properties of the Dirichlet harmonic half-oscillator (see for instance~\cite[Chapter X.1]{RS75} or~\cite[Section 5.1.2]{BS12} for a closely related construction): the symmetric operator
    ~$$ \widetilde{\mathfrak H}_0 = \frac12(-\partial_x^2+x^2)$$
     with domain~$\mathcal D(\widetilde{\mathfrak H}_0)$ is essentially self-adjoint. Its closure, denoted by~$\mathfrak{H}_0$, has a complete family of eigenfunctions which are given explicitly by the odd states of the full harmonic oscillator:
@@ -976,7 +979,9 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
         using~$\chi_\theta^2+\overline{\chi}_\theta^2 = 1$. Then, since~$\overline{\chi_\theta}\leq \1_{(-\infty,-\theta+1)}$, we obtain~$\|\overline{\chi_\theta}v_{0,\infty}\|_{L^2(\R)}^2 = \O\left(\e^{-(\theta-1)^2}\right)=\O\left(\e^{-\theta^2/2}\right)$ as~$\theta\to+\infty$ by a Gaussian tail bound. Hence,~$\|u_\theta\|_{L^2(-\theta,+\infty)}^2=\|u_\theta\|^2_{L^2(\R)} = 1 + \O(\e^{-\theta^2/2})$.
 
         The IMS localization formula~(see~\cite{S83,CFKS87}) then gives
-        \[\frac12=\langle \mathfrak{H}_\infty v_{0,\infty},v_{0,\infty}\rangle_{L^2(\R)} = \left\langle \mathfrak{H}_\infty u_\theta,u_\theta \right\rangle_{L^2(\R)} + \left\langle \mathfrak{H}_\infty \overline{\chi}_\theta v_{0,\infty},\overline{\chi}_\theta v_{0,\infty}\right\rangle_{L^2(\R)}-\frac12\left\|\sqrt{\left(\partial_x\chi_\theta\right)^2 + \left(\partial_x\overline\chi_\theta\right)^2} v_{0,\infty}\right\|^2_{L^2(\R)}.\]
+        \[\begin{split}\frac12&=\langle \mathfrak{H}_\infty v_{0,\infty},v_{0,\infty}\rangle_{L^2(\R)}\\
+            &= \left\langle \mathfrak{H}_\infty u_\theta,u_\theta \right\rangle_{L^2(\R)} + \left\langle \mathfrak{H}_\infty \overline{\chi}_\theta v_{0,\infty},\overline{\chi}_\theta v_{0,\infty}\right\rangle_{L^2(\R)}-\frac12\left\|\sqrt{\left(\partial_x\chi_\theta\right)^2 + \left(\partial_x\overline\chi_\theta\right)^2} v_{0,\infty}\right\|^2_{L^2(\R)}.
+        \end{split}\]
         Since~$\supp\, \partial_x\chi_\theta,\,\supp\, \partial_x \overline{\chi}_\theta \subset (-\theta,-\theta+1)$ and these derivatives are uniformly bounded in~$\theta$, it holds that~$\left\|\sqrt{\left(\partial_x\chi_\theta\right)^2 + \left(\partial_x\overline\chi_\theta\right)^2} v_{0,\infty}\right\|^2_{L^2(\R)} = \O(\e^{-\theta^2/2})$ by the same Gaussian estimate.
         Finally,
         \[\langle \mathfrak{H}_\infty \overline{\chi}_\theta v_{0,\infty},\overline{\chi}_\theta v_{0,\infty}\rangle_{L^2(\R)} = \frac12\|\partial_x(\overline{\chi_\theta}v_{0,\infty})\|^2_{L^2(\R)} + \frac12\|x\overline{\chi_\theta}v_{0,\infty}\|^2_{L^2(\R)}=\O(\e^{-\theta^2/3}),\]
@@ -1006,12 +1011,19 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
     \paragraph{Multidimensional case.}
     The higher dimensional case is obtained by considering a separable Schr\"odinger operator acting on the first coordinate as a one-dimensional Dirichlet oscillator, and on the~$(d-1)$ transverse coordinates as full one-dimensional (scaled) harmonic oscillators.
     More precisely, we define~$K_{\theta}^{(i)}$ as the closure of the essentially self-adjoint operator (see e.g.~\cite[Chapter X]{RS75} for background on self-adjoint extensions)
-    \[\left[|\hessEigval{i}{1}|R D_{|\hessEigval{i}{1}/2|^{\frac12}}\mathfrak{H}_{\theta|\hessEigval{i}{1}/2|^{1/2}}D_{|\hessEigval{i}{1}/2|^{-\frac12}}R\right]_{1} \otimes\,\mathbb{I}_{1}+\sum_{j=2}^d \left[|\hessEigval{i}{j}|D_{|\hessEigval{i}{j}/2|^{\frac12}}\mathfrak{H}_{\infty}D_{|\hessEigval{i}{j}/2|^{-\frac12}} \right]_{j}\otimes\,\mathbb{I}_{j} - \frac{\Delta V(z_i)}{2},\]
-    where we define, given~$d$ Hilbert spaces~$(\mathcal H_j)_{j=1,\dots,d}$ and an unbounded operator~$A$ on~$\mathcal H_j$, the operator $A_{j}\otimes\mathbb{I}_{j}$ acting on~$\bigotimes_{j=1}^d \mathcal H_j$ via~${A_{j}\otimes\mathbb{I}_{j}(f_1\otimes\dotsm\otimes f_j) = f_1\otimes\dotsm\otimes f_{j-1}\otimes Af_j \otimes f_{j+1}\otimes \dotsm\otimes f_d}$.
+    \[\begin{split}
+        &\left[|\hessEigval{i}{1}|R D_{|\hessEigval{i}{1}/2|^{\frac12}}\mathfrak{H}_{\theta|\hessEigval{i}{1}/2|^{1/2}}D_{|\hessEigval{i}{1}/2|^{-\frac12}}R\right]_{1} \otimes\,\mathbb{I}_{1}\\
+        &+\sum_{j=2}^d \left[|\hessEigval{i}{j}|D_{|\hessEigval{i}{j}/2|^{\frac12}}\mathfrak{H}_{\infty}D_{|\hessEigval{i}{j}/2|^{-\frac12}} \right]_{j}\otimes\,\mathbb{I}_{j} - \frac{\Delta V(z_i)}{2},
+    \end{split}\]
+    where we define, given~$d$ Hilbert spaces~$(\mathcal H_j)_{j=1,\dots,d}$ and an unbounded operator~$A$ on~$\mathcal H_j$, the operator $A_{j}\otimes\mathbb{I}_{j}$ acting on~$\bigotimes_{j=1}^d \mathcal H_j$ via
+    $${A_{j}\otimes\mathbb{I}_{j}(f_1\otimes\dotsm\otimes f_j) = f_1\otimes\dotsm\otimes f_{j-1}\otimes Af_j \otimes f_{j+1}\otimes \dotsm\otimes f_d}.$$
     We naturally identify~$K_{\theta}^{(i)}$ with a self-adjoint operator on~$L^2((-\infty,\theta)\times \R^{d-1})$. Its eigendecomposition is explicit, and enumerated by~$n = (n_1,\dots,n_d)\in\N^d$:
     \begin{equation}
         \label{02:eq:full_harmonic_eigenstates}
-        \lambdai{n}{\theta} = \omegai{n_1}{\theta} + \sum_{j=2}^{d}\left[|\nu_j^{(i)}|\mu_{n_j,\infty} - \frac{\nu_j^{(i)}}2\right],\qquad\psii{n}{\theta}(x)= \wi{n_1}{\theta}(x_1)\prod_{j=2}^d \left[\left(\frac{|\nu_j^{(i)}|}{2}\right)^{\frac14}v_{n_j,\infty}\left(\sqrt{\frac{|\nu^{(i)}_j|}2}x_j\right)\right].
+        \begin{aligned}
+        \lambdai{n}{\theta} &= \omegai{n_1}{\theta} + \sum_{j=2}^{d}\left[|\nu_j^{(i)}|\mu_{n_j,\infty} - \frac{\nu_j^{(i)}}2\right],\\
+        \psii{n}{\theta}(x) &= \wi{n_1}{\theta}(x_1)\prod_{j=2}^d \left[\left(\frac{|\nu_j^{(i)}|}{2}\right)^{\frac14}v_{n_j,\infty}\left(\sqrt{\frac{|\nu^{(i)}_j|}2}x_j\right)\right].
+        \end{aligned}
     \end{equation}
     Moreover, the domain satisfies the inclusion
     \begin{equation}
@@ -1261,7 +1273,10 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             Thus, by symmetry and an integration by parts,
             \begin{equation}
                 \label{02:eq:energy_localization_formula}
-                \left\langle H\eta u,\eta v\right\rangle = \left\langle u,\left(\frac{\lambda_u+\lambda_v}2\eta^2-\eta\Delta\eta\right)v\right\rangle -\frac12\left\langle \nabla[uv],\nabla[\eta^2]\right\rangle_{\mathcal D'(\R^d)\times \mathcal D(\R^d)} = \left\langle u,\left(\frac{\lambda_u+\lambda_v}2\eta^2+|\nabla\eta|^2\right)v\right\rangle.
+                \begin{split}
+                \left\langle H\eta u,\eta v\right\rangle &= \left\langle u,\left(\frac{\lambda_u+\lambda_v}2\eta^2-\eta\Delta\eta\right)v\right\rangle -\frac12\left\langle \nabla[uv],\nabla[\eta^2]\right\rangle_{\mathcal D'(\R^d)\times \mathcal D(\R^d)}\\
+                &= \left\langle u,\left(\frac{\lambda_u+\lambda_v}2\eta^2+|\nabla\eta|^2\right)v\right\rangle.
+                \end{split}
             \end{equation}
         
         Applying~\eqref{02:eq:energy_localization_formula} to~$H = H_{\beta,\theta}^{(i)}$ with~$\eta =1-\chi_\beta^{(i)}$, we get, noting that the function~$\frac{\lambda_u+\lambda_v}2\eta^2+|\nabla\eta|^2$ is supported in~$S^{(i)}_\beta:=\R^d\setminus B\left(z_i,\frac12\sqrt\beta\largeRadius(\beta)\right)$ and using~\eqref{02:eq:linf_bound_nabla_chi}, that there exists a constant~$C_{n,m}>0$ such that
@@ -1583,7 +1598,10 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
                 The Taylor expansion of~$V$ in the coordinates~\eqref{02:eq:local_coordinates} around~$z_i$ gives (recalling~$V(z_i)=\Vstar$)
                 \begin{equation}
                     \label{02:eq:V_local}
-                        V - \Vstar = \frac12\sum_{j=1}^d \hessEigval{i}{j}y^{(i)2}_j + \frac12 \int_0^1 (1-t)^2 D^3 V\left(y^{(i)-1}\left(ty^{(i)}\right)\right):y^{(i)\otimes 3}\,\d t = \frac12\sum_{j=1}^d \hessEigval{i}{j}y^{(i)2}_j + \O(|y^{(i)}|^3).
+                    \begin{split}
+                        V - \Vstar &= \frac12\sum_{j=1}^d \hessEigval{i}{j}y^{(i)2}_j + \frac12 \int_0^1 (1-t)^2 D^3 V\left(y^{(i)-1}\left(ty^{(i)}\right)\right):y^{(i)\otimes 3}\,\d t \\
+                        &= \frac12\sum_{j=1}^d \hessEigval{i}{j}y^{(i)2}_j + \O(|y^{(i)}|^3).
+                    \end{split}
                     \end{equation}
                     It follows that the following estimate holds for all~$i\in I_{\min}$ and for some~$M>0$ on~$B(z_i,\frac1M)$:
                     \begin{equation}
@@ -2064,7 +2082,9 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             As a first step, we derive the asymptotic behavior of the normalizing constant as stated in~\eqref{02:eq:laplace_partition_function}.
             \paragraph{Asymptotic behavior of~$Z_\beta^\pm$.\newline}
             Using~\eqref{02:eq:quasimode_support}, and since~$B(z_0,\largeRadius(\beta))\subset \Omega_\beta$ for sufficiently large~$\beta$ by Assumptions~\eqref{02:hyp:one_minimum} and~\eqref{02:hyp:locally_flat}, a direct application of Proposition~\ref{02:prop:laplace} to the inequality
-            \[ \int_{B(z_0,\largeRadius(\beta))} \left[\eta_\beta+\sum_{i\in I_{\min}}\localCutoff{i}\left(\varphi_\beta^{(i),\pm}- \eta_\beta\right)\right]^2 \e^{-\beta V} \leq Z_\beta^{\pm 2}  \leq \int_{{\mathcal U_0}}\left[\eta_\beta+\sum_{i\in I_{\min}}\localCutoff{i}\left(\varphi_\beta^{(i),\pm}- \eta_\beta\right)\right]^2\e^{-\beta V},\]
+            \[\begin{split}&\int_{B(z_0,\largeRadius(\beta))} \left[\eta_\beta+\sum_{i\in I_{\min}}\localCutoff{i}\left(\varphi_\beta^{(i),\pm}- \eta_\beta\right)\right]^2 \e^{-\beta V} \leq Z_\beta^{\pm 2}\\
+                &\leq \int_{{\mathcal U_0}}\left[\eta_\beta+\sum_{i\in I_{\min}}\localCutoff{i}\left(\varphi_\beta^{(i),\pm}- \eta_\beta\right)\right]^2\e^{-\beta V},
+            \end{split}\]
             since~$ \1_{B(z_0,\largeRadius(\beta))} \leq \left[\eta_\beta+\sum_{i\in I_{\min}}\localCutoff{i}\left(\varphi_\beta^{(i)}- \eta_\beta\right)\right] \leq \1_{\overline{\mathcal U_0}}$,
             gives~\eqref{02:eq:laplace_partition_function}. Indeed, by a standard Gaussian decay estimate, for~$\xi\sim\mathcal N(0,\nabla^2 V(z_0)^{-1})$,~$\P(\xi\not\in B(0,\sqrt\beta\largeRadius(\beta)))=\O\left(\e^{-c\beta\largeRadius(\beta)^2}\right)$, and $~\P(\xi\not\in B(0,\sqrt\beta {\mathcal U_0})) = \O\left(\e^{-c\beta}\right)$ for some~$c>0$.
             \\It follows from the scaling~\eqref{02:hyp:scaling_deltai} that the error term~$\epsilon(\beta)$ in~\eqref{02:eq:laplace_asymptotics} decays superpolynomially, while the~$\O(\beta^{-\frac12})$ term vanishes by symmetry of the limiting domains~$B(0,\sqrt\beta\largeRadius(\beta)),~\sqrt\beta\left({\mathcal U_0}-z_0\right)\to \R^d$, leaving a dominant error term in~$\O(\beta^{-1})$. This, of course, corresponds to the usual Laplace method.
@@ -2141,7 +2161,8 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             \[\|\nabla\psi_\beta^{\pm}\|_{L^\infty(\Bseti{\pm})}=\O\left(\e^{\frac\beta2 V(z_0)}\beta^{\frac d4}\left[\largeRadius(\beta)^{-1}+\beta^{\frac12}\right]\right)=\O\left(\e^{\frac\beta2 V(z_0)}\beta^{\frac d4+\frac12}\right),\]
             \[\|\cL_\beta \psi_\beta^{\pm}\|_{L^\infty(\Bseti{\pm})} = \O\left(\e^{\frac\beta2 V(z_0)}\beta^{\frac d4}\left[1+\beta^{\frac12}+\beta^{-\frac12}\largeRadius(\beta)^{-1}\right]\right)=\O\left(\e^{\frac\beta2 V(z_0)}\beta^{\frac d4+\frac12}\right),\]
             using~$\largeRadius(\beta)^{-1}=\smallo\left(\beta^{\frac12}\right)$ to estimate the square bracketed terms. This leads to
-            \[\|\nabla\psi_\beta^{\pm}\|^2_{\Lmu(\Bseti{\pm})},\|\cL_\beta \psi_\beta^{\pm}\|^2_{\Lmu(\Bseti{\pm})} = \O\left(\beta^{\frac d2+1}\largeRadius(\beta)^d\e^{-\beta(\Vstar-V(z_0)+\energyCutoffConst\largeRadius(\beta)^2)}\right)=\O\left(\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst3\largeRadius(\beta)^2)}\right),\]
+            \[\begin{split}\|\nabla\psi_\beta^{\pm}\|^2_{\Lmu(\Bseti{\pm})},\|\cL_\beta \psi_\beta^{\pm}\|^2_{\Lmu(\Bseti{\pm})} &= \O\left(\beta^{\frac d2+1}\largeRadius(\beta)^d\e^{-\beta(\Vstar-V(z_0)+\energyCutoffConst\largeRadius(\beta)^2)}\right)\\
+                &=\O\left(\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst3\largeRadius(\beta)^2)}\right),\end{split}\]
             similarly to the analysis on~$\Aseti$, since~$\Bseti{\pm} \subset B(z_i,\largeRadius(\beta))$ and~$\Bseti{\pm}\subset \{V>\Vstar+\energyCutoffConst\largeRadius(\beta)^2\}$ using~\eqref{02:eq:corona_high_energy_strip}.
 
             \paragraph{Analysis on~$\Cseti$.\newline}
@@ -2153,17 +2174,22 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             by straightforward manipulations. One then only needs to check that
             \[\|\nabla \eta_\beta\|_{L^\infty(\Cseti)} = \O\left(\largeRadius(\beta)^{-2}\right),\quad \|\Delta \eta_\beta\|_{L^\infty(\Cseti)} = \O\left(\largeRadius(\beta)^{-4}\right)\]
             to obtain by similar arguments:
-            \[\|\nabla\psi_\beta^\pm\|^2_{\Lmu(\Cseti)},\|\cL_\beta\psi_\beta^\pm\|^2_{\Lmu(\Cseti)} = \O\left(\beta^{\frac d2}\largeRadius(\beta)^{d-4}\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst2\largeRadius(\beta)^2)}\right)=\O\left(\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst3\largeRadius(\beta)^2)}\right),\]
+            \[\begin{split}\|\nabla\psi_\beta^\pm\|^2_{\Lmu(\Cseti)},\|\cL_\beta\psi_\beta^\pm\|^2_{\Lmu(\Cseti)} &= \O\left(\beta^{\frac d2}\largeRadius(\beta)^{d-4}\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst2\largeRadius(\beta)^2)}\right)\\
+                &=\O\left(\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst3\largeRadius(\beta)^2)}\right),\end{split}\]
             using the inclusions~$\Cseti\subset B(z_i,\largeRadius(\beta))$, $\Cseti \subset \left\{V-\Vstar \geq \frac\energyCutoffConst2 \largeRadius(\beta)^2\right\}$.
             \paragraph{Analysis on~$\Eset$.\newline}
             On the set~$\Eset$, we have~$\chi_\beta^{(i)}\equiv 0$ for all~$i\in I_{\min}$, hence~$\psi_\beta^\pm$ coincides with~$\frac1{Z_\beta^{\pm}}\eta_\beta$. Reusing the bounds on the derivatives of~$\eta_\beta$ from the analysis on~$\Cseti$ (here the fact that~$\Eset\subset\mathcal K$ is bounded), we obtain once again:
-            \[\|\nabla\psi_\beta^\pm\|^2_{\Lmu(\Eset)},\|\cL_\beta\psi_\beta^\pm\|^2_{\Lmu(\Eset)} = \O\left(\beta^{\frac d2}\largeRadius(\beta)^{-4}\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst2\largeRadius(\beta)^2)}\right)=\O\left(\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst3\largeRadius(\beta)^2)}\right),\]
+            \[\begin{split}\|\nabla\psi_\beta^\pm\|^2_{\Lmu(\Eset)},\|\cL_\beta\psi_\beta^\pm\|^2_{\Lmu(\Eset)} &= \O\left(\beta^{\frac d2}\largeRadius(\beta)^{-4}\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst2\largeRadius(\beta)^2)}\right)\\
+                &=\O\left(\e^{-\beta(\Vstar-V(z_0)+\frac\energyCutoffConst3\largeRadius(\beta)^2)}\right),
+            \end{split}\]
             Summing the estimates on~$\Aseti$,~$\Bseti{\pm}$,~$\Cseti$ and~$\Eset$, we obtain~\eqref{02:eq:laplace_high_energy} and~\eqref{02:eq:laplace_generator_high_energy}.            
             \paragraph{Analysis on~$\Dseti{\pm}$.\newline}
             By~\eqref{02:eq:quasimode_locally_fine},~$\psi_\beta^\pm$ coincides with~$\frac1{Z_\beta^{\pm}}\varphi_\beta^{(i),\pm}$ on~$\Dseti{\pm}$, and here we turn to the finer estimates provided by Proposition~\ref{02:prop:laplace}.
             Using the computation~\eqref{02:eq:local_derivatives} once again, we get
             \[|\nabla\varphi_\beta^{(i),\pm}|^2\e^{-\beta V}= \frac1{\left(C_\beta^{(i),\pm}\right)^2}\e^{-\beta\left(|\hessEigval{i}{1}|y^{(i)2}_1+ V\right)}\xi_\beta(y_1^{(i)})^2.\]
-            We next note using the Taylor expansion~\eqref{02:eq:V_local} that $W_i(x):=|\hessEigval{i}{1}|y^{(i)}_1(x)^2+ V(x)$ has a strict local minimum at~$z_i$, with a Hessian given by~${\nabla^2 W_i(z_i) = \mathrm{abs}\left(\nabla^2 V(z_i)\right) = U^{(i)}\mathrm{diag}\left(|\hessEigval{i}{1}|,\dots, \hessEigval{i}{d}\right)}U^{(i)\top}$, see~\eqref{02:eq:eigvecs_hessian}. Moreover, this minimum is unique in~$B\left(z_i,\frac12\largeRadius(\beta)\right)$ for~$\largeRadius(\beta)$ sufficiently small, which we may assume upon reducing~$\largeRadius(\beta)$ once again.
+            We next note using the Taylor expansion~\eqref{02:eq:V_local} that $W_i(x):=|\hessEigval{i}{1}|y^{(i)}_1(x)^2+ V(x)$ has a strict local minimum at~$z_i$, with a Hessian given by
+            $${\nabla^2 W_i(z_i) = \mathrm{abs}\left(\nabla^2 V(z_i)\right) = U^{(i)}\mathrm{diag}\left(|\hessEigval{i}{1}|,\dots, \hessEigval{i}{d}\right)}U^{(i)\top},$$
+            see~\eqref{02:eq:eigvecs_hessian}. Moreover, this minimum is unique in~$B\left(z_i,\frac12\largeRadius(\beta)\right)$ for~$\largeRadius(\beta)$ sufficiently small, which we may assume upon reducing~$\largeRadius(\beta)$ once again.
 
             Since~$\xi_\beta(y_1^{(i)}(z_i))^2=\xi_\beta(0)=1$ we may estimate~$\|\nabla \varphi_\beta^{(i),\pm}\|_{\Lmu(\Dseti{\pm})}$ using Proposition~\ref{02:prop:laplace}.
 
@@ -2202,10 +2228,14 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             
             Let us show~\eqref{02:eq:laplace_generator_local_estimate}. We write, for~$x \in \Dseti{\pm} \subseteq B\left(z_i,\frac12\largeRadius(\beta)\right)$, in the~$y^{(i)}$-coordinates and for~$\largeRadius(\beta)$ sufficiently small,
             \begin{align*}
-                \cL_\beta\psi^{\pm}_\beta &= \frac1{Z_\beta^{\pm}}\left(-\nabla V \cdot \nabla \varphi_\beta^{(i),\pm} + \frac1\beta\Delta\varphi_\beta^{(i),\pm}\right)\\
-                &=\frac{\e^{-\beta\frac{|\hessEigval{i}{1}|}{2}y_1^{(i)2}}}{Z_\beta^\pm C_\beta^{(i),\pm}}\left(\xi_\beta(y_1^{(i)})\nabla V \cdot \nabla y_1^{(i)}+\frac1\beta\left[- \xi_\beta(y_1^{(i)})\Delta y_1^{(i)} + \left(-\xi_\beta'(y_1^{(i)})+\beta \xi_\beta(y_1^{(i)})|\hessEigval{i}{1}|y_1^{(i)}\right)\abs{\nabla y_1^{(i)}}^2\right]\right)\\
-                &= \frac{\e^{-\beta\frac{|\hessEigval{i}{1}|}{2}y_1^{(i)2}}}{Z_\beta^\pm C_\beta^{(i),\pm}}\left(\xi_\beta(y_1^{(i)})\hessEigvec{i}{1}\cdot\left[\nabla V+|\hessEigval{i}{1}|y_1^{(i)}\hessEigvec{i}{1}\right]+\O\left(\beta^{-1}\|\xi_\beta'\|_{L^\infty(\R)}\right)\right)\\
-                &=\frac{\e^{-\beta\frac{|\hessEigval{i}{1}|}{2}y_1^{(i)2}}}{Z_\beta^\pm C_\beta^{(i),\pm}}\left(\O\left(|y^{(i)}|^2\right)+\O\left(\beta^{-1}\largeRadius(\beta)^{-1}\right)\right)
+            \cL_\beta\psi^{\pm}_\beta &= \frac{1}{Z_\beta^{\pm}}\left(-\nabla V \cdot \nabla \varphi_\beta^{(i),\pm} + \frac{1}{\beta}\Delta\varphi_\beta^{(i),\pm}\right) \\
+            &= \frac{\e^{-\beta\frac{|\hessEigval{i}{1}|}{2}y_1^{(i)2}}}{Z_\beta^\pm C_\beta^{(i),\pm}}
+                \left( \begin{aligned} % Start of the nested alignment
+                    & \xi_\beta(y_1^{(i)})\nabla V \cdot \nabla y_1^{(i)} \\
+                    & +\frac{1}{\beta} \left[ -\xi_\beta(y_1^{(i)})\Delta y_1^{(i)}+ \left(-\xi_\beta'(y_1^{(i)})+\beta \xi_\beta(y_1^{(i)})|\hessEigval{i}{1}|y_1^{(i)}\right) \abs{\nabla y_1^{(i)}}^2 \right]
+                \end{aligned} \right) \\ % End of the nested alignment
+            &= \frac{\e^{-\beta\frac{|\hessEigval{i}{1}|}{2}y_1^{(i)2}}}{Z_\beta^\pm C_\beta^{(i),\pm}} \left(\xi_\beta(y_1^{(i)})\hessEigvec{i}{1}\cdot\left[\nabla V+|\hessEigval{i}{1}|y_1^{(i)}\hessEigvec{i}{1}\right] + \O\left(\beta^{-1}\|\xi_\beta'\|_{L^\infty(\R)}\right)\right) \\
+            &= \frac{\e^{-\beta\frac{|\hessEigval{i}{1}|}{2}y_1^{(i)2}}}{Z_\beta^\pm C_\beta^{(i),\pm}} \left(\O\left(|y^{(i)}|^2\right) + \O\left(\beta^{-1}\largeRadius(\beta)^{-1}\right)\right)
             \end{align*}
             using a first-order Taylor expansion of $\nabla V$ around~$z_i$ in the last line. We now estimate the~$\Lmu\left(\Dseti{\pm}\right)$-norms.
             Noting that, by the change of variables~$z = \sqrt\beta y^{(i)}$,
@@ -2300,12 +2330,14 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             where used~\eqref{02:eq:lemma_resolvent_eqa} in the penultimate line, and the fact that~${\|\cL_\beta \psi_\beta^\pm\|_{\Lmu(\Omega_\beta^\pm)}=\smallo(1)}$ to conclude.
             Now, using the estimates~\eqref{02:eq:laplace_high_energy},~\eqref{02:eq:laplace_local_estimate} of Proposition~\ref{02:prop:semiclassical_estimates} yields
             \[\begin{aligned}\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm)} &= \sum_{i\in I_{\min}}\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Dseti{\pm})}+ \O\left(\e^{-\beta\left(\Vstar - V(z_0) +\frac{C_\eta}3 \largeRadius(\beta)^2\right)}\right)\\
-                &=\e^{-\beta(\Vstar-V(z_0))} \left[\sum_{i\in I_{\min}} \frac{\beta|\hessEigval{i}{1}|}{2\pi\Phi\left(|\hessEigval{i}{1}|^{\frac12}\epsLimit{i}\right)}\sqrt{\frac{\det \nabla^2 V(z_0)}{\left|\det \nabla ^2 V(z_i)\right|}} \left[1 +\O\left(r_i(\beta)\right)\right] + \O\left(\e^{-\beta\frac{C_\eta}3 \largeRadius(\beta)^2}\right)\right]\\
+                &=\e^{-\beta(\Vstar-V(z_0))} \left[\begin{aligned} &\sum_{i\in I_{\min}} \frac{\beta|\hessEigval{i}{1}|}{2\pi\Phi\left(|\hessEigval{i}{1}|^{\frac12}\epsLimit{i}\right)}\sqrt{\frac{\det \nabla^2 V(z_0)}{\left|\det \nabla ^2 V(z_i)\right|}} \left[1+\O\left(r_i(\beta)\right)\right]\\
+                    &+ \O\left(\e^{-\beta\frac{C_\eta}3 \largeRadius(\beta)^2}\right)\end{aligned}\right]\\
             &=\e^{-\beta(\Vstar-V(z_0))} \left[\sum_{i\in I_{\min}} \frac{\beta|\hessEigval{i}{1}|}{2\pi\Phi\left(|\hessEigval{i}{1}|^{\frac12}\epsLimit{i}\right)}\sqrt{\frac{\det \nabla^2 V(z_0)}{\left|\det \nabla ^2 V(z_i)\right|}} \left[1 +\O\left(r_i(\beta)\right)\right]\right],\end{aligned}\]
             using the fact that~$\e^{-\beta\frac{C_\eta}3 \largeRadius(\beta)^2}=\O\left(\beta r_i(\beta)\right)$. The estimates~\eqref{02:eq:laplace_generator_high_energy} and~\eqref{02:eq:laplace_generator_local_estimate} give
             \[\begin{aligned}
                 \|\cL_\beta \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm)} &= \sum_{i\in I_{\min}} \O(\beta^{-2}\largeRadius(\beta)^{-2})\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Dseti{\pm})} + \O\left(\e^{-\beta\left(\Vstar - V(z_0) +\frac{C_\eta}3 \largeRadius(\beta)^2\right)}\right)\\
-                &= \O(\beta^{-2}\largeRadius(\beta)^{-2})\left(\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm)} - \|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm\setminus \bigcup_{i\in I_{\min}}\Dseti{\pm})}\right) + \O\left(\e^{-\beta\left(\Vstar - V(z_0) +\frac{C_\eta}3 \largeRadius(\beta)^2\right)}\right)\\
+                &= \O(\beta^{-2}\largeRadius(\beta)^{-2})\left(\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm)} - \|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm\setminus \bigcup_{i\in I_{\min}}\Dseti{\pm})}\right)\\
+                &\quad+ \O\left(\e^{-\beta\left(\Vstar - V(z_0) +\frac{C_\eta}3 \largeRadius(\beta)^2\right)}\right)\\
                 &= \O(\beta^{-2}\largeRadius(\beta)^{-2})\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm)} + \O\left(\e^{-\beta\left(\Vstar - V(z_0) +\frac{C_\eta}3 \largeRadius(\beta)^2\right)}\right)\\
                 &= \O(\beta^{-2}\largeRadius(\beta)^{-2})\|\nabla \psi_\beta^\pm\|^2_{\Lmu(\Omega_\beta^\pm)}.
             \end{aligned}\]
@@ -2568,7 +2600,8 @@ But neither arrest nor movement.}{---T.S. Eliot,\,\textit{Burnt Norton},\,1936}
             which, together with~\eqref{02:eq:laplace_taylor_g}, gives almost surely:
             \begin{equation}
                 \begin{aligned}
-                    \left(1-\lambda R_f({\mathcal G}/\sqrt\lambda)\right)g({\mathcal G}/\sqrt\lambda) &= \left(1- \frac {\lambda^{-\frac12}}6 D^3 f(0):{\mathcal G}^{\otimes 3} - \lambda\widetilde R_f({\mathcal G}/\sqrt\lambda)\right)\left(1 + \lambda^{-\frac12}{\mathcal G}^\intercal \nabla g(0) + R_g({\mathcal G}/\sqrt\lambda)\right)\\
+                    \left(1-\lambda R_f({\mathcal G}/\sqrt\lambda)\right)g({\mathcal G}/\sqrt\lambda) &= \left(1- \frac {\lambda^{-\frac12}}6 D^3 f(0):{\mathcal G}^{\otimes 3} - \lambda\widetilde R_f({\mathcal G}/\sqrt\lambda)\right)\\
+                    \quad\times\left(1 + \lambda^{-\frac12}{\mathcal G}^\intercal \nabla g(0) + R_g({\mathcal G}/\sqrt\lambda)\right)\\
                     &= 1 + \lambda^{-\frac12}\left[{\mathcal G}^\intercal \nabla g(0)-\frac16 D^3 f(0):{\mathcal G}^{\otimes 3}\right] + \lambda^{-1} S({\mathcal G},\lambda).
                 \end{aligned}
             \end{equation}

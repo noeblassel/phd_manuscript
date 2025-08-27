@@ -1,27 +1,27 @@
 \chapter{Fixing the flux: a dual approach to computing transport coefficients}
-\label{04:chap:norton}
+\label{chap:norton}
 \epigraph{Man muss immer umkehren (One must always invert).}{Carl Gustav Jacob Jacobi, 1832}
 
 \begin{chapterabstract}
-We present a method to compute transport coefficients in molecular dynamics. Transport coefficients quantify the linear dependencies of fluxes in non-equilibrium systems subject to small external forcings. Whereas standard non-equilibrium approaches fix the forcing and measure the average flux induced in the system driven out of equilibrium, a dual philosophy consists in fixing the value of the flux, and measuring the average magnitude of the forcing needed to induce it. A deterministic version of this approach, named Norton dynamics, was studied in the 1980s by Evans and Morris. In this work, we introduce a stochastic version of this method, first developing a general formal theory for a broad class of diffusion processes, and then specializing it to underdamped Langevin dynamics, which are commonly used for molecular dynamics simulations.
+    We present a method to compute transport coefficients in molecular dynamics. Transport coefficients quantify the linear dependencies of fluxes in non-equilibrium systems subject to small external forcings. Whereas standard non-equilibrium approaches fix the forcing and measure the average flux induced in the system driven out of equilibrium, a dual philosophy consists in fixing the value of the flux, and measuring the average magnitude of the forcing needed to induce it. A deterministic version of this approach, named Norton dynamics, was studied in the 1980s by Evans and Morriss. In this work, we introduce a stochastic version of this method, first developing a general formal theory for a broad class of diffusion processes, and then specializing it to underdamped Langevin dynamics, which are commonly used for molecular dynamics simulations.
 We provide numerical evidence that the stochastic Norton method provides an equivalent measure of the linear response, and in fact demonstrate that this equivalence extends well beyond the linear response regime.
 This work raises many intriguing questions, both from the theoretical and the numerical perspectives.
 \end{chapterabstract}
 
 \section{Introduction}\label{04:intro}
 Molecular dynamics (MD), much like computational statistical physics at large, aims at predicting macroscopic properties of a molecular medium by the use of computer simulations. In order to do so, a classical model of the interactions between atoms is constructed, and dynamical evolution laws are specified.
-One can then simulate typical trajectories of the system through phase space, which,  provided they are long enough, allows to estimate to a prescribed level of statistical accuracy the quantities of interest. See~\cite{B91} for a general theoretical account of statistical physics,~\cite{T10,AT17,FS01} for an emphasis on numerical methods, and~\cite{LM15} for an overview of the mathematical aspects of molecular simulation.
+One can then simulate typical trajectories of the system through phase space, which,  provided they are long enough, allows to estimate to a prescribed level of statistical accuracy the quantities of interest. See~\cite{B91} for a general theoretical account of statistical physics,~\cite{T10,AT17,FS01} for an emphasis on numerical methods, and~\cite{LM15,LS16} for an overview of the mathematical aspects of molecular simulation.
 MD simulations may prove useful when the properties of interest are impractical to measure due to physical or cost constraints associated with the experimental setup, or alternatively serve as surrogate tests for theoretical models. At any rate, MD has grown to occupy an important role in many applications ranging from pharmacology and molecular biology to materials science and condensed matter physics, besides having had a significant impact on statistical methodology at large, through the dissemination of tools such as the Metropolis--Hastings algorithm~\cite{MRTT53}.
 First applications of MD included the computation of static properties at equilibrium, in particular thermodynamic quantities or free energy differences, which still are of considerable interest today. We refer to~\cite{CKS05} for a historical perspective.
 
 Another, more difficult problem is the measurement of dynamical properties, quantities which depend on the trajectory itself, and capture the behavior of systems undergoing a macroscopic time evolution: this is the object of non-equilibrium statistical physics.
 Of particular interest is the computation of transport coefficients, giving a measure of the sensitivity in the response of a system at equilibrium to the magnitude of perturbations driving it out of equilibrium. See~\cite{EM08,TD17} for overviews, and~\cite[Section 5]{LS16} for a mathematical presentation.
 Transport coefficients are of practical importance, since they characterize the diffusion, heat conduction or viscosity properties of a molecular medium, and enter as parameters in macroscopic evolution equations such as the Navier--Stokes equation.
-One standard approach to compute transport coefficients by molecular dynamics relies on the celebrated Green--Kubo formula~\cite{G54}, which expresses transport coefficients as integrated time-correlations between appropriate fluxes in the system at equilibrium. Another standard approach, see for instance~\cite{CJ75}, is to directly simulate the non-equilibrium perturbation, and to measure the resulting average response, which is, at the macroscopic level and in the limit of a small perturbation, proportional to the magnitude of this perturbation: this is the so-called non-equilibrium molecular dynamics (NEMD) approach, reviewed in~\cite{CKS05}. Estimators deriving from these approaches however suffer from large statistical errors, as quantified in~\cite[Proposition 2.4]{SS23} for instance, and convergence requires the simulation of very long trajectories, which comes at a high computational cost. A key metric to measure this cost is, for any given method, the asymptotic variance of estimators of the transport coefficient. Although some variance reduction techniques have been proposed to compute transport coefficients (see~\cite{S22} for a recent review), efficiently estimating these quantities is are still an important area of research.
+One standard approach to compute transport coefficients by molecular dynamics relies on the celebrated Green--Kubo formula~\cite{G54}, which expresses transport coefficients as integrated time-correlations between appropriate fluxes in the system at equilibrium. Another standard approach, see for instance~\cite{CJ75}, is to directly simulate the non-equilibrium perturbation, and to measure the resulting average response, which is, at the macroscopic level and in the limit of a small perturbation, proportional to the magnitude of this perturbation: this is the so-called non-equilibrium molecular dynamics (NEMD) approach, reviewed in~\cite{CKS05}. Estimators deriving from these approaches however suffer from large statistical errors, as quantified in~\cite[Proposition 2.4]{SS23} for instance, and convergence requires the simulation of very long trajectories, which comes at a high computational cost. A key metric to measure this cost is, for any given method, the asymptotic variance of estimators of the transport coefficient. Although some variance reduction techniques have been proposed to compute transport coefficients (see~\cite{S24} for a recent review), efficiently estimating these quantities is still an important area of research.
 
 From a thermodynamic point of view, the NEMD approach can be understood as fixing the magnitude of the non-equilibrium forcing, and measuring the resulting flux in the system driven out of equilibrium, which is conceived as a microscopic state variable. For a small enough magnitude of the forcing, this flux responds approximately linearly to the forcing, and the transport coefficient is precisely the associated proportionality constant. This method also yields a construction of the non-equilibrium ensemble, by defining it as the steady state of the system evolving according to the microscopic dynamics.
 
-However convenient from an implementation standpoint, there is no physical reason to a priori favor an ensemble in which the forcing field is exactly fixed. At the macroscopic level, fluxes and forces play a symmetric role, which opens the possibility for dual approaches in the computation of non-equilibrium responses. Other approaches have been proposed to construct non-equilibrium ensembles in which the forcing does not play such a distinguished role. One can cite McLennan ensembles~\cite{MK10}, expressing non-equilibrium steady-states as first-order perturbations of the Boltzmann distribution, where the leading order correction term is the time-integral of some conjugate response; or the dynamical approaches by Komorowski and Olla~\cite{KLOS22}, whereby an average flux is induced by a time-periodic forcing. When considering a dual perspective, the most radical approach is to fix the flux exactly, and measure the average magnitude of the forcing needed to induce it in the microscopic dynamics. This yields an alternative measure of the transport coefficient. By analogy with Ohm's law, one can think of the NEMD approach as a way to measure a conductance, and the radical dual approach as a way to measure a resistance.
+However convenient from an implementation standpoint, there is no physical reason to a priori favor an ensemble in which the forcing field is exactly fixed. At the macroscopic level, fluxes and forces play a symmetric role, which opens the possibility for dual approaches in the computation of non-equilibrium responses. Other approaches have been proposed to construct non-equilibrium ensembles in which the forcing does not play such a distinguished role. One can cite McLennan ensembles~\cite{MK10}, expressing non-equilibrium steady-states as first-order perturbations of the Boltzmann distribution, where the leading order correction term is the time-integral of some conjugate response; or the dynamical approaches by Komorowski et al~\cite{KLOS22}, whereby an average flux is induced by a time-periodic forcing. When considering a dual perspective, the most radical approach is to fix the flux exactly, and measure the average magnitude of the forcing needed to induce it in the microscopic dynamics. This yields an alternative measure of the transport coefficient. By analogy with Ohm's law, one can think of the NEMD approach as a way to measure a conductance, and the radical dual approach as a way to measure a resistance.
 
 The microscopic implementation of this dual approach is what we will refer to as the Norton method, in accordance with the terminology proposed by Evans and Morriss in~\cite{EM85}, by reference to the Norton--Th\'evenin reciprocity from electrical circuit theory. This approach amounts to considering a constrained dynamics on a submanifold of phase space consisting of a level-set of the flux observable. The idea of using constrained dynamics to simulate non-equilibrium systems already appeared in the 1983 work~\cite{EHFML83}, where it was applied to capture the mobility,
 and was also explored in~\cite{HPC93}. It was further applied to shear viscosity computations in~\cite{EE86}, where the consistency of the approach was demonstrated. From a theoretical perspective, formal results under ergodic hypotheses were obtained, including linear response expressions for the transport coefficient in~\cite{EM85}, as well as a result on the equivalence of non-equilibrium ensembles in~\cite{E93}.
@@ -57,18 +57,20 @@ and the underdamped or kinetic Langevin dynamics (see Equation~\eqref{04:eq:lang
 
 \paragraph{Non-equilibrium perturbations.}\label{04:par:neq}
 We consider in this work the case where the perturbation arises from an external non-gradient forcing in the drift of the underlying diffusion process, determined by a smooth vector field~$F:\mathcal{X}\to \R^d$.
+Such dynamics allow the computation of the shear viscosity and mobility of fluids as explained in Section~\ref{04:sec:non_eq}, as well as the thermal conductivity in atom chains, see~\cite{L07},\cite{ZIE00}.
+
 The non-equilibrium dynamics is given by the following SDE:
 \begin{equation}
     \label{04:eq:thevenin_dynamics}
     \d X^\eta_t = (b+\eta F)(X^\eta_t)\,\d t +\sigma(X^\eta_t)\,\d W_t.
 \end{equation}
 The parameter~$\eta\in\mathbb R$ is a scalar modulating the strength of the perturbation.
-The equilibrium dynamics is recovered in the absence of a non-equilibrium forcing, i.e.~$\eta=0$.
+The equilibrium dynamics is recovered in the absence of a non-equilibrium forcing, i.e. the case~$\eta=0$.
 The infinitesimal generator of the dynamics~\eqref{04:eq:thevenin_dynamics} can be decomposed as the sum
 \begin{equation}
     \label{04:eq:thevenin_generator_nemd}\cL_\eta=\cL+\eta \widetilde{\cL},\qquad \cL=b \cdot \nabla + \frac12\sigma  \sigma^\intercal : \nabla ^2,\qquad \widetilde{\cL}=F\cdot \nabla,
 \end{equation}
-where~$\nabla^2$ denotes the Hessian matrix and~$:$ denotes the Frobenius inner product~$A:B=\mathrm{Tr}(A^\intercal B)$. 
+where~$\nabla^2$ denotes the Hessian matrix and~$:$ denotes the Frobenius inner product defined by~$A:B=\mathrm{Tr}(A^\intercal B)$. 
 Note that~$\cL$ is the generator of the reference dynamics, and~$\widetilde{\cL}$ encodes its perturbation.
 The invariant probability measure satisfies the stationary Fokker-Planck equation
 \begin{equation}
@@ -86,7 +88,7 @@ We assume in the remainder of this section that, for~$|\eta|$ small enough, the 
     \label{04:eq:def_thevenin_transport_coeff}
     \ct = \underset{\eta\to 0}{\lim}\frac{\mathbb{E}_{\eta}\left[R\right]}{\eta}.
 \end{equation}
-Rigorous assumptions under which this limit exists are given in~\cite{H10}. This definition suggests a simple and natural method to estimate these coefficients: one can compute ergodic averages of~$R$ over trajectories of the non-equilibrium dynamics~\eqref{04:eq:thevenin_dynamics}, and estimate the linear relation between~$\eta$ and~$R$ for one or several values of~$\eta$ in the linear response regime. The finite-difference estimator for the limit~\eqref{04:eq:def_thevenin_transport_coeff} is given by the following ergodic average:
+Rigorous assumptions under which this limit exists are given in~\cite{HM10}. This definition suggests a simple and natural method to estimate these coefficients: one can compute ergodic averages of~$R$ over trajectories of the non-equilibrium dynamics~\eqref{04:eq:thevenin_dynamics}, and estimate the linear relation between~$\eta$ and~$R$ for one or several values of~$\eta$ in the linear response regime. The finite-difference estimator for the limit~\eqref{04:eq:def_thevenin_transport_coeff} is given by the following ergodic average:
 \begin{equation}
     \label{04:eq:thevenin_rho_estimators_continuous_time}
     \widehat{\ct}_{T,\eta}=\frac1{\eta T}\int_0^T R(X^\eta_t)\,\d t.
@@ -97,13 +99,13 @@ The consistency of such estimators is a consequence of the pathwise ergodicity f
 A challenge posed by the NEMD method is that the estimator~\eqref{04:eq:thevenin_rho_estimators_continuous_time} is plagued by large statistical errors when~$|\eta|$ is small, which is often required to remain in the linear response regime, and avoid biases arising from nonlinear terms in the response. More precisely, one can show that the asymptotic variance of the estimator~\eqref{04:eq:thevenin_rho_estimators_continuous_time} scales as~$\eta^{-2}$ as~$\eta$ approaches~$0$. Indeed, under technical decay conditions on the evolution semigroup generated by~\eqref{04:eq:thevenin_generator_nemd}, one can easily show that the asymptotic variance is given by
 \begin{equation}
 \label{04:eq:av_thevenin}
-\sigma_{\eta}^2 = \lim_{T\to\infty}\, T\Var_\eta\left(\widehat{\ct}_{T,\eta}\right) =  \frac{2}{\eta^2}\int_0^\infty \E_{\eta}[R(X_{t}^\eta)R(X_0^\eta)]\,\d t,
+\sigma_{\eta}^2 = \lim_{T\to\infty}\, T\Var_\eta\left(\widehat{\ct}_{T,\eta}\right) =  \frac{2}{\eta^2}\int_0^\infty \E_{\eta}[\Pi_\eta R(X_{t}^\eta)\Pi_\eta R(X_0^\eta)]\,\d t,
 \end{equation}
-where~$\Var_\eta$ denotes the variance with respect to~$\E_\eta$.
+where~$\Var_\eta$ denotes the variance with respect to~$\E_\eta$, and~$\Pi_\eta$ is the centering operator~$\Pi_\eta \varphi = \varphi-\E_\eta[\varphi]$.
 Defining the correlation time by
 \begin{equation}
 \label{04:eq:nemd_correlation_time}
-    \Theta_{\eta}(R) = \int_{0}^\infty \frac{\E_\eta[R(X_t^\eta)R(X_0^\eta)]}{\E_\eta[R^2]}\,\d t,
+    \Theta_{\eta}(R) = \int_{0}^\infty \frac{\E_\eta[\Pi_\eta R(X_t^\eta)\Pi_\eta R(X_0^\eta)]}{\E_\eta[(\Pi_\eta R)^2]}\,\d t,
 \end{equation}
 we further get, using a first-order expansion in powers of~$\eta$ (whose validity has to be verified on a case-by-case basis), 
 \begin{equation}
@@ -112,7 +114,7 @@ we further get, using a first-order expansion in powers of~$\eta$ (whose validit
 \end{equation}
 In summary, the asymptotic variance is, at dominant order in~$|\eta|$, the asymptotic variance of the time averages of~$R$ under the equlibrium dynamics, divided by~$\eta^2$.
 
-The leading order of the asymptotic variance highlights why it is often computationally expensive to obtain accurate estimates of transport coefficients. Although the computation of such coefficients is recognized as being a difficult problem in practice, only a handful of research works have been proposed to alleviate this issue, including replacing the forcing~$F$ by a so-called synthetic forcing devised to induce the same transport coefficient while the range of the linear response ~\cite{SS23}, or relying on carefully constructed couplings~\cite{DES24}. We refer the reader to~\cite[Section~4]{S22} for a recent overview of current variance reduction techniques in non-equilibrium molecular dynamics.
+The leading order of the asymptotic variance highlights why it is often computationally expensive to obtain accurate estimates of transport coefficients. Although the computation of such coefficients is recognized as being a difficult problem in practice, only a handful of research works have been proposed to alleviate this issue, including replacing the forcing~$F$ by a so-called synthetic forcing devised to induce the same transport coefficient while the range of the linear response ~\cite{SS23}, or relying on carefully constructed couplings~\cite{DES24}. We refer the reader to~\cite[Section~4]{S24} for a recent overview of current variance reduction techniques in non-equilibrium molecular dynamics.
 
 \section{A stochastic Norton method}\label{04:sec:norton}
 The Norton approach exploits the macroscopic duality between thermodynamic forces and fluxes: 
@@ -137,7 +139,7 @@ Here, the evolution of the state is given by the dynamics of~$\Yr_t \in \mathcal
 \end{equation}
 of the full state space. The dynamics~\eqref{04:eq:norton_dynamics} can formally still be considered as a perturbation of the equilibrium dynamics, in the same direction as the Th\'evenin process~\eqref{04:eq:thevenin_dynamics}, but with a random intensity given by the stochastic process~$\Lambdar_t$, acting as the control by which the constant-flux condition is enforced. Provided~$\E_0[R]=0$, we can further interpret the Norton dynamics~$Y_t^0 \in \Sigma_0$ as an equilibrium dynamics, constrained to exactly preserve the flux. The relationship between the equilibrium ensemble in which the response fluctuates, and the Norton equilibrium ensemble in which it is exactly fixed at zero, is reminiscent of the relationship between the canonical and microcanonical ensembles when~$R$ is a spatial average over local quantities.
 
-We next to show that~$\Lambdar$ can in fact be defined as an Itô process adapted to the natural filtration of the~$m$-dimensional Brownian motion~$W$. More precisely, we decompose the intensity of the forcing using the following ansatz:
+We next proceed to show that~$\Lambdar$ can in fact be defined as an Itô process adapted to the natural filtration of the~$m$-dimensional Brownian motion~$W$. More precisely, we decompose the intensity of the forcing using the following ansatz:
 \begin{equation}
     \label{04:eq:norton_lambda_sde}
     \Lambdar_t = \Lambdar_0 + \int_0^t \lambda(Y^r_s)\, \d s + \widetilde{\Lambda}_t^r,\qquad  \widetilde{\Lambda}_t^r = \int_0^t \widetilde{\lambda}(Y^r_s)\,\d W_s,
@@ -232,6 +234,9 @@ Thinking of the extreme case where~$\nabla R$ and~$F$ are everywhere orthogonal,
     \forall y\in\Sigma_r,\qquad F(y)\cdot \nabla R(y) \neq 0,
 \end{equation}
 is satisfied. We discuss the validity of this condition for the numerical examples we consider in Section~\ref{04:sec:numerical}.
+\begin{remark}
+    Although the dynamics derived in this section corresponds to a perturbation on the drift of the reference dynamics, it may be of interest to extend the Norton approach to perturbations affecting the diffusion coefficient. In the case of underdamped Langevin dynamics, such methods would for instance allow to study the behavior of nonequilibrium temperature profiles in constant heat flux ensembles, for the computation of thermal conductivity. We leave this point for future work. 
+\end{remark}
 
 \subsection{Norton analogs of the transport coefficient}\label{04:subsec:norton_tc}
 We assume the well-posedness of the dynamics~\eqref{04:eq:norton_dynamics} (or equivalently~\eqref{04:eq:norton_dynamics_solved}), and also the existence and uniqueness of the invariant steady-state probability measure for this dynamics, whose expectation is denoted by~$\mathbb{E}_{r}^*$. We assume that
@@ -266,8 +271,9 @@ Assuming that a central limit theorem holds, and that~$F$,~$R$ are such that~$\E
 where~$\Var_r^*$ denotes the variance with respect to~$\E_r^*$, and the Norton correlation time is defined similarly to the NEMD case by 
 \begin{equation}
     \label{04:eq:norton_correlation_time}
-    \Theta_{r}^*(\lambda) = \int_{0}^\infty \frac{\displaystyle{\E_r^*[\lambda(Y_t^r)\lambda(Y_0^r)]}}{\displaystyle{\E_r^*[\lambda^2]}}\,\d t.
+    \Theta_{r}^*(\lambda) = \int_{0}^\infty \frac{\displaystyle{\E_r^*[\Pi^*_r\lambda(Y_t^r)\Pi^*_r\lambda(Y_0^r)]}}{\displaystyle{\E_r^*[(\Pi^*_r\lambda)^2]}}\,\d t,
 \end{equation}
+where~$\Pi_r^*$ is the centering operator with respect to $\E_r^*$.
 The second equality in~\eqref{04:eq:norton_av} follows from the Delta method~\cite[Chapter 3]{VDV00} applied to the reciprocal of~$\widehat{\ct}_{T,r}^*$. Using the first-order expansion given by~\eqref{04:eq:def_norton_transport_coeff}, and assumptions similar to the ones leading to~\eqref{04:eq:nemd_av_asymptotic}, we may further write, for~$|r|$ small:
 \begin{equation*}
     \begin{aligned}
@@ -284,7 +290,7 @@ However, whereas in the NEMD setting this may be done in some cases by using a p
 
     \paragraph{Multiple constraints.}
     We consider in this paragraph the case where~$c\geq 1$ forces $F_1,\dots,F_c$ act on the reference system with magnitudes~$\Lambda_{1,t}^{\mathbf{r}},\dots,\Lambda_{c,t}^{\mathbf{r}}$, chosen to maintain constant the value of~$c$ fluxes~$R_1,\dots,R_c$. The dynamics is given by
-    \[\left\{\begin{aligned}\d Y_t^{\mathbf r} &= b(Y_t^{\mathbf r})\,\d t + \sigma(Y_t^{\mathbf r})\,\d W_t + \sum_{i=1}^c F(Y_t^{\mathbf r})\,\d \Lambda_i^{\mathbf r},\\ R_i(Y_t^{\mathbf r}) &= r_i,\qquad 1\leq i \leq c,\end{aligned}\right.\]
+    \[\left\{\begin{aligned}\d Y_t^{\mathbf r} &= b(Y_t^{\mathbf r})\,\d t + \sigma(Y_t^{\mathbf r})\,\d W_t + \sum_{i=1}^c F_i(Y_t^{\mathbf r})\,\d \Lambda_i^{\mathbf r},\\ R_i(Y_t^{\mathbf r}) &= r_i,\qquad 1\leq i \leq c,\end{aligned}\right.\]
     where~$r_i$ gives the prescribed value of the corresponding flux~$R_i$.
     By defining the following maps defined on~$\mathcal X$
     \[R = \begin{pmatrix}R_1\\\vdots\\R_c\end{pmatrix} \in\mathbb{R}^c,\qquad F = \begin{pmatrix}|&  & |\\ F_1 & \dots & F_c \\ | &  & |\end{pmatrix}\in \mathbb{R}^{d\times c},\]
@@ -314,16 +320,26 @@ However, whereas in the NEMD setting this may be done in some cases by using a p
     \begin{equation*}
             \Pi_{F,\nabla R,\sigma}=\overline{P}_{F,\nabla R} \sigma\sigma ^\intercal \overline{P}_{F,\nabla R}^\intercal.
     \end{equation*}
-    Note that the invariant measure is supported on a codimension~$c$ submanifold~$\Sigma_{\mathbf{r}}\subseteq \mathcal{X}$, and that the controllability condition becomes
+    Note that the invariant measure is supported on a codimension~$c$ submanifold~$\Sigma_{\mathbf{r}}$, and that the controllability condition becomes
     \begin{equation}
         \forall y\in \Sigma_{\mathbf{r}},\qquad\operatorname{det}(\nabla R(y)^\intercal F(y)) \neq 0.
     \end{equation}
     The average value of the forcing can be written as the ergodic average of the following vector-valued observable, which is the analog of~\eqref{04:eq:norton_lambda_expr}:
     \begin{equation}
-        \lambda = -(\nabla R^\intercal F)^{-1}\left[\nabla R^\intercal b + \frac12\left(\nabla^2 R^\intercal: \Pi_{F,\nabla R,\sigma}\right)\right].
+        \boldsymbol{\lambda} = -(\nabla R^\intercal F)^{-1}\left[\nabla R^\intercal b + \frac12\left(\nabla^2 R^\intercal: \Pi_{F,\nabla R,\sigma}\right)\right] = \begin{pmatrix} \lambda_1\\\vdots\\\lambda_c\end{pmatrix}.
     \end{equation}
-    Dynamics such as~\eqref{04:eq:norton_dynamics_rvec} should in particular allow for the numerical computation of Onsager relations in the Norton ensemble.
-    
+
+    Dynamics such as~\eqref{04:eq:norton_dynamics_rvec} should in particular allow for the numerical computation of Onsager coefficients in the Norton ensemble.
+    By Onsager matrix, we mean the collection of coefficients
+    \begin{equation}
+        {\boldsymbol{\alpha}}_{ij} = \underset{{\eta_j\to 0}}{\lim}\,\frac{\E_{\boldsymbol{\eta},j}[R_i]}{\eta_j},\qquad 1\leq i,j\leq c,
+    \end{equation}
+    where~$\boldsymbol{\eta} = (\eta_j)_{1\leq j \leq c}$ and~$\E_{\boldsymbol{\eta},j}$ denotes the expectation with respect to the steady-state of the nonequilibrium dynamics~\eqref{04:eq:thevenin_dynamics} with~$F_j$ taken as the nonequilibrium forcing of magnitude~$\eta_j$. Using estimators of the form~\eqref{04:eq:thevenin_rho_estimators_continuous_time}, each column of the matrix $\boldsymbol{\alpha}$ may be estimated from a single nonequilibrium trajectory.
+    For the same dynamics perturbed in the direction $F\boldsymbol{\eta}$, the average of the vector-valued response~$R$ is given asymptotically by~$\boldsymbol{\alpha}\boldsymbol{\eta}$ as~$\|\boldsymbol{\eta}\|\to 0$.
+
+   For Norton dynamics in this context, using a trajectory of the dynamics~\eqref{04:eq:norton_dynamics_rvec} and estimators of the form~\eqref{04:eq:norton_rho_estimator_continuous_time}, one can estimate a full row of the matrix
+    $$ {\boldsymbol{\beta}}_{ij} = \underset{r_i\to 0}{\lim}\, \frac{\E_{\mathbf{r},i}^*[\lambda_j]}{r},\qquad 1\leq i,j\leq c,$$
+    where $\E_{\mathbf{r},i}^*$ denotes expectation with respect to the steady-state of the dynamics~\eqref{04:eq:norton_dynamics_rvec} in which we take~$\mathbf{r}$ to be the vector whose components are~0 except the~$i$-th one, which is equal to $r$. For general~$\mathbf r$, we expect that the average of the forcing~$\boldsymbol{\lambda}$ is given asymptotically by~$\boldsymbol{\beta}\mathbf{r}$, as $\|\mathbf{r}\|\to 0$. This suggests that~$\boldsymbol{\beta}$ is the Norton analog to the inverse of the Onsager matrix~$\boldsymbol{\alpha}^{-1}$, generalizing the definition~\eqref{04:eq:def_norton_transport_coeff}.
     \paragraph{Time-dependent fluxes.}
     One can also extend the dynamics to the case where we replace the condition~$R(Y_t^r)=r$ by~$R(Y_t^{\mathcal R})=\mathcal{R}_t$, when~$\mathcal{R}_t$ is the Itô process defined by
     \begin{equation}  
@@ -375,7 +391,7 @@ The dynamics is given by the following stochastic differential equation:
     \d p_t &= \left[ -\nabla V(q_t) + \eta F(q_t) \right]\d t -\gamma M^{-1}p_t\,\d t +\sigma\,\d W_t.
     \end{aligned}\right.
 \end{equation}
-The parameter~$\beta > 0$ is proportional to the inverse temperature,~$M$ is a positive-definite symmetric mass matrix (typically a diagonal matrix), and~$\gamma$ and~$\sigma$ are~$dN\times dN$ matrices satisfying the fluctuation-dissipation relation 
+The parameter~$\beta > 0$ is proportional to the inverse temperature,~$M$ is a positive-definite symmetric mass matrix (typically a diagonal matrix), and~$\gamma$ and~$\sigma$ are two~$dN\times dN$ matrices satisfying the fluctuation-dissipation relation 
 \[\sigma\sigma^\intercal=\frac{2\gamma}\beta.\]
 The friction coefficient~$\gamma$ is thus a symmetric positive semi-definite matrix, and~$W$ is a standard~$dN$-dimensional Brownian motion. Typically,~$\gamma$ is taken to be either a constant or a positive diagonal matrix, so that one simply writes~$\sigma=\sqrt{2\gamma/\beta}$. The parameter~$\eta$ once again governs the magnitude of the non-equilibrium perturbation.
 One can show that at equilibrium~($\eta = 0$), the Boltzmann--Gibbs distribution
@@ -569,9 +585,9 @@ and in the non-holonomic case by
     \label{04:eq:gplc_hyperplanes_nholo}
     \mathcal H_{q,p}=\left\{\xi\in \R^{dN}\,\middle|\, \xi\cdot \nabla_p R(q,p)+\left(M^{-1}p\right)\cdot \nabla_q R(q,p)=0\right\}.
 \end{equation}
-In particular, $f_{\mathrm{cons}}(q,p)-f_{\mathrm{ref}}(q,p)$ is orthogonal to~$\nabla_p R(q,p)$ in the non-holonomic case, and to~$M^{-1}\nabla R(q)$ in the holonomic case. The use of holonomic constraints is widespread in MD, where they are used to simulate systems with molecular constraints (such as fixed bond lengths or bond angles). See~\cite[Chapter 4]{LM15} for a general introduction, and~\cite{LRS12} for a detailed study of the underdamped Langevin case.
+In particular, $f_{\mathrm{cons}}(q,p)-f_{\mathrm{ref}}(q,p)$ is proportional to~$\nabla_p R(q,p)$ in the non-holonomic case, and to~$M^{-1}\nabla R(q)$ in the holonomic case. The use of holonomic constraints is widespread in MD, where they are used to simulate systems with molecular constraints (such as fixed bond lengths or bond angles). See~\cite[Chapter 4]{LM15} for a general introduction, and~\cite{LRS12} for a detailed study of the underdamped Langevin case.
 
-The Norton dynamics~\eqref{04:eq:norton_langevin} for a response function~$R$ of the form~\eqref{04:eq:nemd_response_observable} also satisfies a version of Gauss's principle of least constraint with respect to a non-Euclidean metric for which~$F(q)$ is everywhere orthogonal to~$G(q)^{\perp}$.
+The Norton dynamics~\eqref{04:eq:norton_langevin} for a response function~$R$ of the form~\eqref{04:eq:nemd_response_observable} also satisfies a version of Gauss's principle of least constraint with respect to a non-Euclidean metric for which~$F(q)$ is everywhere orthogonal, in the sense of this metric, to~$G(q)^{\perp}$, the Euclidean orthogonal to $G(q)$.
 More precisely, this metric is induced by the configuration-dependent norm
 \begin{equation}
     \label{04:eq:q_metric}
@@ -627,7 +643,7 @@ Note that we chose here, somewhat arbitrarily, to perform the projection with re
 \[R\left(\widetilde{X}^{n+1} +\Delta t\Lambda^{n,*} F(X^n)\right)=r,\]
 which is typically a non-linear equation, for which the appropriate numerical strategy depends on the situation at hand. A typical choice is to resort to Newton's method or a fixed-point iteration, as done when enforcing holonomic constraints in MD (see~\cite[Section VII.1]{HWL06} and~\cite[Chapter~7]{LR04}), as well as~\cite{RCB77,A83} for pioneering works motivated by applications in MD.
 
-Note that~$\Lambda^{n,*}$ corresponds to an approximation of the full forcing increment~$\Lambda_{(n+1)\Delta t}-\Lambda_{n\Delta t}$, and in particular incorporates the martingale increment. This martingale part should be removed when estimating~$\mathbb E_r^*[\lambda]$ in order to reduce the variance of the estimator under consideration. This can be done at first order in~$\sqrt{\Delta t}$ by using a control variate derived from its analytic expression~\eqref{04:eq:norton_forcing_martingale_part}, and the equality in law~$\sqrt{\Delta t} \, G^n \overset{\mathrm{law}}{=}W_{(n+1)\Delta t}-W_{n\Delta t}$. This leads to the following estimator of~$\lambda\Delta t$:
+Note that~$\Lambda^{n,*}$ approximates the full forcing increment~$\Lambda_{(n+1)\Delta t}-\Lambda_{n\Delta t}$, and in particular incorporates the martingale increment. This martingale part should be removed when estimating~$\mathbb E_r^*[\lambda]$ in order to reduce the variance of the estimator under consideration. This can be done at first order in~$\sqrt{\Delta t}$ by using a control variate derived from its analytic expression~\eqref{04:eq:norton_forcing_martingale_part}, and the following equality in law:~$\sqrt{\Delta t}\,~G^n \overset{\mathrm{law}}{=}W_{(n+1)\Delta t}-W_{n\Delta t}$. This leads to the following estimator of~$\lambda\Delta t$:
 \begin{equation}
 \label{04:eq:norton_var_reduction}
     \Lambda^{n} = \Lambda^{n,*}+\sqrt{\Dt}\frac{\nabla R(X^n)\cdot \sigma(X^n)G^n}{\nabla R(X^n)\cdot F(X^n)}.
@@ -642,7 +658,7 @@ As hinted at above, this strategy has the clear advantage that one does not have
 
 \subsection{Splitting schemes for (non-)equilibrium Langevin dynamics}\label{04:subsec:discr_nemd}
 In the particular case where the reference dynamics is the Langevin dynamics~\eqref{04:eq:langevin_equation}, one can resort to a class of discretization strategies based on operator splittings of the infinitesimal generator, which we briefly recall for completeness in this section (see~\cite{LM13a,LMS16},  and~\cite[Chapter 7]{LM15} for more details).
-By carefully choosing the order of the operators appearing in this splitting in the equilibrium setting, one can devise highly stable numerical schemes, which have a lower bias when sampling configurational averages in the overdamped limit~$\gamma\to\infty$ compared with other choices of the splitting order (see~\cite{LM13b}), while also showing desirable energy-conservation properties in the Hamiltonian limit~$\gamma\to 0$. Such schemes have become the standard choice to integrate kinetic Langevin dynamics in MD applications. The general procedure is as follows.
+By carefully choosing the order of the operators appearing in this splitting in the equilibrium setting, one can devise highly stable numerical schemes, which have a lower bias when sampling configurational averages in the overdamped limit~$\gamma\to\infty$ compared with other choices of the splitting order (see~\cite{LM13a}), while also showing desirable energy-conservation properties in the Hamiltonian limit~$\gamma\to 0$. Such schemes have become the standard choice to integrate kinetic Langevin dynamics in MD applications. The general procedure is as follows.
 
 The generator of the (non-)equilibrium Langevin dynamics can be written as the sum of four terms,
 \[\cL_{\eta} = \cL^{\mathrm{A}} + \cL^{\mathrm{B}} +\gamma\cL^{\mathrm{O}} +\eta \widetilde{\cL},\]
@@ -775,7 +791,7 @@ where~$\xi_{\Delta t,r}^{\mathrm{B}}$ is again a Lagrange multiplier enforcing t
 This again corresponds to a step of the NEMD~$\mathrm{B}$-dynamics, re-projected onto~$\Sigma_r$ in the direction~$F(q)$. This coincides in fact with the analytic integration of the elementary~$\mathrm{B}$-dynamics~\eqref{04:eq:norton_elem_dynamics} when~$G(q)\cdot p = r$.
 
 \paragraph{Discrete integration of the~$\mathrm O$ dynamics.}
-The flow associated with the Norton~$\mathrm{O}$-step is stochastic, hence we formulate it conditionally on a standard~$dN$-dimensional Gaussian~$\mathcal{G}$ increment. In fact, we show below that a convenient update is
+The flow associated with the Norton~$\mathrm{O}$-step is stochastic, hence we formulate it conditionally on a standard~$dN$~dimensional Gaussian~$\mathcal{G}$ increment. In fact, we show below that, in the case where~$\gamma$~and~$M$ are scalar multiples of the identity matrix, a convenient update is
 \begin{equation}
     \label{04:eq:phi_O}
     {
@@ -794,7 +810,7 @@ To motivate~\eqref{04:eq:phi_O}, we start by deriving the expression of the Lagr
 \end{equation}
 Again, this corresponds to integrating the NEMD~$\mathrm{O}$-dynamics over one time step before correcting the momenta in the direction~$F(q)$. Since the contribution of~$\mathcal{G}$ to this~$\xi_{\Delta t,r}^{\mathrm O}$ is a centered Gaussian, we can remove it entirely to only accumulate the non-martingale component in~$\ell$. This is exactly equivalent to the variance reduction technique discussed in~\eqref{04:eq:norton_var_reduction}. Using~$G(q)\cdot p = r$, one arrives at the expression given in~\eqref{04:eq:phi_O} for the action of~$\Phi_{\Dt,r}^{\mathrm{O}}$ on~$\ell$. Once again,~$\Phi_{\Dt,r}^{\mathrm{O}}(q,p,\ell)_{q,p}$ corresponds to the analytic flow of the Norton~$\mathrm{O}$-dynamics~\eqref{04:eq:norton_elem_dynamics} over one time step~$\Delta t$, with deterministic initial condition~$(q,p)$.
 
-
+If $\gamma$ and $M$ are genuine matrices, one does not have an exact cancellation of the martingale component of $\xi^{\mathrm{O}}_{\Delta t,r}$, and one has to resort to a variance reduction strategy in the spirit of Equation~\eqref{04:eq:norton_var_reduction}.
 \paragraph{Construction of the splitting scheme.}
 The steps~$\mathrm{A,B,O}$ can be composed according to the order of the splitting, and the bounded-variation increment of the constraining process over one time step can be estimated from the final increment in~$\ell$. For example, conditionally on~$\mathcal{G}^{n+1}$, a standard~$dN$ dimensional Gaussian, the update rule for the Norton BAOAB scheme is given by
 \begin{equation}\label{04:eq:baoab_oneline}{(q^{n+1},p^{n+1},\ell^{n+1}) = \Phi_{\Dt/2,r}^{\mathrm{B}}\circ \Phi_{\Dt/2,r}^{\mathrm{A}} \circ \Phi_{\Dt,r}^{\mathrm{O}}(\cdot\,|\,\mathcal G^{n+1})\circ \Phi_{\Dt/2,r}^{\mathrm{A}}\circ\Phi_{\Dt/2,r}^{\mathrm{B}} (q^n,p^n,0)}.\end{equation}
@@ -953,10 +969,10 @@ implies the claimed scaling for~$F_1/U_1 -\gamma_x$. This discussion determines 
     
     \begin{subsection}{Concentration properties in the thermodynamic limit}\label{04:subsec:numerical_thermo_limit}
 
-    We next investigate the concentration rates of~$R$ and~$\lambda$ as a function of the system size~$N$, respectively in the canonical equilibrium and Norton ensembles, in the case of a sinusoidal shear forcing profile. In Figure~\ref{04:fig:histograms}, we show equilibrium distributions of~$R$ and~$\lambda$ for increasing values of~$N$. By \``equilibrium\", it is meant here that the NEMD dynamics is run for~$\eta=0$ and the Norton dynamics for~$r=0$.
-    Note first that both distributions are centered around~0 and symmetric. Moreover, they concentrate around~0 as the system size~$N$ increases. The concentration rate however differs for the two dynamics. In the canonical ensemble, the usual concentration rate~$N^{-1}$, consistent with some form of spatial averaging of an intensive quantity, is observed. Indeed, the rate~$N^{-1}$ is the one dictated by a central limit theorem, which makes sense on an intuitive level for a system displaying only short-range interactions, using a decomposition of the full system into weakly correlated subsystems, each of them contributing additively to the total flux.
+    We next investigate the scaling of the variances of the distributions of~$R$ and~$\lambda$ as a function of the system size~$N$, respectively in the canonical equilibrium and Norton ensembles, in the case of a sinusoidal shear forcing profile. In Figure~\ref{04:fig:histograms}, we show equilibrium distributions of~$R$ and~$\lambda$ for increasing values of~$N$. By \``equilibrium\", it is meant here that the NEMD dynamics is run for~$\eta=0$ and the Norton dynamics for~$r=0$.
+    Note first that both distributions are centered around~0 and symmetric. Moreover, they concentrate around~0 as the system size~$N$ increases. The scaling however differs for the two dynamics. In the canonical ensemble, the usual rate~$N^{-1}$ is observed, consistent with some form of spatial averaging of an intensive quantity. Indeed, the rate~$N^{-1}$ is the one dictated by a central limit theorem, which makes sense on an intuitive level for a system displaying only short-range interactions, using a decomposition of the full system into weakly correlated subsystems, each of them contributing additively to the total flux.
     
-    On the other hand, the concentration rate as a function of the system size in the Norton ensemble appears to be faster. This is confirmed in Figure~\ref{04:fig:eq_vars}, which shows that the second moment of~$\lambda$ decays as~$N^{-5/3}$. The increase in the rate is presumably due to the coupling introduced by the constant-flux condition, which introduces global correlations in the systems, and hence some form of long range interactions, which are known to lead to significant changes of phenomenology in some situations.
+    On the other hand, the scaling of the variance as a function of the system size in the Norton ensemble appears to be quite different, with a variance decreasing much faster than~$N^{-1}$. This is confirmed in Figure~\ref{04:fig:eq_vars}, which shows that the second moment of~$\lambda$ decays as~$N^{-5/3}$. The increase in the scaling exponent is presumably due to the coupling introduced by the constant-flux condition, which introduces global correlations in the systems, and hence some form of long range interactions, which are known to lead to significant changes of phenomenology in some situations.
 
     \begin{figure}
         \centering
@@ -999,7 +1015,7 @@ implies the claimed scaling for~$F_1/U_1 -\gamma_x$. This discussion determines 
 
     For the Norton estimator in~\eqref{04:eq:discr_estimators_ct}, it can be shown, using the delta method and a computation similar to~\eqref{04:eq:norton_av}, that the variance of trajectory averages of~$R$ is asymptotically~$N_{\mathrm{iter}}^{-1}r^4\E_{\pi_{\Delta t,r}^*}[\lambda]^{-4}\sigma^{2*}_{\Dt,r}(\lambda)$, where~$\pi_{\Dt,r}^*$ denotes the invariant probability measure of the Markov chain~$(\lambda^n)_{n\geq 1}$ defined in~\eqref{04:eq:norton_discrete_forcing_estimator}, and~$\sigma^{2*}_{\Dt,r}(\lambda)$  is the associated asymptotic variance for~$\lambda$. Again, we write the asymptotic variance as the product of the centered second moment under the steady-state~$\Var_{\pi_{\Delta t,r}^*}(\lambda_0)$ and the number of correlation steps~$\Theta_{\pi_{\Delta t,r}^*}(\lambda)$.
 
-    As the number of particles~$N$ grows to infinity, and for equivalent state points~$r = \eta\ct$, say in the linear response regime, the numerical results of Section~\ref{04:subsec:numerical_thermo_limit} show that the contribution of the stationary centered second moment will be asymptotically smaller for Norton estimators than for their NEMD counterparts, owing to the fast concentration rate of~$\lambda$ in the Norton ensemble. This is reason to suspect that Norton estimators of the transport coefficient may have lower asymptotic variance for large enough~$N$, as long as the scaling of correlation times for~$\lambda$ in the Norton ensemble does not cancel this effect. To assess whether this is the case,  we plot in Figure~\ref{04:fig:shear_acs} autocorrelation functions for equilibrium trajectories of~$\lambda$ in the Norton ensemble and~$R$ in the canonical ensemble, for several values of the system size~$N$, again in the case of a sinusoidal shear forcing profile. These correspond to the summand in~\eqref{04:eq:discr_correlation_time}, plotted as a function of the physical simulation time. We observe that the correlation time is roughly independent of~$N$. In fact, the autocorrelation profile itself barely changes with increasing system sizes.
+    As~$N$ grows to infinity, and for equivalent state points~$r=\eta\ct$, say in the linear response regime, the numerical results of Section~\ref{04:subsec:numerical_thermo_limit} show that the contribution of the stationary centered second moment will be asymptotically smaller for Norton estimators than for their NEMD counterparts, owing to the fast decay of the variance of~$\lambda$ in the Norton ensemble as $N\to\infty$. This is reason to suspect that Norton estimators of the transport coefficient may have lower asymptotic variance for large enough~$N$, as long as the scaling of correlation times for~$\lambda$ in the Norton ensemble does not cancel this effect. To assess whether this is the case,  we plot in Figure~\ref{04:fig:shear_acs} autocorrelation functions for equilibrium trajectories of~$\lambda$ in the Norton ensemble and~$R$ in the canonical ensemble, for several values of the system size~$N$, again in the case of a sinusoidal shear forcing profile. These correspond to the summand in~\eqref{04:eq:discr_correlation_time}, plotted as a function of the physical simulation time. We observe that the correlation time is roughly independent of~$N$. In fact, the autocorrelation profile itself barely changes with increasing system sizes.
     
     Furthermore, we observe that the correlation time is much smaller in the Norton ensemble than in the NEMD ensemble. This suggests that even for moderate system sizes, the asymptotic variance for estimators of the linear response should be smaller for Norton systems than for their NEMD counterparts, owing to smaller correlation times. We verify this intuition in Figure~\ref{04:fig:sv_avs} for a fixed system of~$N=1000$ particles, in the context of shear viscosity computations. The asymptotic variance for estimators of the Fourier linear response~$U_1$ is plotted as a function of the forcing magnitude, for the various forcing profiles considered in Section~\ref{04:subsec:numerical_consistency}. Note that the asymptotic variances indeed scale as~$\eta^{-2}$ for NEMD simulations and~$r^{-2}$ for Norton dynamics, at least for small values of~$|r|$ and~$|\eta|$. Interestingly, we find that Norton estimators have lower variance in each situation. We expect that this difference will be more pronounced for larger systems.
 
@@ -1039,18 +1055,35 @@ We list here various physically motivated questions, which would in particular e
     \item Prove the existence of the linear response~\eqref{04:eq:def_norton_transport_coeff} for all systems of finite size, and in fact develop a theory of linear response theory for Norton ensembles. This would include relating the transport coefficient to fluctuations in the Norton equilibrium ensemble, analogously to standard Green--Kubo formul\ae\ in the canonical ensemble. This approach was formally carried out in~\cite{EM85}, for the special case of electrical conductivity or mobility, in a deterministic setting. Carrying out this development would in particular require understanding, for small~$|r|$, the relation of the Norton equilibrium steady-state to the invariant measure of the reference process~\eqref{04:eq:thevenin_dynamics}, as well as to the nature of the forcing~$F$ and the response~$R$.
     \item Show the consistency of the Norton approach, by proving that the transport coefficients obtained with NEMD and Norton dynamics have the same thermodynamic limit, for bulk forcings. This can be considered as some form of equivalence of ensembles in a perturbative nonequilibrium setting.
     \item Derive a result on the equivalence of ensembles for the Norton and NEMD approaches beyond the linear response regime, for equivalent state points (i.e. the average forcing experienced in Norton dynamics coincides with the fixed forcing in NEMD simulations).
+    \item Develop a theory of the effect of long-range interactions in the Norton dynamics induced by the constant-response constraint.
+    \item Extend the Norton approach to nonequilibrium perturbations of the diffusion matrix, in view of applying it to the study of thermal conductivity.
 \end{itemize}
 \paragraph{Numerical analysis of Norton dynamics.}
 A last set of issues to address is related to properties of Norton dynamics which are of practical interest for the efficient and accurate computation of transport coefficient in realistic systems. A crucial point is to derive clear conditions under which one should prefer the Norton approach to the usual NEMD method. Another point concerns the study of the mathematical properties of the discretized dynamics.
 \begin{itemize}
-    \item Carry out a rigorous analysis of the concentration rate of~$\lambda$ in the thermodynamic limit.
+    \item Carry out a rigorous analysis of the scaling of the variance of~$\lambda$ in the thermodynamic limit.
     \item Explain the shorter correlation times for Norton dynamics compared to the corresponding NEMD dynamics. This and the previous question would ideally yield rigorous asymptotic formulas for both the variance and correlation time in terms of~$\eta$,~$r$ and~$N$.
     \item Perform the numerical analysis of splitting schemes for Norton dynamics. This analysis is a necessary step to derive error bounds relating quantitative properties of the continuous dynamics with their discrete analogs. Useful results would include error estimates at the level of discrete trajectories, or at the level of the invariant measures of the associated Markov chains.
 \end{itemize}
 
-We finish by gathering in the following appendices the proofs of various technical statements, namely Equation~\eqref{04:eq:norton_multiple_constraints} in Section~\ref{04:appendix:multiple_constraints}, Equation~\eqref{04:eq:norton_time_varying_constraint} in Section~\ref{04:appendix:time_dependent_constraints}, and Equation~\eqref{04:eq:color_drift_relation} in Section~\ref{04:appendix:color_drift}. 
+\paragraph{Acknowledgments.}
+The authors thank Gary Morriss, Julien Roussel and Giovanni Ciccotti for stimulating discussions, and the
+members of the project ANR SINEQ (in particular Benjamin Jourdain, Tony
+Lelièvre, Stefano Olla and Mathias Rousset) for valuable feedback on preliminary
+results presented at the annual meeting of the project.
+The authors also thank Xiaocheng Shang for bringing several typos to their attention.
+This work received funding from the European Research Council (ERC) under the
+European Union's Horizon 2020 research and innovation programme (project
+EMC2, grant agreement No 810367), and from the Agence Nationale de la
+Recherche, under grants ANR-19-CE40-0010-01 (QuAMProcs) and
+ANR-21-CE40-0006 (SINEQ).
+\paragraph{Declarations.}
+\begin{enumerate}[]
+    \item \textbf{Data availability:}{The code used to perform the simulations reported in this work is available in the repository~\cite{githubnorton}, which also contains processed numerical results and the scripts used to generate the figures. }
+    \item \textbf{Conflicts of interest:}{The authors have no relevant financial or non-financial interests to disclose.}
+\end{enumerate}   
 
-\section{Proofs of some technical results}
+We gather in these appendices the proofs of various technical statements, namely Equation~\eqref{04:eq:norton_multiple_constraints} in Section~\ref{04:appendix:multiple_constraints}, Equation~\eqref{04:eq:norton_time_varying_constraint} in Section~\ref{04:appendix:time_dependent_constraints}, and Equation~\eqref{04:eq:color_drift_relation} in Section~\ref{04:appendix:color_drift}. 
 \appendixsection{Derivation of Norton dynamics in the case of multiple constraints}
 \label{04:appendix:multiple_constraints}
 We write here the proof of~\eqref{04:eq:norton_multiple_constraints}.
@@ -1083,7 +1116,6 @@ Substituting in the expression for the forcing process finally yields~\eqref{04:
 
 \appendixsection{Derivation of the relation between color/single drift linear responses}
 \label{04:appendix:color_drift}
-N
 The proof of~\eqref{04:eq:color_drift_relation} is taken from unpublished notes by Julien Roussel, see the PhD thesis~\cite{R18}.
 We assume for the ease of presentation that~$M=m\mathrm{Id}$ and~$d=3$, and denote by~$\mu$ the equilibrium measure~\eqref{04:eq:boltzmann_gibbs_measure}. The dynamics under consideration is the standard Langevin dynamics, namely~\eqref{04:eq:langevin_equation} with~$\eta=0$. Let us define, for $1\leq i,j\leq N$,
 \[c_{ij}=\frac{\beta}{m^2} \int_{0}^\infty \E_\mu[p_{i,x,t}p_{j,x,0}]\,\d t.\]
@@ -1110,7 +1142,7 @@ Using the indistinguishability of the particles,
  We can therefore rewrite~\eqref{04:eq:color_drift_relation_proof} as 
  \begin{equation}\label{04:eq:c12_c11_relation}c_{12}=\frac{1}{N-1}\left(\frac{1}{\gamma}-c_{11}\right).\end{equation}
 This equality can be used to relate the linear responses of the single drift and the color drift.
-By the Green--Kubo formula~\cite{R89}, the transport coefficient for the single drift is given by
+By the Green--Kubo formula~\cite{G54}, the transport coefficient for the single drift is given by
 \[\ct_{F_{\mathrm{S}}}=c_{11}.\]
 For the color drift, we expand, using the Green--Kubo formula,
 \[\ct_{F_{\mathrm{C}}}=\frac{\beta}{m^2} \int_0^\infty \E_\mu[\left(F_{\mathrm{C}}\cdot p_t\right)\left(F_{\mathrm{C}}\cdot p_0\right)]\,\d t=\frac1N\left(\sum_{i=1}^N c_{ii} + 2\sum_{1\leq i< j\leq N}(-1)^{i+j}c_{ij}\right)\]
@@ -1121,14 +1153,3 @@ which is easily seen by induction, we get
     \ct_{F_{\mathrm{C}}}=c_{11}-\frac{2\lfloor N/2 \rfloor}{N(N-1)}\left(\frac1{\gamma}-c_{11}\right),
 \end{equation}
 which is the claimed identity.
-
-\paragraph{Acknowledgments.}
-The authors thank Gary Morris, Julien Roussel and Giovanni Ciccotti for stimulating discussions, and the
-members of the project ANR SINEQ (in particular Benjamin Jourdain, Tony
-Lelièvre, Stefano Olla and Mathias Rousset) for valuable feedback on preliminary
-results presented at the annual meeting of the project. This work
-received funding from the European Research Council (ERC) under the
-European Union's Horizon 2020 research and innovation programme (project
-EMC2, grant agreement No 810367), and from the Agence Nationale de la
-Recherche, under grants ANR-19-CE40-0010-01 (QuAMProcs) and
-ANR-21-CE40-0006 (SINEQ).

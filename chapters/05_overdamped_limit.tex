@@ -1,5 +1,6 @@
 \chapter{A simple approach to the Kramers--Smoluchowski approximation in the case of position-dependent matrix-valued frictions.}
 \label{chap:overdamped}
+\epigraph{Iteration, like friction, is likely to generate heat instead of progress.}{---George Eliot, \textit{The Mill on the Floss (Book II)}, 1860}
 
 \begin{chapterabstract}
     This note gives a simple proof of the Kramers--Smoluchowski (or overdamped) limit of the (kinetic) Langevin dynamics in the case of a matrix-valued, position-dependent friction coefficient,
@@ -360,7 +361,7 @@ Taking the expectation with respect to~$\P_{\mu_0}$, we get, with the usual cond
     \end{aligned}
 \end{equation}
 
-We finally treat the last term, which requires some care. In their proof of~\cite[Lemma 3.1]{WSW24}, the authors suggest controlling a similar term by an application of the Fubini theorem, followed by Doob's inequality. However, this appears to be a mistake, as the resulting time-swapped integral is not a~$W$-adapted Itô integral, and in particular not a martingale. Instead, we write
+We finally treat the last term, which requires some care. In their proof of~\cite[Lemma 3.1]{WSW24}, the authors suggest controlling a similar term by a combination of Fubini's theorem and Doob's inequality. However, the argument appears to be flawed, as the resulting time-swapped integral is not a~$W$-adapted Itô integral, and generally not a martingale. Instead, we write
 \begin{equation}
     I_3(s,t) = \int_{\lambda s}^{\lambda t}Z_r^\lambda\,\d r,\qquad Z_t^\lambda := \sqrt{\frac{2\lambda}{\beta}}\cR_t^\lambda \int_0^t \left(\cR_s^\lambda\right)^{-1}D(x_s^\lambda)^{-1/2}\,\d W^\lambda_s,
 \end{equation}
